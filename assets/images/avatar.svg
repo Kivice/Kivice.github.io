@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="50%" stop-color="#0f1f3d" />
+      <stop offset="100%" stop-color="#080d1a" />
+    </linearGradient>
+
+    <!-- Ambient Glow Gradient -->
+    <radialGradient id="neonGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Face Gradient -->
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d3748" />
+      <stop offset="100%" stop-color="#1a202c" />
+    </linearGradient>
+
+    <!-- Cyber Jacket Gradient -->
+    <linearGradient id="jacketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Accent Line Gradient -->
+    <linearGradient id="cyberLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="400" rx="40" fill="url(#bgGrad)" />
+  <circle cx="200" cy="180" r="160" fill="url(#neonGlow)" />
+
+  <!-- Geometric Grid Accent Lines -->
+  <g opacity="0.12" stroke="#38bdf8" stroke-width="1.5">
+    <circle cx="200" cy="200" r="150" fill="none" stroke-dasharray="6,6" />
+    <circle cx="200" cy="200" r="110" fill="none" />
+    <line x1="200" y1="20" x2="200" y2="380" />
+    <line x1="20" y1="200" x2="380" y2="200" />
+  </g>
+
+  <!-- Avatar Character Construction -->
+  <g transform="translate(0, 10)">
+    <!-- Shoulders / Tech Hoodie -->
+    <path d="M 80 390 C 80 290, 125 245, 160 235 L 200 250 L 240 235 C 275 245, 320 290, 320 390 Z" fill="url(#jacketGrad)" stroke="#334155" stroke-width="2" />
+    <!-- Collar & Zip Accent -->
+    <path d="M 160 235 L 200 280 L 240 235" fill="none" stroke="url(#cyberLine)" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="200" y1="280" x2="200" y2="390" stroke="#38bdf8" stroke-width="2.5" opacity="0.8" />
+
+    <!-- Neck -->
+    <rect x="175" y="195" width="50" height="45" rx="10" fill="#1e293b" />
+
+    <!-- Head / Face -->
+    <ellipse cx="200" cy="165" rx="55" ry="65" fill="url(#skinGrad)" stroke="#38bdf8" stroke-width="2" opacity="0.95" />
+
+    <!-- Modern Tech Visor / Glasses -->
+    <path d="M 152 152 Q 200 142 248 152 L 244 174 Q 200 166 156 174 Z" fill="#0f172a" stroke="url(#cyberLine)" stroke-width="3" />
+    <path d="M 160 156 Q 200 148 240 156" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.9" filter="drop-shadow(0 0 6px #06b6d4)" />
+
+    <!-- Sleek Hair / Cap Silhouette -->
+    <path d="M 142 150 C 138 90, 262 90, 258 150 C 248 115, 152 115, 142 150 Z" fill="#0f172a" />
+    <path d="M 150 115 Q 200 95 250 115" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.6" />
+
+    <!-- Earbuds / Comms Tech -->
+    <rect x="138" y="155" width="8" height="22" rx="4" fill="#38bdf8" opacity="0.85" />
+    <rect x="254" y="155" width="8" height="22" rx="4" fill="#38bdf8" opacity="0.85" />
+  </g>
+
+  <!-- Developer Badge / Monogram Tag -->
+  <g transform="translate(145, 340)">
+    <rect x="0" y="0" width="110" height="30" rx="15" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="55" y="20" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="1.5">@KIVICE</text>
+  </g>
+</svg>
+

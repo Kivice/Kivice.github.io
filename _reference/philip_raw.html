@@ -1,0 +1,28 @@
+﻿
+<!DOCTYPE html>
+
+    <script>
+      // On page load, check for dark mode preference
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.remove("light");
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DVR250ME.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-43kRlUHm.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Curriculum Vitae / Resume of Philip Maina (@Kivice) — Software Developer, AI Systems Engineer &amp; Full-Stack Builder."
+    />
+    <title>Resume / CV — Philip Maina (@Kivice)</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+    <style>
+      :root {
+        --paper: #f8fafc;
+        --surface: #ffffff;
+        --ink: #0f172a;
+        --ink-muted: #475569;
+        --ink-faint: #94a3b8;
+        --border: #e2e8f0;
+        --accent: #2563eb;
+        --font-mono: "JetBrains Mono", monospace;
+        --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --font-display: "Manrope", var(--font-sans);
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #e2e8f0;
+        color: var(--ink);
+        font-family: var(--font-sans);
+        font-size: 14px;
+        line-height: 1.6;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .action-toolbar {
+        width: 100%;
+        max-width: 840px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        background: #ffffff;
+        color: var(--ink);
+        transition: all 160ms ease;
+      }
+
+      .btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .btn-primary {
+        background: var(--ink);
+        color: #ffffff;
+        border-color: var(--ink);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent);
+        color: #ffffff;
+        border-color: var(--accent);
+      }
+
+      /* Resume Paper Container */
+      .resume-sheet {
+        background: var(--surface);
+        width: 100%;
+        max-width: 840px;
+        padding: 56px 64px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+      }
+
+      header.resume-header {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 24px;
+        margin-bottom: 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      h1.name {
+        font-family: var(--font-display);
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+      }
+
+      .headline {
+        font-family: var(--font-mono);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent);
+        margin-top: 6px;
+      }
+
+      .contact-details {
+        text-align: right;
+        font-size: 12.5px;
+        color: var(--ink-muted);
+        line-height: 1.6;
+      }
+
+      .contact-details a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .contact-details a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      section.resume-section {
+        margin-bottom: 26px;
+      }
+
+      h2.section-heading {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 6px;
+        margin-bottom: 14px;
+      }
+
+      .entry {
+        margin-bottom: 16px;
+      }
+
+      .entry:last-child {
+        margin-bottom: 0;
+      }
+
+      .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 2px;
+      }
+
+      .entry-title {
+        font-weight: 700;
+        font-size: 15px;
+      }
+
+      .entry-subtitle {
+        color: var(--ink-muted);
+        font-size: 13px;
+        font-family: var(--font-mono);
+        margin-bottom: 4px;
+      }
+
+      .entry-date {
+        font-size: 12px;
+        color: var(--ink-faint);
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .entry p {
+        color: var(--ink-muted);
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
+
+      ul.bullet-list {
+        margin-left: 18px;
+        color: var(--ink-muted);
+        font-size: 13px;
+      }
+
+      ul.bullet-list li {
+        margin-bottom: 4px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .skill-category strong {
+        font-size: 13px;
+        color: var(--ink);
+      }
+
+      .skill-category span {
+        font-size: 12.5px;
+        color: var(--ink-muted);
+        line-height: 1.5;
+      }
+
+      /* Print Stylesheet */
+      @media print {
+        body {
+          background: #ffffff;
+          padding: 0;
+        }
+
+        .action-toolbar {
+          display: none;
+        }
+
+        .resume-sheet {
+          box-shadow: none;
+          padding: 0;
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .resume-sheet {
+          padding: 32px 24px;
+        }
+
+        header.resume-header {
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .contact-details {
+          text-align: left;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="action-toolbar">
+      <div style="display: flex; gap: 8px;">
+        <a class="btn" href="index.html">← Back to Portfolio</a>
+        <a class="btn" href="template.html">Bento Studio UI ⚡</a>
+      </div>
+      <button class="btn btn-primary" onclick="window.print()">
+        Print / Save as PDF 📄
+      </button>
+    </div>
+
+    <main class="resume-sheet">
+      <header class="resume-header">
+        <div>
+          <h1 class="name">Philip Maina</h1>
+          <p class="headline">Software Developer &amp; AI Systems Engineer (@Kivice)</p>
+        </div>
+        <div class="contact-details">
+          <div>Kenya · Creating Globally</div>
+          <div><a href="mailto:philipmaian637@gmail.com">philipmaian637@gmail.com</a></div>
+          <div><a href="https://github.com/Kivice" target="_blank">github.com/Kivice</a> (53+ Repos)</div>
+        </div>
+      </header>
+
+      <!-- Profile Summary -->
+      <section class="resume-section">
+        <h2 class="section-heading">Professional Profile</h2>
+        <p style="color: var(--ink-muted); font-size: 13.5px; line-height: 1.65;">
+          Full-stack software developer and systems engineer with over 53 public repositories on GitHub. Experienced in architecting tactical AI desktop agents, multi-device automation bots, enterprise job-matching platforms, and reverse-engineering security tools. Proven track record in shipping performant, accessible code across TypeScript, Python, Go, and Dockerized environments.
+        </p>
+      </section>
+
+      <!-- Featured Technical Projects -->
+      <section class="resume-section">
+        <h2 class="section-heading">Selected Technical Projects (GitHub: @Kivice)</h2>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">X Power Program</span>
+            <span class="entry-date">TypeScript · Production Web Platform</span>
+          </div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/x-power-program" target="_blank" style="color: var(--accent);">github.com/Kivice/x-power-program</a></div>
+          <ul class="bullet-list">
+            <li>Built Kenya’s premier employment and talent matching platform connecting qualified candidates with corporate opportunities.</li>
+            <li>Engineered role filtering, automated talent pipeline algorithms, and responsive mobile-first UI.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Project Veronica Mark-V</span>
+            <span class="entry-date">Python · AI Desktop Agent</span>
+          </div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/veronica" target="_blank" style="color: var(--accent);">github.com/Kivice/veronica</a></div>
+          <ul class="bullet-list">
+            <li>Tactical AI desktop assistant powered by Gemini 3 Flash and neural text-to-speech voice synthesis.</li>
+            <li>Integrated CoreAudio hardware controls, local IoT security automation bridge, and HUD display.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">International Healthcare Booking System</span>
+            <span class="entry-date">Original Web Platform</span>
+          </div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/International-Healthcare-Booking-System" target="_blank" style="color: var(--accent);">github.com/Kivice/International-Healthcare-Booking-System</a></div>
+          <ul class="bullet-list">
+            <li>Web-based healthcare booking platform connecting patients with verified medical practitioners filtered by city.</li>
+            <li>Engineered appointment scheduling, clinic directory search, and patient inquiry routing.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Xiaomi HyperOS Kernel &amp; Bootloader Unlock</span>
+            <span class="entry-date">Python · Reverse Engineering</span>
+          </div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/Xiaomi-HyperOS-Unlock-Script" target="_blank" style="color: var(--accent);">github.com/Kivice/Xiaomi-HyperOS-Unlock-Script</a></div>
+          <ul class="bullet-list">
+            <li>Low-level Python utilities handling encrypted device protocol requests and bootloader account binding automation.</li>
+            <li>Implemented custom request payloads and device state inspection routines.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Library Relational Database Architecture</span>
+            <span class="entry-date">SQL · Database Modeling</span>
+          </div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/Library_Database_mangement" target="_blank" style="color: var(--accent);">github.com/Kivice/Library_Database_mangement</a></div>
+          <ul class="bullet-list">
+            <li>Relational database architecture featuring normalized table schemas, foreign key constraints, and transactional lending records.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Technical Skills Matrix -->
+      <section class="resume-section">
+        <h2 class="section-heading">Technical Skills &amp; Stack</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <strong>AI &amp; Agent Engineering:</strong><br />
+            <span>Gemini 3 Flash, Claude Code, Neural TTS Voice Cloning, Agentic Pipelines, Whisper Audio.</span>
+          </div>
+          <div class="skill-category">
+            <strong>Languages &amp; Core:</strong><br />
+            <span>TypeScript, Python 3, Go (Golang), JavaScript (ES6+), HTML5 Semantic, Modern CSS3.</span>
+          </div>
+          <div class="skill-category">
+            <strong>Full-Stack &amp; Frameworks:</strong><br />
+            <span>React, Next.js, Node.js, Express, RESTful APIs, WebSockets, Responsive UI/UX.</span>
+          </div>
+          <div class="skill-category">
+            <strong>Systems, Security &amp; DevOps:</strong><br />
+            <span>Docker, Linux Shell, Android Boot/Pentesting, Netlify, Vercel, Git &amp; GitHub Actions.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Foundation -->
+      <section class="resume-section">
+        <h2 class="section-heading">Education &amp; Technical Foundation</h2>
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Undergraduate Studies</span>
+            <span class="entry-date">Active</span>
+          </div>
+          <div class="entry-subtitle">Focus: Software Engineering, Systems Architecture &amp; Applied Computing</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

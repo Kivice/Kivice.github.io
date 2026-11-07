@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Philip Maina (@Kivice) — Bento Studio Portfolio for AI Systems, Autonomous Bots &amp; Full-Stack Engineering."
+    />
+    <meta property="og:image" content="assets/images/og-preview.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="assets/images/og-preview.svg" />
+    <title>Philip Maina (@Kivice) — Bento Studio Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+    <!-- Bento Template Stylesheet -->
+    <link rel="stylesheet" href="css/template.css" />
+
+    <!-- Script -->
+    <script src="js/template.js" defer></script>
+  </head>
+  <body>
+    <!-- Ambient Background Glow -->
+    <div class="ambient-glow" aria-hidden="true"></div>
+
+    <!-- Floating Island Navigation -->
+    <header class="nav-island-wrapper">
+      <nav class="nav-island" aria-label="Main Navigation">
+        <a class="island-brand" href="#top">
+          <span class="brand-dot"></span>
+          <span>Philip Maina (@Kivice)</span>
+        </a>
+
+        <div class="island-links">
+          <a class="island-link" href="#work">Projects</a>
+          <a class="island-link" href="#terminal">Terminal</a>
+          <a class="island-link" href="#skills">Stack</a>
+          <a class="island-link" href="#contact">Contact</a>
+        </div>
+
+        <div class="island-actions">
+          <a class="btn-pill-sm" href="mailto:philipmaian637@gmail.com">
+            Hire Me ↗
+          </a>
+          <button class="theme-btn-round" id="template-theme-toggle" type="button" aria-label="Toggle Dark/Light Mode">
+            🌓
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="shell" id="top">
+      <!-- Quick Style Switcher Banner -->
+      <aside class="template-banner">
+        <span>⚡ <strong>Active View:</strong> Bento Grid UI Template (@Kivice)</span>
+        <span>Switch back to <a href="index.html">Main High-Performance Portfolio →</a></span>
+      </aside>
+
+      <!-- Main Bento Grid -->
+      <section class="bento-grid" aria-label="Portfolio Bento Grid">
+        
+        <!-- 1. Hero Bento Card -->
+        <article class="bento-card bento-hero">
+          <div>
+            <div class="hero-status-pill">
+              <span class="pulse-indicator"></span>
+              <span>Open for Systems Engineering &amp; AI Roles</span>
+            </div>
+            <h1 class="hero-title">
+              Engineering AI agents.<br />
+              <span class="gradient-text">Architecting platforms.</span>
+            </h1>
+            <p class="hero-subtitle">
+              Software builder with 53+ public repositories on GitHub. Focused on low-latency tactical AI desktop agents, enterprise job matching engines, and modular cloud architectures.
+            </p>
+          </div>
+
+          <div class="hero-buttons">
+            <a class="btn-primary" href="#work">Explore Projects ↓</a>
+            <a class="btn-secondary" href="mailto:philipmaian637@gmail.com">Let’s Connect ↗</a>
+          </div>
+        </article>
+
+        <!-- 2. Profile Bento Card -->
+        <article class="bento-card bento-profile">
+          <div class="profile-avatar-frame">
+            <img src="assets/images/avatar.svg" alt="Avatar of Philip Maina (@Kivice)" />
+          </div>
+          <h2 class="profile-name">Philip Maina</h2>
+          <p class="profile-role">@Kivice · Systems &amp; AI Developer</p>
+          <div class="profile-badge-row">
+            <span>📍 Kenya</span>
+            <span>•</span>
+            <span>53+ Repos</span>
+          </div>
+        </article>
+
+        <!-- 3. Interactive Terminal Bento Card -->
+        <article class="bento-card bento-terminal" id="terminal">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="term-dot term-red"></span>
+              <span class="term-dot term-yellow"></span>
+              <span class="term-dot term-green"></span>
+              <span class="term-title">kivice@terminal:~ (Interactive shell)</span>
+            </div>
+            <div class="terminal-body" id="term-output-area">
+              <div><span class="term-prompt">kivice@dev:~$</span> <span class="term-cmd">whoami</span></div>
+              <div class="term-output">Philip Maina (@Kivice) — Full-Stack &amp; AI Systems Engineer based in Kenya.</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;">
+            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="skills">Run: skills</button>
+            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="veronica">Run: veronica</button>
+            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="contact">Run: contact</button>
+            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="clear">Run: clear</button>
+          </div>
+        </article>
+
+        <!-- 4. Quick Metrics Bento Block -->
+        <div class="bento-stats">
+          <div class="stat-box">
+            <span class="stat-number">53+</span>
+            <span class="stat-label">GitHub Repositories</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">AI</span>
+            <span class="stat-label">Gemini &amp; Claude Agents</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">Multi</span>
+            <span class="stat-label">Python, TypeScript, Go</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">&lt;40ms</span>
+            <span class="stat-label">Fast Execution Speed</span>
+          </div>
+        </div>
+
+        <!-- 5. Primary Featured Project: X Power Program -->
+        <article class="bento-card bento-project-primary" id="work">
+          <span class="project-tag-pill">Premier Job Matching Platform</span>
+          <h3>X Power Program Kenya</h3>
+          <p>
+            An enterprise-grade talent discovery and employment matching platform connecting Kenyan job seekers with verified corporate opportunities.
+          </p>
+          <div class="project-tech-chips">
+            <span>TypeScript</span>
+            <span>Full-Stack Web</span>
+            <span>Talent Pipeline</span>
+            <span>Kenya Tech</span>
+          </div>
+          <div style="display: flex; gap: 14px;">
+            <a class="btn-primary" href="https://github.com/Kivice/x-power-program" target="_blank" rel="noopener noreferrer">
+              View Repository ↗
+            </a>
+            <a class="btn-secondary" href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">
+              @Kivice GitHub ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- 6. Secondary Featured Project: Veronica Mark-V -->
+        <article class="bento-card bento-project-secondary">
+          <span class="project-tag-pill">Tactical AI Desktop Agent</span>
+          <h3>Project Veronica Mark-V</h3>
+          <p>
+            Stark-inspired tactical desktop assistant with Gemini 3 Flash, neural TTS voice synthesis, CoreAudio integration, and local IoT security automation.
+          </p>
+          <div class="project-tech-chips">
+            <span>Python</span>
+            <span>Gemini 3 Flash</span>
+            <span>Neural TTS</span>
+            <span>IoT Security</span>
+          </div>
+          <a class="btn-secondary" href="https://github.com/Kivice/veronica" target="_blank" rel="noopener noreferrer">
+            Inspect AI Engine ↗
+          </a>
+        </article>
+
+        <!-- 7. International Healthcare Booking System (100% Original Source) -->
+        <article class="bento-card bento-book">
+          <div class="book-bento-inner">
+            <div>
+              <span class="project-tag-pill">Original Web Platform</span>
+              <h3>International Healthcare Booking</h3>
+              <p>
+                A full-stack medical appointment scheduling platform streamlining how patients locate and book consultations with verified healthcare practitioners and clinics filtered by city location.
+              </p>
+              <a class="btn-primary" href="https://github.com/Kivice/International-Healthcare-Booking-System" target="_blank" rel="noopener noreferrer">
+                Explore Healthcare Repo ↗
+              </a>
+            </div>
+
+            <div class="book-card-mock" aria-label="Healthcare Architecture Card">
+              <span style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.15em;">ORIGINAL WEB APPLICATION</span>
+              <div class="book-mock-title">Healthcare<br />Portal</div>
+              <span style="font-size: 0.6rem; color: #38bdf8; font-weight: 700;">DOCTOR SCHEDULING</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Skills & Capabilities Bento -->
+        <article class="bento-card bento-skills" id="skills">
+          <h3 style="margin-bottom: 20px;">Skills &amp; Tech Stack</h3>
+          <div class="skills-stack-list">
+            <div>
+              <span class="skill-category-title">AI &amp; Agents</span>
+              <div class="skill-pills-row" style="margin-top: 6px;">
+                <span>Gemini 3 Flash</span>
+                <span>Claude Code</span>
+                <span>Neural TTS</span>
+                <span>Bots</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="skill-category-title">Languages &amp; Web</span>
+              <div class="skill-pills-row" style="margin-top: 6px;">
+                <span>TypeScript</span>
+                <span>Python</span>
+                <span>Go (Golang)</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="skill-category-title">Systems &amp; DevOps</span>
+              <div class="skill-pills-row" style="margin-top: 6px;">
+                <span>Docker</span>
+                <span>Reverse Eng</span>
+                <span>Git &amp; GitHub</span>
+                <span>Netlify</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Contact Bento Card -->
+        <article class="bento-card bento-contact" id="contact">
+          <div class="contact-bento-content">
+            <span class="project-tag-pill">Get In Touch</span>
+            <h2 style="font-size: 2.4rem; font-weight: 800; margin: 10px 0 16px;">
+              Ready to build something impactful?
+            </h2>
+            <p style="color: var(--text-muted); max-width: 520px; margin: 0 auto 20px;">
+              Whether you need AI agent integration, full-stack web platforms, or systems software—reach out directly.
+            </p>
+
+            <div class="contact-email-bar">
+              <strong>philipmaian637@gmail.com</strong>
+              <button class="copy-icon-btn" id="bento-copy-email" type="button">Copy 📋</button>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+              <a class="btn-primary" href="mailto:philipmaian637@gmail.com">Send Direct Email ↗</a>
+              <a class="btn-secondary" href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">GitHub: @Kivice ↗</a>
+              <a class="btn-secondary" href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">WhatsApp Chat ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="template-footer shell">
+      <p>© <span id="template-year">2026</span> Philip Maina (@Kivice) · Software &amp; AI Systems · Kenya</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
