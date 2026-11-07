@@ -81,3 +81,4 @@ Go to **[github.com/settings/profile](https://github.com/settings/profile)** and
 * **Company:** Available for hire / freelance
 * **Location:** `Nairobi, Kenya`
 * **Website URL:** `https://philip-portfoli.netlify.app`
+
