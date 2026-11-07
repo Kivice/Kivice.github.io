@@ -33,8 +33,8 @@ Write-Host ""
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "   Build & Commit Complete!                               " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "To push to your GitHub repository (e.g., computech34/MyPortifolio):" -ForegroundColor White
-Write-Host "  git remote add origin https://github.com/computech34/YOUR_REPO.git" -ForegroundColor Yellow
+Write-Host "To push to your GitHub repository (e.g., Kivice/portfolio-2.0 or Kivice/Kivice.github.io):" -ForegroundColor White
+Write-Host "  git remote add origin https://github.com/Kivice/portfolio-2.0.git" -ForegroundColor Yellow
 Write-Host "  git push -u origin main --force" -ForegroundColor Yellow
 Write-Host ""
 Write-Host "To deploy to Netlify:" -ForegroundColor White
