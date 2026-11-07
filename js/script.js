@@ -1,15 +1,15 @@
 /**
- * PHILIP GACHIE / PHILIP MAINA (@KIVICE) — PORTFOLIO V1 (UPGRADED)
- * Ultra-Smooth Interactive Controller: Zero-Lag, Theme, Filter, Contact Dispatch, Copy Toast, Architecture Drawer
+ * PHILIP MAINA (@KIVICE) — PORTFOLIO CONTROLLER
+ * Ultra-Smooth Interactive Controller: Zero-Lag, Theme, Menu, Contact Copy, Architecture Drawer
+ * Built for performance, accessibility, and zero bloat.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. THEME ENGINE (DARK / LIGHT DUAL MODE) ---
+  // --- 1. THEME ENGINE (DUAL MODE: LIGHT EDITORIAL / DARK MIDNIGHT) ---
   const themeToggle = document.getElementById("theme-toggle");
   const storedTheme = localStorage.getItem("philip-portfolio-theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = storedTheme || "light"; // Default to CarlTech-style light paper
   
-  const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
   document.documentElement.setAttribute("data-theme", initialTheme);
   updateThemeIcon(initialTheme);
 
@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- 2. MOBILE MENU CONTROLLER ---
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
   function closeMenu() {
     if (!menuToggle || !navLinks) return;
@@ -60,103 +60,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 3. PROJECT FILTER TABS ---
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-card");
-
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const filter = btn.getAttribute("data-filter");
-
-      projectCards.forEach((card) => {
-        const category = card.getAttribute("data-category") || "";
-        if (filter === "all" || category.includes(filter)) {
-          card.style.display = "flex";
-          requestAnimationFrame(() => {
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-          });
-        } else {
-          card.style.opacity = "0";
-          card.style.transform = "translateY(10px)";
-          setTimeout(() => {
-            card.style.display = "none";
-          }, 180);
-        }
-      });
-    });
-  });
-
-  // --- 4. ARCHITECTURAL CASE STUDY DRAWER MODAL ---
+  // --- 3. ARCHITECTURAL CASE STUDY DRAWER (GROUNDED TECHNICAL SPECS) ---
   const projectSpecs = {
     "xpower": {
-      badge: "Original Project · TypeScript & Docker",
+      badge: "Full-Stack Web · TypeScript & Next.js",
       title: "X Power Program Kenya",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
 │ Kenyan Talent  │───► │ Matching Engine│ ───►│ Verified Corps │
 │ Skill Profiles │     │ Talent Routing │     │ Vacancy Matrix │
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "An enterprise-grade talent discovery and employment matching platform engineered to eliminate friction in the Kenyan job market.",
-      features: "Automated candidate matching based on location and skill tier, containerized deployment with Docker and Docker-Compose, and responsive mobile-first UI architecture.",
-      stack: ["TypeScript", "Docker", "Docker-Compose", "Full-Stack Web", "Talent Matching"],
+      overview: "An employment discovery and candidate matching web platform engineered to connect job seekers across Kenyan counties with verified corporate opportunities.",
+      features: "Transparent 100-point skill compatibility scoring, verified employer onboarding, application lifecycle tracking, and responsive mobile-first UI architecture.",
+      stack: ["Next.js 16", "TypeScript", "PostgreSQL / SQLite", "Tailwind CSS", "JWT Auth"],
       githubUrl: "https://github.com/Kivice/x-power-program"
     },
     "veronica": {
-      badge: "Original Project · Python & Gemini 3 Flash",
-      title: "Project Veronica (Mark-V)",
+      badge: "Desktop Automation · Python & Audio APIs",
+      title: "Project Veronica — Desktop Voice Assistant",
       diagram: `┌──────────────┐     ┌────────────────┐     ┌──────────────┐
-│ Audio Stream │───► │ Gemini 3 Flash │ ───►│ CoreAudio &  │
-│ Whisper / In │     │ Cognitive Loop │     │ Neural TTS   │
+│ Voice Input  │───► │ Intent Handler │ ───►│ Windows APIs │
+│ Microphone   │     │ Python Service │     │ CoreAudio    │
 └──────────────┘     └────────────────┘     └──────────────┘
-                              │
-                              ▼
-                     ┌────────────────┐
-                     │ Local IoT &    │
-                     │ Security Relay │
-                     └────────────────┘`,
-      overview: "Stark-inspired tactical AI desktop assistant designed to combine fast multimodal reasoning with local hardware and IoT automation.",
-      features: "Sub-second streaming audio using Neural TTS and CoreAudio integration, background IoT network probing, and a low-overhead holographic HUD status display.",
-      stack: ["Python 3.10+", "Gemini 3 Flash", "Neural TTS", "CoreAudio", "IoT Security Bridge"],
+                             │
+                             ▼
+                    ┌────────────────┐
+                    │ System Vitals  │
+                    │ CPU / RAM / IP │
+                    └────────────────┘`,
+      overview: "A lightweight Python desktop utility that enables hands-free computer control, system performance monitoring, and audio synthesis.",
+      features: "Real-time Microsoft Edge neural voice streaming, Windows CoreAudio volume endpoint adjustments, hardware telemetry tracking (per-core CPU, RAM, network), and Home Assistant relay control.",
+      stack: ["Python 3.13", "Edge Neural TTS", "Windows APIs", "WebSockets", "System Telemetry"],
       githubUrl: "https://github.com/Kivice/veronica"
     },
     "healthcare": {
-      badge: "Original Project · Healthcare Full-Stack",
+      badge: "Healthcare Web · HTML5 & CSS3",
       title: "International Healthcare Booking System",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
 │ Patient Portal │───► │ City / Clinic  │ ───►│ Registered     │
-│ Search Filter  │     │ Directory API  │     │ Practitioner   │
+│ Search Filter  │     │ Directory API  │     │ Doctor Schedule│
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "A specialized healthcare appointment booking web portal helping patients locate and book consultations with certified medical practitioners filtered by city location.",
-      features: "Doctor consultation cards, emergency medical care directory, clinic schedule routing, and accessible UI layout.",
-      stack: ["JavaScript", "Healthcare UI", "Web APIs", "Responsive Layout"],
+      overview: "A multi-page healthcare appointment booking web portal that helps patients locate registered medical practitioners and schedule clinical visits by city.",
+      features: "Department directories for emergency care, diagnostic labs, and dental surgery; practitioner credentials display; and responsive layout.",
+      stack: ["HTML5", "CSS3 Grid & Flexbox", "JavaScript", "Responsive Design"],
       githubUrl: "https://github.com/Kivice/International-Healthcare-Booking-System"
     },
     "hyperos": {
-      badge: "Original Project · Python & Systems Security",
-      title: "Xiaomi HyperOS Unlock Utility",
+      badge: "System Utility · Python & NTP Protocol",
+      title: "Xiaomi Bootloader Timing Utility",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
-│ Device ADB /   │───► │ Account Token  │ ───►│ Bootloader     │
-│ Fastboot State │     │ Crypto Routine │     │ Unlock Request │
+│ NTP Server     │───► │ Latency Offset │ ───►│ Fastboot API   │
+│ Time Sync      │     │ Phase-Shift    │     │ Unlock Window  │
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "Low-level Python utilities developed to analyze Xiaomi HyperOS device communication and automate bootloader unlock account binding handshakes.",
-      features: "Custom encrypted challenge payload formatting, device state inspection, and protocol handshake automation.",
-      stack: ["Python", "Reverse Engineering", "Device Firmware", "Android Systems"],
+      overview: "A specialized Python automation script designed to synchronize with remote server time and dispatch fastboot unlock requests within millisecond boundary reset windows.",
+      features: "Multi-server NTP polling, latency jitter calculation, phase-shifting request scheduling, and automated request dispatching.",
+      stack: ["Python", "NTP Protocol", "Network Sockets", "Fastboot Automation"],
       githubUrl: "https://github.com/Kivice/Xiaomi-HyperOS-Unlock-Script"
-    },
-    "library": {
-      badge: "Original Project · Relational SQL Schema",
-      title: "Library Database Management System",
-      diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
-│ Members Entity │◄───►│ Lending Ledger │◄───►│ Books & Media  │
-│ Foreign Keys   │     │ Transactions   │     │ Normalized DB  │
-└────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "A comprehensive relational database architecture featuring 3NF normalized tables, foreign key integrity constraints, and transactional lending ledgers.",
-      features: "Optimized indexing, member borrowing quotas, fine calculations, and audit log tracking.",
-      stack: ["SQL", "Relational Modeling", "Database Normalization", "Constraints"],
-      githubUrl: "https://github.com/Kivice/Library_Database_mangement"
     }
   };
 
@@ -180,13 +138,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <h4 class="modal-subhead">Key Architecture &amp; Engineering</h4>
       <p class="modal-text">${spec.features}</p>
       
-      <h4 class="modal-subhead">Technologies &amp; Protocols</h4>
+      <h4 class="modal-subhead">Technologies &amp; Libraries</h4>
       <div class="modal-tech-pills">
         ${spec.stack.map(s => `<span>${s}</span>`).join("")}
       </div>
       
-      <div class="modal-footer-btns">
-        <a class="btn-primary" href="${spec.githubUrl}" target="_blank" rel="noopener noreferrer">
+      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line);">
+        <a class="button button-primary" href="${spec.githubUrl}" target="_blank" rel="noopener noreferrer">
           View Repository on GitHub ↗
         </a>
       </div>
@@ -228,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 5. 1-CLICK CLIPBOARD EMAIL COPY ---
+  // --- 4. 1-CLICK CLIPBOARD EMAIL COPY ---
   const copyBtn = document.getElementById("copy-email-btn");
   const emailVal = "philipmaina637@gmail.com";
   const toast = document.getElementById("toast");
@@ -251,34 +209,5 @@ document.addEventListener("DOMContentLoaded", () => {
         showToast("✓ Email: philipmaina637@gmail.com");
       }
     });
-  }
-
-  // --- 6. INTERACTIVE CONTACT FORM DISPATCH ---
-  const contactForm = document.getElementById("contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("form-name").value.trim();
-      const email = document.getElementById("form-email").value.trim();
-      const message = document.getElementById("form-message").value.trim();
-
-      if (!name || !email || !message) {
-        showToast("Please fill in all fields.");
-        return;
-      }
-
-      const subject = encodeURIComponent(`Project Inquiry from ${name}`);
-      const body = encodeURIComponent(`Hi Philip,\n\n${message}\n\nFrom: ${name} (${email})`);
-      window.location.href = `mailto:philipmaina637@gmail.com?subject=${subject}&body=${body}`;
-
-      showToast("✓ Opening email client to dispatch message...");
-      contactForm.reset();
-    });
-  }
-
-  // --- 7. COPYRIGHT YEAR AUTO-SYNC ---
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = String(new Date().getFullYear());
   }
 });
