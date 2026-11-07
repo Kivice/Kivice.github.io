@@ -226,43 +226,167 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 5. CLIENT-SIDE PHOTO SWAP PREVIEWER (CALM & FAST) ---
-  const avatarFrame = document.getElementById("avatar-frame");
-  const avatarFileInput = document.getElementById("avatar-file-input");
-  const userAvatarImg = document.getElementById("user-avatar-img");
-  const avatarSwapHint = document.getElementById("avatar-swap-hint");
+  // --- 5. CLIENT-SIDE PORTFOLIO ASSISTANT CHAT BOT ---
+  const chatLauncherBtn = document.getElementById("chat-launcher-btn");
+  const chatWindow = document.getElementById("chat-window");
+  const chatCloseBtn = document.getElementById("chat-close-btn");
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+  const chatMessages = document.getElementById("chat-messages");
 
-  // Restore any saved previewed photo from localStorage
-  const savedAvatar = localStorage.getItem("philip-custom-avatar");
-  if (savedAvatar && userAvatarImg) {
-    userAvatarImg.src = savedAvatar;
+  function openChat() {
+    if (!chatWindow) return;
+    chatWindow.classList.add("is-open");
+    chatWindow.setAttribute("aria-hidden", "false");
+    if (chatInput) setTimeout(() => chatInput.focus(), 150);
   }
 
-  function triggerPhotoUpload() {
-    if (avatarFileInput) avatarFileInput.click();
+  function closeChat() {
+    if (!chatWindow) return;
+    chatWindow.classList.remove("is-open");
+    chatWindow.setAttribute("aria-hidden", "true");
   }
 
-  if (avatarFrame) avatarFrame.addEventListener("click", triggerPhotoUpload);
-  if (avatarSwapHint) avatarSwapHint.addEventListener("click", triggerPhotoUpload);
+  if (chatLauncherBtn) {
+    chatLauncherBtn.addEventListener("click", () => {
+      const isOpen = chatWindow && chatWindow.classList.contains("is-open");
+      if (isOpen) {
+        closeChat();
+      } else {
+        openChat();
+      }
+    });
+  }
 
-  if (avatarFileInput && userAvatarImg) {
-    avatarFileInput.addEventListener("change", (e) => {
-      const file = e.target.files?.[0];
-      if (!file) return;
+  if (chatCloseBtn) {
+    chatCloseBtn.addEventListener("click", closeChat);
+  }
 
-      const reader = new FileReader();
-      reader.onload = (loadEvt) => {
-        const result = loadEvt.target?.result;
-        if (result) {
-          userAvatarImg.src = result;
-          try {
-            localStorage.setItem("philip-custom-avatar", result);
-          } catch (storageErr) {}
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && chatWindow && chatWindow.classList.contains("is-open")) {
+      closeChat();
+      chatLauncherBtn?.focus();
+    }
+  });
 
-          showToast("✓ Photo preview updated! (Save file to assets/images/avatar.jpg to make permanent)");
-        }
+  // Assistant Knowledge Engine
+  function getBotResponse(userText) {
+    const q = userText.toLowerCase().trim();
+
+    if (q.includes("education") || q.includes("university") || q.includes("kirinyaga") || q.includes("degree") || q.includes("school") || q.includes("bsc") || q.includes("math")) {
+      return `Philip is an undergraduate student at <strong>Kirinyaga University, Kenya</strong> pursuing a <strong>BSc in Mathematics and Computer Science</strong>.<br><br>He focuses on discrete mathematics, linear algebra, algorithmic problem solving, and low-latency systems engineering.`;
+    }
+
+    if (q.includes("project") || q.includes("portfolio") || q.includes("work") || q.includes("repo") || q.includes("github") || q.includes("xpower") || q.includes("veronica") || q.includes("xiaomi") || q.includes("healthcare")) {
+      return `Philip maintains <strong>53+ repositories on GitHub</strong> (<a href="https://github.com/Kivice" target="_blank" style="color:var(--accent);text-decoration:underline;">@Kivice</a>). Key projects:<br><br>
+        1. <strong>X Power Program Kenya</strong>: Next.js &amp; TypeScript employment platform with candidate compatibility scoring.<br>
+        2. <strong>Project Veronica</strong>: Python desktop assistant streaming Edge neural voices &amp; Windows system vitals.<br>
+        3. <strong>Healthcare Booking System</strong>: Multi-city clinic and appointment portal.<br>
+        4. <strong>Xiaomi Fastboot Utility</strong>: Millisecond NTP-synchronized bootloader unlock tool.<br><br>
+        <em>Tip: Click any project card on this page to view full architectural schematics.</em>`;
+    }
+
+    if (q.includes("skill") || q.includes("stack") || q.includes("tech") || q.includes("language") || q.includes("python") || q.includes("next") || q.includes("react")) {
+      return `Philip's technical stack includes:<br><br>
+        • <strong>Languages</strong>: TypeScript, JavaScript, Python, C++, HTML5/CSS3, SQL.<br>
+        • <strong>Web &amp; Frameworks</strong>: Next.js, React, Node.js, Express, Tailwind CSS.<br>
+        • <strong>Systems &amp; Data</strong>: PostgreSQL, MySQL, SQLite, Windows APIs, Linux shell, Git.<br>
+        • <strong>Core Focus</strong>: Zero-bloat architectures, mathematical rigor, and dependable code.`;
+    }
+
+    if (q.includes("contact") || q.includes("phone") || q.includes("number") || q.includes("whatsapp") || q.includes("email") || q.includes("call") || q.includes("reach") || q.includes("hire") || q.includes("message")) {
+      return `You can reach Philip directly:<br><br>
+        • <strong>Phone / WhatsApp</strong>: <a href="https://wa.me/254708746611" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">+254 708 746 611</a><br>
+        • <strong>Email</strong>: <a href="mailto:philipmaina637@gmail.com" style="color:var(--accent);font-weight:700;text-decoration:underline;">philipmaina637@gmail.com</a><br>
+        • <strong>GitHub</strong>: <a href="https://github.com/Kivice" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">github.com/Kivice</a>`;
+    }
+
+    if (q.includes("bloat") || q.includes("speed") || q.includes("philosophy") || q.includes("performance") || q.includes("fast") || q.includes("manifesto")) {
+      return `Philip builds with a <strong>zero-bloat philosophy</strong>: avoiding multi-megabyte JavaScript runtimes when semantic HTML, modular CSS, and lightweight scripts can deliver &lt;35 KB payloads and ~28ms render latency. This ensures pages load instantly on any mobile device or metered connection.`;
+    }
+
+    if (q.includes("resume") || q.includes("cv") || q.includes("pdf")) {
+      return `You can view and print Philip's formal curriculum vitae on the <a href="resume.html" style="color:var(--accent);font-weight:700;text-decoration:underline;">Resume / CV Page ↗</a>.`;
+    }
+
+    if (q.includes("location") || q.includes("where") || q.includes("nairobi") || q.includes("kenya") || q.includes("based")) {
+      return `Philip is based in <strong>Kenya</strong> (Kirinyaga University / Nairobi area), operating in East Africa Time (EAT, UTC+3).`;
+    }
+
+    if (q.includes("who") || q.includes("about") || q.includes("philip") || q.includes("kivice")) {
+      return `Philip Maina (@Kivice) is a software engineer and applied mathematician at Kirinyaga University, Kenya. He builds fast, grounded web platforms and automation software.`;
+    }
+
+    return `I can help you explore Philip's background! You can ask about his <strong>education at Kirinyaga University</strong>, his <strong>projects</strong> (X Power, Veronica, Healthcare), his <strong>technical skills</strong>, his <strong>zero bloat philosophy</strong>, or get his <strong>direct phone &amp; email</strong> (+254 708 746 611 / philipmaina637@gmail.com).`;
+  }
+
+  function appendUserMessage(text) {
+    if (!chatMessages) return;
+    const bubble = document.createElement("div");
+    bubble.className = "chat-bubble user";
+    bubble.textContent = text;
+    chatMessages.appendChild(bubble);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function handleUserQuery(userQueryText) {
+    const text = userQueryText.trim();
+    if (!text) return;
+
+    appendUserMessage(text);
+    if (chatInput) chatInput.value = "";
+
+    // Show typing indicator
+    const typingIndicator = document.createElement("div");
+    typingIndicator.className = "chat-typing";
+    typingIndicator.id = "chat-typing-indicator";
+    typingIndicator.innerHTML = "<span></span><span></span><span></span>";
+    chatMessages.appendChild(typingIndicator);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    // Simulate snappy thinking delay (280ms)
+    setTimeout(() => {
+      typingIndicator.remove();
+      const botResponseHtml = getBotResponse(text);
+      const botBubble = document.createElement("div");
+      botBubble.className = "chat-bubble bot";
+      botBubble.innerHTML = `
+        ${botResponseHtml}
+        <div class="chat-chips-row">
+          <button class="chat-chip" data-query="education" type="button">🎓 Education</button>
+          <button class="chat-chip" data-query="projects" type="button">💼 Projects</button>
+          <button class="chat-chip" data-query="skills" type="button">🛠️ Skills</button>
+          <button class="chat-chip" data-query="contact" type="button">📞 Contact</button>
+        </div>
+      `;
+      chatMessages.appendChild(botBubble);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 280);
+  }
+
+  if (chatForm) {
+    chatForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!chatInput) return;
+      handleUserQuery(chatInput.value);
+    });
+  }
+
+  // Suggestion chip clicks
+  if (chatMessages) {
+    chatMessages.addEventListener("click", (e) => {
+      const chip = e.target.closest(".chat-chip");
+      if (!chip) return;
+      const queryKey = chip.getAttribute("data-query");
+      const queryLabels = {
+        education: "Tell me about your education at Kirinyaga University",
+        projects: "What software projects have you built?",
+        skills: "What technologies and skills do you work with?",
+        contact: "How can I contact Philip directly?",
+        philosophy: "What is your zero-bloat philosophy?"
       };
-      reader.readAsDataURL(file);
+      const prompt = queryLabels[queryKey] || chip.textContent.trim();
+      handleUserQuery(prompt);
     });
   }
 });
