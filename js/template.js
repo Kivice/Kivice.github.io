@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const termButtons = document.querySelectorAll("[data-term-cmd]");
 
   const terminalResponses = {
-    "whoami": "Philip Maina (@Kivice) | Systems Builder & Full-Stack AI Engineer based in Kenya.",
+    "whoami": "Philip Maina (@Kivice) | BSc Mathematics & Computer Science at Kirinyaga University | Systems Builder & Full-Stack AI Engineer based in Kenya.",
+    "education": "Kirinyaga University — BSc Mathematics and Computer Science. Combining computational logic, algorithmic optimization, discrete mathematics, and software architecture.",
     "skills": "AI: Gemini 3 Flash, Claude Code, Neural TTS | Languages: TypeScript, Python, Go, JS | Tools: Docker, Reverse Engineering, Linux.",
     "veronica": "Project Veronica Mark-V: Stark-inspired tactical desktop AI agent featuring low-latency voice, CoreAudio, and IoT security automation.",
     "contact": "Email: philipmaina637@gmail.com | GitHub: github.com/Kivice (53+ repos) | Status: Open for technical contracts & roles.",

@@ -2,8 +2,8 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=1,12,24,35,46&height=180&section=header&text=Philip%20Maina%20(@Kivice)&fontSize=42&fontAlignY=38&animation=fadeIn&fontColor=ffffff" alt="Header Banner" width="100%" />
 
   <!-- Animated Interactive Typing SVG -->
-  <a href="https://philip-portfoli.netlify.app/">
-    <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=700&size=22&duration=2500&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&lines=Full-Stack+Developer+%26+AI+Systems+Builder;Architecting+Tactical+AI+Agents+%26+Web+Platforms;TypeScript+%7C+Python+%7C+Docker+%7C+Reverse+Engineering;Nairobi%2C+Kenya+%E2%80%94+Shipping+Globally" alt="Interactive Typing Banner" />
+  <a href="https://kivice.github.io/">
+    <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=700&size=22&duration=2500&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&lines=Full-Stack+Developer+%26+AI+Systems+Builder;BSc+Math+%26+Computer+Science+%40+Kirinyaga+Univ;Architecting+Tactical+AI+Agents+%26+Web+Platforms;TypeScript+%7C+Python+%7C+Docker+%7C+Reverse+Engineering;Nairobi%2C+Kenya+%E2%80%94+Shipping+Globally" alt="Interactive Typing Banner" />
   </a>
 
   <p>
@@ -20,10 +20,11 @@
 
 I specialize in building **low-latency tactical AI desktop agents, enterprise talent matching platforms, and low-level systems utilities**. I prioritize modular systems architecture, responsive execution, and real user value over bloated frameworks.
 
+* 🎓 **Academic Foundation:** **BSc in Mathematics and Computer Science** at **Kirinyaga University**, Kenya (Algorithmic optimization, discrete math, and computational logic).
 * 🔭 **Active Engineering:** [Project Veronica Mark-V](https://github.com/Kivice/veronica) (Tactical desktop AI agent) & [X Power Program](https://github.com/Kivice/x-power-program) (Kenya employment platform).
 * 🛠️ **Core Technologies:** TypeScript, Python 3, Docker, JavaScript (ES6+), SQL, Linux Shell.
 * 🧠 **Specialties:** Multimodal LLM Agent Orchestration (Gemini 3 Flash), Neural TTS Audio Pipelines, CoreAudio, and Reverse Engineering.
-* 📍 **Location:** Nairobi, Kenya · Working & Collaborating Globally.
+* 📍 **Location:** Kenya · Collaborating & Shipping Globally.
 
 ---
 
