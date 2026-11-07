@@ -52,11 +52,14 @@
 
     <!-- Main Name Title -->
     <text x="0" y="130" font-family="'Manrope', system-ui, sans-serif" font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-1.5">Philip Maina</text>
-    <text x="0" y="195" font-family="'Manrope', system-ui, sans-serif" font-size="36" font-weight="700" fill="#38bdf8">Software Developer &amp; AI Systems Engineer</text>
+    <text x="0" y="195" font-family="'Manrope', system-ui, sans-serif" font-size="34" font-weight="700" fill="#38bdf8">Software Developer &amp; Applied Mathematician</text>
 
     <!-- Subtitle / Mission Statement -->
-    <text x="0" y="255" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" fill="#94a3b8">
-      Architecting tactical AI desktop agents, high-performance web platforms, and automated systems.
+    <text x="0" y="248" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="18" fill="#cbd5e1" font-weight="600">
+      Kirinyaga University · BSc in Mathematics and Computer Science · Kenya
+    </text>
+    <text x="0" y="285" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" fill="#94a3b8">
+      Building fast, zero-lag web platforms, desktop automation tools, and relational databases.
     </text>
 
     <!-- Featured Repository Cards (3 badges) -->

@@ -146,14 +146,13 @@
             </div>
 
             <div class="avatar-showcase">
-              <div class="avatar-frame" id="avatar-frame" title="Click to preview your high-res photo!">
+              <div class="avatar-frame" id="avatar-frame" title="Click to upload/preview your photo">
                 <img
                   id="user-avatar-img"
                   src="assets/images/avatar.svg"
                   alt="Avatar of Philip Maina"
                   loading="eager"
                 />
-                <span class="avatar-edit-badge" title="Click to preview your photo">📷</span>
               </div>
               <input type="file" id="avatar-file-input" accept="image/*" style="display: none;" />
               <div class="avatar-caption">
@@ -162,9 +161,9 @@
                 <button
                   type="button"
                   id="avatar-swap-hint"
-                  style="font-size: 11px; color: var(--accent); font-weight: 700; cursor: pointer; margin-top: 4px; text-decoration: underline;"
+                  style="font-size: 11px; color: var(--ink-muted); font-weight: 500; cursor: pointer; margin-top: 4px; text-decoration: underline;"
                 >
-                  ✨ Click photo to preview yours
+                  Upload custom photo
                 </button>
               </div>
             </div>
@@ -623,42 +622,6 @@ function matchCandidate(profile, vacancies) {
         <div id="tech-modal-content"></div>
       </div>
     </div>
-
-    <!-- "MAKE PHILIP JUMP" FLOATING LAUNCHER -->
-    <button class="philip-game-launcher" id="game-launcher-btn" type="button" aria-label="Play Make Philip Jump Mini-Game">
-      <span class="ascii-mini">[•̀ᴗ•́]</span>
-      <span>Play "Make Philip Jump"</span>
-    </button>
-
-    <!-- "MAKE PHILIP JUMP" HTML5 RUNNER DOCK -->
-    <aside class="game-dock" id="game-dock" aria-label="Make Philip Jump Game Dock">
-      <div class="game-top-bar">
-        <div class="game-title-badge">
-          <span>🕹️ MAKE PHILIP JUMP</span>
-          <span style="color: #64748b;">// RUNNER v1.0</span>
-        </div>
-        <div class="game-stats-group">
-          <div class="game-score-display">SCORE: <span id="game-score-val">0</span></div>
-          <div class="game-score-display">HIGH: <span id="game-high-val">0</span></div>
-          <div class="game-ctrl-btns">
-            <button class="game-ctrl-btn" id="game-audio-toggle" type="button" title="Toggle Sound">🔊</button>
-            <button class="game-ctrl-btn" id="game-close-btn" type="button" title="Close Game">✕</button>
-          </div>
-        </div>
-      </div>
-      <div class="game-canvas-wrapper" id="game-canvas-wrapper">
-        <canvas id="runner-canvas"></canvas>
-        <div class="game-overlay-msg" id="game-overlay">
-          <div class="game-overlay-title" id="game-overlay-title">GAME OVER</div>
-          <div class="game-overlay-sub" id="game-overlay-sub">Hit by 5MB Bloatware Bundle!</div>
-          <button class="game-restart-btn" id="game-restart-btn" type="button">Press Space to Jump / Restart</button>
-        </div>
-      </div>
-      <div class="game-helper-tip">
-        <span>🎮 Controls: <strong>Spacebar</strong>, <strong>Up Arrow</strong>, or <strong>Tap Screen</strong> to jump over Bloatware!</span>
-        <span>Collect: ✳ MATH (+10) · ⚡ ZERO-LAG (+20)</span>
-      </div>
-    </aside>
 
     <!-- TOAST NOTIFICATION -->
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
