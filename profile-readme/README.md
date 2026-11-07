@@ -4,7 +4,7 @@
 
   <p>
     <a href="https://philip-portfoli.netlify.app/"><img src="https://img.shields.io/badge/Live_Portfolio-philip--portfoli.netlify.app-blue?style=for-the-badge&logo=netlify" alt="Portfolio Badge" /></a>
-    <a href="mailto:philipmaian637@gmail.com"><img src="https://img.shields.io/badge/Contact-philipmaian637@gmail.com-red?style=for-the-badge&logo=gmail" alt="Email Badge" /></a>
+    <a href="mailto:philipmaina637@gmail.com"><img src="https://img.shields.io/badge/Contact-philipmaina637@gmail.com-red?style=for-the-badge&logo=gmail" alt="Email Badge" /></a>
   </p>
 </div>
 

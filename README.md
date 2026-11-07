@@ -9,7 +9,7 @@ Engineered to replace sluggish, bloated React SPAs with an ultra-smooth, 60fps, 
 | Category | Details |
 | :--- | :--- |
 | **Developer Identity** | **Philip Maina** ([@Kivice](https://github.com/Kivice)) · 53+ Public Repositories |
-| **Contact Email** | `philipmaian637@gmail.com` (1-click clipboard copy + direct contact form) |
+| **Contact Email** | `philipmaina637@gmail.com` (1-click clipboard copy + direct contact form) |
 | **Profile Photo** | Old incorrect photo **scrapped**. Generated clean developer vector avatar at `assets/images/avatar.svg`. Drop your new high-res photo into `assets/images/avatar.svg` (or `avatar.jpg`) whenever you're ready! |
 | **Real GitHub Projects** | **X Power Program** (Kenyan Job Matching Platform), **Project Veronica Mark-V** (Tactical AI desktop agent), **Career-Ops** (AI job search with Claude Code & Go), **International Healthcare Booking**, and **Cyberion Spark-X**. |
 | **Performance** | **Zero React Lag (<30KB overhead)** vs. 334KB+ React bundle on Netlify. Loads in <40ms. |

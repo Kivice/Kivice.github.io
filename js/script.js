@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- 5. 1-CLICK CLIPBOARD EMAIL COPY ---
   const copyBtn = document.getElementById("copy-email-btn");
-  const emailVal = "philipmaian637@gmail.com";
+  const emailVal = "philipmaina637@gmail.com";
   const toast = document.getElementById("toast");
 
   function showToast(message) {
@@ -246,9 +246,9 @@ document.addEventListener("DOMContentLoaded", () => {
     copyBtn.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(emailVal);
-        showToast("✓ Copied philipmaian637@gmail.com to clipboard!");
+        showToast("✓ Copied philipmaina637@gmail.com to clipboard!");
       } catch (err) {
-        showToast("✓ Email: philipmaian637@gmail.com");
+        showToast("✓ Email: philipmaina637@gmail.com");
       }
     });
   }
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const subject = encodeURIComponent(`Project Inquiry from ${name}`);
       const body = encodeURIComponent(`Hi Philip,\n\n${message}\n\nFrom: ${name} (${email})`);
-      window.location.href = `mailto:philipmaian637@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:philipmaina637@gmail.com?subject=${subject}&body=${body}`;
 
       showToast("✓ Opening email client to dispatch message...");
       contactForm.reset();

@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "whoami": "Philip Maina (@Kivice) | Systems Builder & Full-Stack AI Engineer based in Kenya.",
     "skills": "AI: Gemini 3 Flash, Claude Code, Neural TTS | Languages: TypeScript, Python, Go, JS | Tools: Docker, Reverse Engineering, Linux.",
     "veronica": "Project Veronica Mark-V: Stark-inspired tactical desktop AI agent featuring low-latency voice, CoreAudio, and IoT security automation.",
-    "contact": "Email: philipmaian637@gmail.com | GitHub: github.com/Kivice (53+ repos) | Status: Open for technical contracts & roles.",
+    "contact": "Email: philipmaina637@gmail.com | GitHub: github.com/Kivice (53+ repos) | Status: Open for technical contracts & roles.",
     "clear": ""
   };
 
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- 3. CLIPBOARD COPY WITH TOAST NOTIFICATION ---
   const copyBtn = document.getElementById("bento-copy-email");
-  const emailVal = "philipmaian637@gmail.com";
+  const emailVal = "philipmaina637@gmail.com";
   const toastEl = document.getElementById("toast");
 
   function triggerToast(msg) {
@@ -69,9 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
     copyBtn.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(emailVal);
-        triggerToast("✓ Copied philipmaian637@gmail.com!");
+        triggerToast("✓ Copied philipmaina637@gmail.com!");
       } catch (e) {
-        triggerToast("✓ Email: philipmaian637@gmail.com");
+        triggerToast("✓ Email: philipmaina637@gmail.com");
       }
     });
   }
