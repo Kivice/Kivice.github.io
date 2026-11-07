@@ -29,8 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
   }
 
-  // --- 2. MOBILE MENU CONTROLLER ---
-  const menuToggle = document.getElementById("menu-toggle");
+  // --- 2. LIVE NAIROBI CLOCK (EAT / UTC+3) ---
+  const timeEl = document.getElementById("live-eat-time");
+  function updateNairobiTime() {
+    if (!timeEl) return;
+    try {
+      const now = new Date();
+      const options = { timeZone: "Africa/Nairobi", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true };
+      timeEl.textContent = `Nairobi ${new Intl.DateTimeFormat([], options).format(now)} EAT`;
+    } catch (e) {
+      timeEl.textContent = "Nairobi (UTC+3)";
+    }
+  }
+  updateNairobiTime();
+  setInterval(updateNairobiTime, 1000);
+
+  // --- 3. MOBILE MENU CONTROLLER ---
+  const menuToggle = document.getElementById("mobile-toggle") || document.getElementById("menu-toggle");
   const navLinks = document.getElementById("nav-links");
 
   function closeMenu() {
