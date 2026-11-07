@@ -465,13 +465,75 @@ button {
 }
 
 .avatar-frame {
-  width: 90px;
-  height: 90px;
+  position: relative;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
-  border: 2px solid var(--border);
-  overflow: hidden;
+  border: 3px solid var(--accent);
   background: var(--bg-elevated);
   flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.18), 0 0 0 4px var(--accent-tint);
+  animation: avatarBouncyFloat 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 300ms ease;
+}
+
+.avatar-frame:hover {
+  transform: scale(1.1) translateY(-4px) rotate(-3deg);
+  box-shadow: 0 16px 36px rgba(29, 78, 216, 0.28), 0 0 0 8px var(--accent-tint);
+}
+
+.avatar-frame:active {
+  transform: scale(0.92) rotate(3deg);
+}
+
+@keyframes avatarBouncyFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-8px) scale(1.03) rotate(1.5deg);
+  }
+  60% {
+    transform: translateY(4px) scale(0.98) rotate(-1.5deg);
+  }
+  80% {
+    transform: translateY(-2px) scale(1.01);
+  }
+}
+
+.avatar-pop-bounce {
+  animation: avatarPopBounce 600ms cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
+}
+
+@keyframes avatarPopBounce {
+  0% { transform: scale(0.6) rotate(-10deg); }
+  50% { transform: scale(1.25) rotate(6deg); }
+  75% { transform: scale(0.95) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.avatar-edit-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  border: 2px solid var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 200ms ease, background 200ms ease;
+  pointer-events: none;
+}
+
+.avatar-frame:hover .avatar-edit-badge {
+  transform: scale(1.2);
+  background: var(--accent);
 }
 
 .avatar-frame img {
@@ -1313,4 +1375,209 @@ button {
     flex-direction: column;
     gap: 8px;
   }
+}
+
+/* --- 16. "MAKE PHILIP JUMP" HTML5 MINI-GAME --- */
+.philip-game-launcher {
+  position: fixed;
+  bottom: 22px;
+  right: 24px;
+  z-index: 9990;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(37, 99, 235, 0.25);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: gameLauncherPulse 3s infinite;
+}
+
+.philip-game-launcher:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px) scale(1.04);
+}
+
+.philip-game-launcher .ascii-mini {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: #38bdf8;
+  display: inline-block;
+  animation: miniCharWiggle 1.4s infinite;
+}
+
+@keyframes miniCharWiggle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px) rotate(5deg); }
+}
+
+@keyframes gameLauncherPulse {
+  0%, 100% { box-shadow: var(--shadow-lg), 0 0 0 0 rgba(37, 99, 235, 0.3); }
+  50% { box-shadow: var(--shadow-lg), 0 0 0 8px rgba(37, 99, 235, 0); }
+}
+
+/* The Bottom Game Runner Dock */
+.game-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10002;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 2px solid var(--accent);
+  box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.5);
+  transform: translateY(110%);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 12px 20px 16px;
+  color: #f1f5f9;
+}
+
+.game-dock.is-active {
+  transform: translateY(0);
+}
+
+.game-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+
+.game-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #38bdf8;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.game-stats-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.game-score-display {
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.game-score-display span {
+  color: var(--accent);
+}
+
+.game-ctrl-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.game-ctrl-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.game-ctrl-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.game-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  background: #080d1a;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#runner-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.game-overlay-msg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(8, 13, 26, 0.85);
+  backdrop-filter: blur(4px);
+  gap: 6px;
+  font-family: var(--sans);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.game-overlay-msg.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-overlay-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #f87171;
+}
+
+.game-overlay-sub {
+  font-size: 12px;
+  font-family: var(--mono);
+  color: #94a3b8;
+}
+
+.game-restart-btn {
+  margin-top: 6px;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: background 160ms ease;
+}
+
+.game-restart-btn:hover {
+  background: var(--accent-hover);
+}
+
+.game-helper-tip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: #64748b;
 }
