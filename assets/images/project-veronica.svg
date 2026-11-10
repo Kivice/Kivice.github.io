@@ -125,3 +125,4 @@
   <text x="406" y="284" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Runtime: Python 3.13</text>
   <text x="406" y="299" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Socket: 127.0.0.1:8765</text>
 </svg>
+
