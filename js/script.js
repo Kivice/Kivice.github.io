@@ -184,15 +184,16 @@ document.addEventListener("DOMContentLoaded", () => {
       githubUrl: "https://github.com/Kivice/veronica"
     },
     healthcare: {
-      badge: "Healthcare Web · HTML5 & CSS3",
-      title: "International Healthcare Booking System",
+      badge: "Live Web App · Clinical Portal",
+      title: "ApexCare: International Healthcare Booking System",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
-│ Patient Portal │───► │ City / Clinic  │ ───►│ Registered     │
-│ Search Filter  │     │ Directory API  │     │ Doctor Schedule│
+│ Patient Portal │───► │ Interactive    │ ───►│ Digital Slip   │
+│ Triage / Filter│     │ Slot Engine    │     │ QR Verification│
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "A multi-page healthcare appointment booking web portal that helps patients locate registered medical practitioners and schedule clinical visits by city.",
-      features: "Department directories for emergency care, diagnostic labs, and dental surgery; practitioner credentials display; and responsive layout.",
-      stack: ["HTML5", "CSS3 Grid & Flexbox", "JavaScript", "Responsive Design"],
+      overview: "A live, multi-page healthcare appointment booking and clinical triage portal facilitating direct scheduling with verified physicians, diagnostic laboratories, and emergency responders.",
+      features: "Interactive multi-step appointment scheduler with dynamic doctor-to-department slot assignment, real-time printable voucher generator, 24/7 WhatsApp emergency triage (+254 708 746 611), and persistent local booking records.",
+      stack: ["HTML5 Semantic", "CSS3 Design Tokens", "Vanilla JS ES6+", "GitHub Pages Live", "24/7 Triage Integration"],
+      liveUrl: "https://kivice.github.io/International-Healthcare-Booking-System/",
       githubUrl: "https://github.com/Kivice/International-Healthcare-Booking-System"
     },
     hyperos: {
@@ -229,8 +230,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="modal-tech-pills">
         ${spec.stack.map(s => `<span>${s}</span>`).join("")}
       </div>
-      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border);">
-        <a class="btn-primary" href="${spec.githubUrl}" target="_blank" rel="noopener noreferrer">
+      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; gap: 12px; flex-wrap: wrap;">
+        ${spec.liveUrl ? `<a class="btn-primary" href="${spec.liveUrl}" target="_blank" rel="noopener noreferrer">Launch Live Web App ↗</a>` : ""}
+        <a class="${spec.liveUrl ? "btn-secondary" : "btn-primary"}" href="${spec.githubUrl}" target="_blank" rel="noopener noreferrer">
           View Repository on GitHub ↗
         </a>
       </div>
@@ -340,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return `Philip maintains <strong>53+ repositories on GitHub</strong> (<a href="https://github.com/Kivice" target="_blank" style="color:var(--accent);text-decoration:underline;">@Kivice</a>). Key projects:<br><br>
         1. <strong>X Power Program Kenya</strong>: Next.js &amp; TypeScript employment platform with candidate compatibility scoring.<br>
         2. <strong>Project Veronica</strong>: Python desktop assistant streaming Edge neural voices &amp; Windows system vitals.<br>
-        3. <strong>Healthcare Booking System</strong>: Multi-city clinic and appointment portal.<br>
+        3. <strong>ApexCare Clinical Portal</strong>: Live healthcare booking &amp; emergency triage web system (<a href="https://kivice.github.io/International-Healthcare-Booking-System/" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">Launch Live App ↗</a>).<br>
         4. <strong>Xiaomi Fastboot Utility</strong>: Millisecond NTP-synchronized bootloader unlock tool.<br><br>
         <em>Tip: Click any project card on this page to view full architectural schematics.</em>`;
     }
