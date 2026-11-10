@@ -154,15 +154,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- 5. ARCHITECTURAL CASE STUDY DRAWER (GROUNDED TECHNICAL SPECS) ---
   const projectSpecs = {
     xpower: {
-      badge: "Full-Stack Web · TypeScript & Next.js",
-      title: "X Power Program Kenya",
+      badge: "Client Showcase Template · Kenya Employment Platform",
+      title: "X Power Program: Kenya Employment & Talent Matching Template",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
-│ Kenyan Talent  │───► │ Matching Engine│ ───►│ Verified Corps │
-│ Skill Profiles │     │ Talent Routing │     │ Vacancy Matrix │
+│ Kenyan Talent  │───► │ 100-Pt Match   │ ───►│ BRS Verified   │
+│ Skill Profiles │     │ Diagnostics Lab│     │ Enterprise Hub │
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "An employment discovery and candidate matching web platform engineered to connect job seekers across Kenyan counties with verified corporate opportunities.",
-      features: "Transparent 100-point skill compatibility scoring, verified employer onboarding, application lifecycle tracking, and responsive mobile-first UI architecture.",
-      stack: ["Next.js 16", "TypeScript", "PostgreSQL / SQLite", "Tailwind CSS", "JWT Auth"],
+      overview: "A turnkey, client-ready employment and talent-matching platform template engineered for Kenyan workforce initiatives, staffing agencies, and private job boards.",
+      features: "Interactive 100-point skill compatibility scoring engine, 3-role demo sandbox (Job Seeker, Safaricom Employer, Compliance Admin), multi-theme colorway engine (Silicon Savannah, AgriTech, FinTech, Sunset Coral), verified BRS employer directory, and 1-click application simulator.",
+      stack: ["Client Template ⚡", "100-Pt Match Lab", "3-Role Sandbox", "Multi-Theme 🎨", "BRS Verified", "Zero-Bloat Vanilla"],
+      liveUrl: "https://kivice.github.io/x-power-program/",
       githubUrl: "https://github.com/Kivice/x-power-program"
     },
     veronica: {
@@ -340,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (q.includes("project") || q.includes("portfolio") || q.includes("work") || q.includes("repo") || q.includes("github") || q.includes("xpower") || q.includes("veronica") || q.includes("xiaomi") || q.includes("healthcare")) {
       return `Philip maintains <strong>53+ repositories on GitHub</strong> (<a href="https://github.com/Kivice" target="_blank" style="color:var(--accent);text-decoration:underline;">@Kivice</a>). Key projects:<br><br>
-        1. <strong>X Power Program Kenya</strong>: Next.js &amp; TypeScript employment platform with candidate compatibility scoring.<br>
+        1. <strong>X Power Program Kenya</strong>: Turnkey employment matching template with 100-point skill diagnostics, 3-role sandbox &amp; multi-theme switcher (<a href="https://kivice.github.io/x-power-program/" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">Explore Platform Demo ↗</a>).<br>
         2. <strong>Project Veronica</strong>: Python desktop assistant streaming Edge neural voices &amp; Windows system vitals.<br>
         3. <strong>ApexCare Clinical Portal Template</strong>: Turnkey healthcare booking &amp; emergency triage template with multi-theme switcher and demo auto-fill (<a href="https://kivice.github.io/International-Healthcare-Booking-System/" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">Explore Template Demo ↗</a>).<br>
         4. <strong>Xiaomi Fastboot Utility</strong>: Millisecond NTP-synchronized bootloader unlock tool.<br><br>
