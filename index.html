@@ -3,71 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Philip Maina (@Kivice) — Applied Mathematics &amp; Systems Engineering</title>
-    
     <meta
       name="description"
-      content="Bespoke engineering portfolio of Philip Maina (@Kivice) — Applied Mathematician &amp; Systems Developer at Kirinyaga University, Kenya. High-performance software architectures, desktop automation, and zero-bloat execution."
+      content="Philip Maina (@Kivice) is a software developer and Mathematics &amp; Computer Science undergraduate at Kirinyaga University in Kenya."
     />
+    <meta name="keywords" content="Philip Maina, Kivice, Software Developer, Kirinyaga University, Mathematics, Computer Science, Kenya, TypeScript, Python, Full Stack" />
     <meta name="author" content="Philip Maina (@Kivice)" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#f9f8f5" />
 
-    <!-- Open Graph Metadata -->
-    <meta property="og:title" content="Philip Maina (@Kivice) — Applied Mathematics &amp; Systems Engineering" />
-    <meta property="og:description" content="Applied Mathematics &amp; Low-Latency Systems Software at Kirinyaga University, Kenya. Sub-35 KB payloads, zero runtime bloat." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://kivice.github.io/" />
-    <meta property="og:image" content="assets/images/og-preview.svg" />
+    <title>Philip Maina — Software Developer &amp; Applied Mathematician</title>
 
-    <!-- Google Fonts: Poppins & JetBrains Mono -->
+    <!-- Google Fonts: Plus Jakarta Sans, Instrument Serif, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 
-    <!-- Core Stylesheet -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Philip Maina — Software Developer &amp; Applied Mathematician" />
+    <meta property="og:description" content="Mathematics &amp; Computer Science student at Kirinyaga University building fast, clean, and dependable software in Kenya." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kivice.github.io/" />
+    <meta property="og:image" content="assets/images/og-preview.svg" />
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- PRELOADER -->
-    <div class="preloader" id="preloader" role="status" aria-label="Loading">
-      <div class="preloader-inner">
-        <div class="preloader-tag">// KIVICE.SYSTEMS</div>
-        <div class="preloader-logo fw-900">PHILIP MAINA</div>
-        <div class="preloader-bar"></div>
-      </div>
-    </div>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
     <!-- TOP TELEMETRY STRIP -->
-    <div class="telemetry-strip" aria-label="Live Systems Telemetry">
-      <div class="telemetry-strip-inner">
-        <div class="telemetry-item">
-          <span class="telemetry-dot"></span>
-          <span>KIRINYAGA UNIVERSITY // BSC MATHEMATICS &amp; COMPUTER SCIENCE</span>
+    <div class="telemetry-strip" aria-label="System status">
+      <div class="shell telemetry-content">
+        <div class="telemetry-left">
+          <span><i class="live-dot"></i> Kirinyaga University · Kenya</span>
+          <span>BSc Mathematics &amp; Computer Science</span>
         </div>
-        <span>•</span>
-        <div class="telemetry-item">
-          <span id="live-eat-time">Nairobi (UTC+3)</span>
-        </div>
-        <span>•</span>
-        <div class="telemetry-item">
-          <span>LATENCY: <strong>~28 ms</strong></span>
-        </div>
-        <span>•</span>
-        <div class="telemetry-item">
-          <span>PAYLOAD: <strong>&lt; 35 KB</strong> (ZERO BLOAT)</span>
-        </div>
-        <span>•</span>
-        <div class="telemetry-item">
-          <span>REPOSITORIES: <strong>53+</strong> ON GITHUB</span>
+        <div class="telemetry-right">
+          <span id="live-eat-time">Nairobi EAT</span>
+          <span>⚡ &lt;30ms Static Execution</span>
+          <span>53+ Repositories on GitHub</span>
         </div>
       </div>
     </div>
@@ -78,619 +58,583 @@
       href="https://wa.me/254708746611"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat directly on WhatsApp with Philip"
+      aria-label="Chat on WhatsApp with Philip"
       title="WhatsApp (+254 708 746 611)"
     >
-      <i class="ph ph-whatsapp-logo" aria-hidden="true"></i>
+      💬
     </a>
 
-    <!-- STICKY NAVBAR -->
-    <div class="navbar-wrapper">
-      <div class="container">
-        <nav class="navbar" aria-label="Main Navigation">
-          <div class="brand-block">
-            <a class="navbar-brand-name" href="#home">
-              PHILIP MAINA
-            </a>
-            <span class="navbar-brand-tag">@KIVICE</span>
+    <!-- SITE HEADER -->
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main Navigation">
+        <a class="brand-monogram" href="#home" aria-label="Philip Maina, Home">
+          <span class="monogram-badge">P.</span>
+          <div class="monogram-text">
+            <span class="brand-name">Philip Maina</span>
+            <span class="brand-sub">@Kivice · Software &amp; Mathematics</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <div class="nav-links" id="nav-links">
+            <a class="nav-link" href="#manifesto">Principles</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#works">Selected Works</a>
+            <a class="nav-link" href="#disciplines">Disciplines</a>
+            <a class="nav-link" href="#journey">Journey</a>
+            <a class="nav-cta" href="#contact">Let’s Connect ↗</a>
           </div>
 
-          <ul class="navbar-nav" id="navbar-nav">
-            <li><a class="nav-link active" href="#vault">01. Vault</a></li>
-            <li><a class="nav-link" href="#lab">02. Computational Lab</a></li>
-            <li><a class="nav-link" href="#workbench">03. Workbench</a></li>
-            <li><a class="nav-link" href="#academic">04. Academic</a></li>
-            <li><a class="nav-link" href="#manifesto">05. Manifesto</a></li>
-            <li><a class="nav-link" href="#dispatch">06. Connect</a></li>
-          </ul>
+          <a
+            href="mailto:philipmaina637@gmail.com"
+            class="status-pill"
+            title="Available for technical roles &amp; contracts"
+          >
+            <span class="pulse-dot"></span> Available for work
+          </a>
 
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <button class="theme-pill-btn" id="theme-toggle" type="button" aria-label="Switch theme mode">
-              🌙 Dark
-            </button>
-            <a
-              href="https://wa.me/254708746611"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-secondary"
-              style="padding: 7px 14px; font-size: 0.85rem;"
-            >
-              WhatsApp ↗
-            </a>
-            <button class="mobile-nav-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation">
-              ☰
-            </button>
-          </div>
-        </nav>
-      </div>
-    </div>
+          <button
+            class="theme-btn"
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle Light and Dark Mode"
+            title="Toggle theme"
+          >
+            🌓
+          </button>
 
-    <!-- HERO SECTION -->
-    <header class="hero-wrapper" id="home">
-      <div class="container">
+          <button
+            class="mobile-toggle"
+            id="mobile-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- 1. HERO SECTION (EDITORIAL & AUTHENTIC) -->
+      <section class="hero-section shell" id="home">
         <div class="hero-grid">
-          <!-- Left Column -->
-          <div>
-            <div class="hero-eyebrow">
-              <span class="telemetry-dot"></span>
-              <span>APPLIED MATHEMATICS · SYSTEMS SOFTWARE · KIRINYAGA UNIVERSITY</span>
+          <div class="hero-content">
+            <div class="hero-kicker">
+              <span>Undergraduate Scholar · Systems Software Builder</span>
             </div>
 
             <h1 class="hero-title">
-              Discrete mathematics at depth.<br />
-              Software systems with <span class="text-accent">zero overhead.</span>
+              Algorithms on paper.<br />
+              Systems in <span class="italic-flair">production.</span>
             </h1>
 
-            <p class="hero-subhead">
-              Undergraduate researcher and systems developer at Kirinyaga University, Kenya. Engineering high-performance web platforms, desktop automation utilities, and normalized relational systems that execute in milliseconds—not seconds.
+            <p class="hero-lead">
+              I’m Philip Maina — studying Mathematics and Computer Science at Kirinyaga University.
+              I engineer lightweight, zero-lag web platforms, desktop automation utilities, and
+              relational database architectures designed to perform reliably on real devices.
             </p>
 
-            <div class="hero-btn-row">
-              <a href="#vault" class="btn-primary">
-                Inspect Systems Vault ↗
+            <div class="hero-actions">
+              <a class="btn-primary" href="#works">
+                Explore Selected Works ↓
               </a>
-              <a
-                href="https://wa.me/254708746611"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-secondary"
-              >
-                WhatsApp (+254 708 746 611) ↗
+              <a class="btn-secondary" href="resume.html">
+                Formal CV / Resume ↗
+              </a>
+              <a class="btn-secondary" href="#contact">
+                Contact Directly ↗
               </a>
             </div>
 
-            <!-- Monospace Benchmarks Strip -->
-            <div class="benchmarks-bar">
-              <div class="benchmark-badge">
-                <span>BUNDLE:</span> <strong>32 KB</strong>
-              </div>
-              <div class="benchmark-badge">
-                <span>RENDER:</span> <strong>28 ms</strong>
-              </div>
-              <div class="benchmark-badge">
-                <span>LIGHTHOUSE:</span> <strong>100 / 100</strong>
-              </div>
-              <div class="benchmark-badge">
-                <span>DEPENDENCIES:</span> <strong>0 BLOAT</strong>
-              </div>
+            <div class="hero-badges-row">
+              <span><strong>Kirinyaga Univ</strong> · B.Sc Math &amp; CS</span>
+              <span>•</span>
+              <span><strong>53+</strong> Repositories on GitHub</span>
+              <span>•</span>
+              <span><strong>Nairobi / Kenya</strong></span>
             </div>
           </div>
 
-          <!-- Right Column: Canvas Visual -->
-          <div class="hero-canvas-frame">
-            <img
-              src="assets/images/hero-3d-node.svg"
-              alt="Systems Architecture &amp; Mathematical Engine Schematic"
-              loading="eager"
-            />
+          <!-- Creative Visual: Interactive Studio Canvas -->
+          <div class="hero-canvas">
+            <div class="canvas-header">
+              <span class="canvas-tag">ENGINEERING LOG // DEV.SPEC</span>
+              <span>KIVICE.SYSTEMS</span>
+            </div>
+
+            <div class="avatar-showcase">
+              <div class="avatar-frame">
+                <img
+                  id="user-avatar-img"
+                  src="assets/images/avatar.svg"
+                  alt="Avatar of Philip Maina"
+                  loading="eager"
+                />
+              </div>
+              <div class="avatar-caption">
+                <h3>Philip Maina (@Kivice)</h3>
+                <p>Kirinyaga University · BSc Mathematics &amp; Computer Science · Kenya</p>
+                <div class="avatar-meta-contact">
+                  <span>📞 +254 708 746 611</span>
+                  <span>•</span>
+                  <span>✉️ philipmaina637@gmail.com</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="telemetry-metrics-grid">
+              <div class="metric-pill">
+                <span class="metric-label">Bundle Overhead</span>
+                <span class="metric-value">&lt; 35 KB</span>
+              </div>
+              <div class="metric-pill">
+                <span class="metric-label">Execution Latency</span>
+                <span class="metric-value">~28 ms</span>
+              </div>
+              <div class="metric-pill">
+                <span class="metric-label">Core Languages</span>
+                <span class="metric-value">TS · Python · SQL</span>
+              </div>
+              <div class="metric-pill">
+                <span class="metric-label">Code Originality</span>
+                <span class="metric-value">100% Curated</span>
+              </div>
+            </div>
+
+            <!-- THE ONE SIGNATURE CREATIVE ANIMATION: MATHEMATICAL HARMONIC CANVAS -->
+            <div class="harmonic-wave-box">
+              <div class="harmonic-wave-header">
+                <span>MATHEMATICAL HARMONIC // <strong>f(x, t) = A·sin(kx - ωt)</strong></span>
+                <span>60 FPS</span>
+              </div>
+              <canvas id="harmonic-canvas" class="harmonic-canvas-el" height="44"></canvas>
+            </div>
+
+            <div class="canvas-code-block">
+              <code>// Algorithmic optimization: O(1) talent routing
+function matchCandidate(profile, vacancies) {
+  return vacancies
+    .filter(v => v.skills.every(s => profile.has(s)))
+    .sort((a, b) => b.compensation - a.compensation);
+}</code>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </section>
 
-    <main>
-      <!-- SECTION 1: SYSTEMS BLUEPRINT VAULT -->
-      <section id="vault" class="container section-padding">
-        <div class="section-header">
-          <span class="section-tag">[SYS.SPEC // ARCHITECTURAL BLUEPRINTS]</span>
-          <h2 class="section-title">The Systems Vault.</h2>
-          <p class="section-lead">
-            Production-grade web platforms, audio daemons, and system utilities engineered with strict data integrity, mathematical optimization, and clean source code.
-          </p>
+      <!-- 2. THE ENGINEERING MANIFESTO: WHY SPEED MATTERS -->
+      <section class="manifesto-banner" id="manifesto">
+        <div class="shell manifesto-grid">
+          <div class="manifesto-item">
+            <span class="manifesto-kicker">01 / EFFICIENCY FIRST</span>
+            <h4>The Case Against Web Bloat</h4>
+            <p>
+              The web doesn't need 5MB JavaScript bundles. I build with semantic markup, clean CSS,
+              and lean scripts that execute instantly on everyday smartphones across Kenya.
+            </p>
+          </div>
+
+          <div class="manifesto-item">
+            <span class="manifesto-kicker">02 / MATHEMATICAL RIGOR</span>
+            <h4>Algorithms, Not Guesswork</h4>
+            <p>
+              Every system is grounded in mathematical foundations—discrete graph optimization,
+              algorithmic complexity analysis, and 3NF-normalized relational database structures.
+            </p>
+          </div>
+
+          <div class="manifesto-item">
+            <span class="manifesto-kicker">03 / REAL IMPACT</span>
+            <h4>Software That Works For People</h4>
+            <p>
+              From talent discovery platforms for Kenya's workforce to localized healthcare portals,
+              I build tools designed to solve real operational bottlenecks.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ABOUT SECTION -->
+      <section class="section-block shell" id="about">
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow">ACADEMIC &amp; ENGINEERING FOUNDATION</p>
+            <h2 class="section-title">Bridging pure mathematics with <span class="italic-flair">real systems.</span></h2>
+          </div>
+          <span class="section-seq">01 — 04</span>
         </div>
 
-        <div class="vault-grid">
-          <!-- CARD 1: X Power Program Kenya -->
-          <article class="vault-card">
-            <div class="vault-card-header">
-              <span class="spec-id">SPEC.01 // NEXT.JS 16</span>
-              <span class="spec-status">● PRODUCTION</span>
+        <div class="about-columns">
+          <div>
+            <blockquote class="about-statement">
+              “The best code is not the loudest or the heaviest. It is the code that loads immediately, solves a real problem, and never gets in the user’s way.”
+            </blockquote>
+
+            <div class="highlight-box">
+              <div class="highlight-title">
+                <span>🎓 Current Academic Program</span>
+              </div>
+              <p style="font-size: 13.5px; color: var(--ink-secondary); line-height: 1.6; margin: 0;">
+                <strong>Kirinyaga University, Kenya</strong> · Bachelor of Science in Mathematics and Computer Science. Coursework includes Discrete Mathematics, Algorithms &amp; Complexity, Computational Logic, Database Systems, and Applied Numerical Methods.
+              </p>
             </div>
-            <div class="vault-card-img">
+          </div>
+
+          <div class="about-narrative">
+            <p>
+              I’m <strong>Philip Maina</strong>, building under the handle <a href="https://github.com/Kivice" target="_blank" style="color: var(--accent); text-decoration: underline;">@Kivice</a> on GitHub. I’m an undergraduate student at Kirinyaga University who believes software engineering is fundamentally about clarity and constraint.
+            </p>
+            <p>
+              Rather than assembling bloated template libraries that freeze mobile browsers on intermittent cellular networks, I craft lean, responsive web applications and practical automation scripts. I enjoy translating mathematical logic—such as candidate compatibility algorithms and relational database normalization—into software that delivers sub-50ms performance.
+            </p>
+            <p>
+              When I'm not studying discrete structures or writing full-stack code, I experiment with Linux environments, reverse-engineering network protocols, and local voice tooling.
+            </p>
+            <div style="margin-top: 10px;">
+              <a class="btn-secondary" href="resume.html">Read Full Academic CV ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. SELECTED WORKS (THE PROJECT VAULT) -->
+      <section class="section-block vault-section" id="works">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <p class="section-eyebrow">THE PROJECT VAULT</p>
+              <h2 class="section-title">Selected production systems &amp; <span class="italic-flair">tools.</span></h2>
+            </div>
+            <span class="section-seq">02 — 04</span>
+          </div>
+
+          <div class="projects-showcase">
+            <!-- Project 1: X Power Program -->
+            <article class="vault-card">
+              <div class="card-header-bar">
+                <div class="card-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <span>Kivice/x-power-program</span>
+              </div>
               <img
                 src="assets/images/project-xpower.svg"
-                alt="X Power Program Kenya Talent Matching System"
+                alt="X Power Program Kenya Architecture"
+                class="card-visual-img"
                 loading="lazy"
               />
-            </div>
-            <div class="vault-card-body">
-              <h3 class="vault-card-title">X Power Program Kenya</h3>
-              <p class="vault-card-desc">
-                Nationwide talent discovery and employment matching platform connecting Kenyan job seekers with verified corporate roles using 100-point compatibility scoring.
-              </p>
-              <div class="vault-stack-pills">
-                <span>Next.js 16</span>
-                <span>TypeScript</span>
-                <span>PostgreSQL</span>
-                <span>Tailwind CSS</span>
-                <span>JWT Auth</span>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span>Next.js 16 · TypeScript · SQL</span>
+                  <span>01 / 04</span>
+                </div>
+                <h4 class="card-headline">Kenya Talent Discovery &amp; Job Matching Engine</h4>
+                <p class="card-description">
+                  A full-stack employment matching web platform engineered to eliminate recruitment friction in Kenya. Features transparent 100-point skill compatibility scoring, verified employer certification, and multi-county vacancy discovery.
+                </p>
+                <div class="card-tech-chips">
+                  <span>TypeScript</span>
+                  <span>Next.js App Router</span>
+                  <span>PostgreSQL / SQLite</span>
+                  <span>Tailwind CSS</span>
+                </div>
+                <div class="card-actions">
+                  <a class="card-repo-btn" href="https://github.com/Kivice/x-power-program" target="_blank" rel="noopener noreferrer">
+                    View on GitHub ↗
+                  </a>
+                  <button class="card-spec-trigger" data-spec-trigger="xpower" type="button">
+                    Architecture Spec 📋
+                  </button>
+                </div>
               </div>
-              <div class="vault-card-actions">
-                <button
-                  class="vault-spec-btn"
-                  data-spec-trigger="xpower"
-                  type="button"
-                >
-                  Inspect Spec ↗
-                </button>
-                <a
-                  class="vault-github-btn"
-                  href="https://github.com/Kivice/x-power-program"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub Repository ↗
-                </a>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- CARD 2: Project Veronica -->
-          <article class="vault-card">
-            <div class="vault-card-header">
-              <span class="spec-id">SPEC.02 // PYTHON DAEMON</span>
-              <span class="spec-status">● ACTIVE</span>
-            </div>
-            <div class="vault-card-img">
+            <!-- Project 2: Project Veronica -->
+            <article class="vault-card">
+              <div class="card-header-bar">
+                <div class="card-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <span>Kivice/veronica</span>
+              </div>
               <img
                 src="assets/images/project-veronica.svg"
-                alt="Project Veronica Audio Telemetry Interface"
+                alt="Project Veronica Voice Engine Architecture"
+                class="card-visual-img"
                 loading="lazy"
               />
-            </div>
-            <div class="vault-card-body">
-              <h3 class="vault-card-title">Project Veronica</h3>
-              <p class="vault-card-desc">
-                Lightweight Python desktop utility for real-time neural voice synthesis, Windows CoreAudio endpoint manipulation, and hardware telemetry monitoring.
-              </p>
-              <div class="vault-stack-pills">
-                <span>Python 3.13</span>
-                <span>Edge Neural TTS</span>
-                <span>CoreAudio</span>
-                <span>WebSockets</span>
-                <span>PSUtil</span>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span>Python 3.13 · Windows APIs · Audio</span>
+                  <span>02 / 04</span>
+                </div>
+                <h4 class="card-headline">Hands-Free Desktop Voice Assistant &amp; Telemetry</h4>
+                <p class="card-description">
+                  A lightweight Python desktop utility for hands-free computer control, hardware performance monitoring (CPU, RAM, network throughput), and Windows CoreAudio master volume control using low-latency neural speech synthesis.
+                </p>
+                <div class="card-tech-chips">
+                  <span>Python 3.13</span>
+                  <span>Edge Neural TTS</span>
+                  <span>Windows CoreAudio</span>
+                  <span>WebSockets</span>
+                </div>
+                <div class="card-actions">
+                  <a class="card-repo-btn" href="https://github.com/Kivice/veronica" target="_blank" rel="noopener noreferrer">
+                    View on GitHub ↗
+                  </a>
+                  <button class="card-spec-trigger" data-spec-trigger="veronica" type="button">
+                    Architecture Spec 📋
+                  </button>
+                </div>
               </div>
-              <div class="vault-card-actions">
-                <button
-                  class="vault-spec-btn"
-                  data-spec-trigger="veronica"
-                  type="button"
-                >
-                  Inspect Spec ↗
-                </button>
-                <a
-                  class="vault-github-btn"
-                  href="https://github.com/Kivice/veronica"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub Repository ↗
-                </a>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- CARD 3: International Healthcare Booking System -->
-          <article class="vault-card">
-            <div class="vault-card-header">
-              <span class="spec-id">SPEC.03 // CLINICAL WEB</span>
-              <span class="spec-status">● STABLE</span>
-            </div>
-            <div class="vault-card-img">
+            <!-- Project 3: International Healthcare Booking -->
+            <article class="vault-card">
+              <div class="card-header-bar">
+                <div class="card-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <span>Kivice/International-Healthcare-Booking-System</span>
+              </div>
               <img
                 src="assets/images/project-healthcare.svg"
-                alt="Healthcare Appointment Booking System"
+                alt="Clinical Booking Portal Architecture"
+                class="card-visual-img"
                 loading="lazy"
               />
-            </div>
-            <div class="vault-card-body">
-              <h3 class="vault-card-title">Healthcare Booking System</h3>
-              <p class="vault-card-desc">
-                Multi-page healthcare appointment booking web portal that connects patients with licensed clinical practitioners and medical departments by city.
-              </p>
-              <div class="vault-stack-pills">
-                <span>HTML5</span>
-                <span>CSS3 Grid</span>
-                <span>JavaScript</span>
-                <span>Responsive</span>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span>HTML5 · CSS3 Grid · JavaScript</span>
+                  <span>03 / 04</span>
+                </div>
+                <h4 class="card-headline">Doctor Directory &amp; Appointment Scheduling System</h4>
+                <p class="card-description">
+                  A multi-page healthcare appointment booking web portal that helps patients discover registered medical specialists, explore clinical departments (emergency triage, diagnostics, dental), and schedule visits by city.
+                </p>
+                <div class="card-tech-chips">
+                  <span>Semantic HTML5</span>
+                  <span>CSS3 Grid &amp; Flexbox</span>
+                  <span>JavaScript</span>
+                  <span>Mobile-First UI</span>
+                </div>
+                <div class="card-actions">
+                  <a class="card-repo-btn" href="https://github.com/Kivice/International-Healthcare-Booking-System" target="_blank" rel="noopener noreferrer">
+                    View on GitHub ↗
+                  </a>
+                  <button class="card-spec-trigger" data-spec-trigger="healthcare" type="button">
+                    Architecture Spec 📋
+                  </button>
+                </div>
               </div>
-              <div class="vault-card-actions">
-                <button
-                  class="vault-spec-btn"
-                  data-spec-trigger="healthcare"
-                  type="button"
-                >
-                  Inspect Spec ↗
-                </button>
-                <a
-                  class="vault-github-btn"
-                  href="https://github.com/Kivice/International-Healthcare-Booking-System"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub Repository ↗
-                </a>
-              </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- CARD 4: Xiaomi Bootloader Timing Utility -->
-          <article class="vault-card">
-            <div class="vault-card-header">
-              <span class="spec-id">SPEC.04 // NETWORK SCRIPT</span>
-              <span class="spec-status">● VERIFIED</span>
-            </div>
-            <div class="vault-card-img">
+            <!-- Project 4: Xiaomi Bootloader Timing Utility -->
+            <article class="vault-card">
+              <div class="card-header-bar">
+                <div class="card-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <span>Kivice/Xiaomi-HyperOS-Unlock-Script</span>
+              </div>
               <img
                 src="assets/images/project-hyperos.svg"
-                alt="Xiaomi Bootloader Timing Utility"
+                alt="Xiaomi Bootloader Timing Utility Interface"
+                class="card-visual-img"
                 loading="lazy"
               />
+              <div class="card-body">
+                <div class="card-meta">
+                  <span>Python · NTP Protocol · Sockets</span>
+                  <span>04 / 04</span>
+                </div>
+                <h4 class="card-headline">Network Latency &amp; Phase-Shift Fastboot Script</h4>
+                <p class="card-description">
+                  A specialized Python automation script using high-precision NTP network clock synchronization and phase-shifting latency compensation to dispatch fastboot unlock requests within millisecond boundary windows.
+                </p>
+                <div class="card-tech-chips">
+                  <span>Python</span>
+                  <span>NTP Synchronization</span>
+                  <span>Network Latency</span>
+                  <span>Fastboot Protocol</span>
+                </div>
+                <div class="card-actions">
+                  <a class="card-repo-btn" href="https://github.com/Kivice/Xiaomi-HyperOS-Unlock-Script" target="_blank" rel="noopener noreferrer">
+                    View on GitHub ↗
+                  </a>
+                  <button class="card-spec-trigger" data-spec-trigger="hyperos" type="button">
+                    Architecture Spec 📋
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. DISCIPLINES MATRIX -->
+      <section class="section-block shell" id="disciplines">
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow">CORE CAPABILITIES</p>
+            <h2 class="section-title">Three disciplines.<br /><span class="italic-flair">One unified mindset.</span></h2>
+          </div>
+          <span class="section-seq">03 — 04</span>
+        </div>
+
+        <div class="disciplines-grid">
+          <article class="discipline-card">
+            <div class="discipline-header">
+              <span class="discipline-num">01</span>
+              <span class="discipline-glyph">&lt;/&gt;</span>
             </div>
-            <div class="vault-card-body">
-              <h3 class="vault-card-title">Xiaomi Bootloader Utility</h3>
-              <p class="vault-card-desc">
-                High-precision network automation script compensating for round-trip latency and clock drift using NTP synchronization to hit unlock reset windows.
-              </p>
-              <div class="vault-stack-pills">
-                <span>Python</span>
-                <span>NTP Protocol</span>
-                <span>Network Sockets</span>
-                <span>Fastboot</span>
-              </div>
-              <div class="vault-card-actions">
-                <button
-                  class="vault-spec-btn"
-                  data-spec-trigger="hyperos"
-                  type="button"
-                >
-                  Inspect Spec ↗
-                </button>
-                <a
-                  class="vault-github-btn"
-                  href="https://github.com/Kivice/Xiaomi-HyperOS-Unlock-Script"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub Repository ↗
-                </a>
-              </div>
+            <h3>Web &amp; Full-Stack Engineering</h3>
+            <p>
+              Engineering accessible, high-performance web applications with clean component hierarchy, TypeScript type safety, and responsive CSS that avoids client-side bloat.
+            </p>
+            <div class="discipline-tags">
+              <span>TypeScript</span>
+              <span>Next.js</span>
+              <span>Node.js</span>
+              <span>Tailwind CSS</span>
+              <span>REST APIs</span>
+            </div>
+          </article>
+
+          <article class="discipline-card">
+            <div class="discipline-header">
+              <span class="discipline-num">02</span>
+              <span class="discipline-glyph">∑</span>
+            </div>
+            <h3>Applied Mathematics &amp; Algorithms</h3>
+            <p>
+              Leveraging theoretical foundations from Kirinyaga University—discrete mathematics, graph algorithms, linear algebra, numerical methods, and relational normalization.
+            </p>
+            <div class="discipline-tags">
+              <span>Discrete Math</span>
+              <span>Algorithms</span>
+              <span>3NF Relational SQL</span>
+              <span>Data Structures</span>
+              <span>Optimization</span>
+            </div>
+          </article>
+
+          <article class="discipline-card">
+            <div class="discipline-header">
+              <span class="discipline-num">03</span>
+              <span class="discipline-glyph">⚙</span>
+            </div>
+            <h3>Systems, Scripting &amp; Tooling</h3>
+            <p>
+              Automating manual workflows through Python scripts, operating system APIs, telemetry monitoring, Linux shell commands, and Dockerized deployments.
+            </p>
+            <div class="discipline-tags">
+              <span>Python 3</span>
+              <span>Linux Shell</span>
+              <span>Windows APIs</span>
+              <span>Docker</span>
+              <span>Git &amp; GitHub</span>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- SECTION 2: COMPUTATIONAL MATRIX & LAB (INTERACTIVE) -->
-      <section id="lab" class="container section-padding">
-        <div class="section-header">
-          <span class="section-tag">[ENGINEERING.LAB // LIVE CODE &amp; DISCIPLINE BENCH]</span>
-          <h2 class="section-title">The Computational Matrix.</h2>
-          <p class="section-lead">
-            Select a technical discipline below to inspect live algorithm implementations, data structures, and mathematical proofs powering my systems.
-          </p>
-        </div>
-
-        <div class="comp-lab-wrapper">
-          <div class="comp-lab-grid">
-            <!-- Left Tabs Menu -->
-            <div class="comp-menu">
-              <button class="comp-tab-btn is-active" data-lab-key="discrete" type="button">
-                <span class="comp-tab-num">01. ALGORITHMIC THEORY</span>
-                <h4 class="comp-tab-title">Discrete Math &amp; Graph Topology</h4>
-                <p class="comp-tab-desc">Dijkstra, Tarjan SCC, adjacency matrix traversal, and shortest-path calculation.</p>
-              </button>
-
-              <button class="comp-tab-btn" data-lab-key="audio" type="button">
-                <span class="comp-tab-num">02. KERNEL &amp; SOUND APIS</span>
-                <h4 class="comp-tab-title">Low-Latency Audio Daemons</h4>
-                <p class="comp-tab-desc">Streaming Edge neural speech over Windows CoreAudio with endpoint volume manipulation.</p>
-              </button>
-
-              <button class="comp-tab-btn" data-lab-key="database" type="button">
-                <span class="comp-tab-num">03. DATA ARCHITECTURE</span>
-                <h4 class="comp-tab-title">Relational 3NF Schema Design</h4>
-                <p class="comp-tab-desc">Third Normal Form normalization, multi-table index vectors, and query optimization.</p>
-              </button>
-
-              <button class="comp-tab-btn" data-lab-key="ntp" type="button">
-                <span class="comp-tab-num">04. PROTOCOL SCHEDULING</span>
-                <h4 class="comp-tab-title">NTP Phase-Shift Timing</h4>
-                <p class="comp-tab-desc">Hardware clock drift calculation and millisecond packet boundary synchronization.</p>
-              </button>
-            </div>
-
-            <!-- Right Code Viewer -->
-            <div class="comp-viewer">
-              <div class="comp-viewer-header">
-                <span id="comp-viewer-file">math/graphs/dijkstra_optimized.py</span>
-                <span id="comp-viewer-runtime">Python 3.13 / Heapq</span>
-              </div>
-              <div class="comp-viewer-content">
-                <pre id="comp-viewer-code">import heapq
-
-def dijkstra_shortest_path(graph: dict, start: str, target: str) -> tuple[float, list]:
-    """
-    Computes optimal low-latency route across weighted graph topology.
-    Time Complexity: O((V + E) log V) using min-priority heap.
-    """
-    distances = {vertex: float('infinity') for vertex in graph}
-    distances[start] = 0.0
-    pq = [(0.0, start, [start])]
-
-    while pq:
-        curr_dist, curr_u, path = heapq.heappop(pq)
-        if curr_u == target:
-            return curr_dist, path
-        if curr_dist > distances[curr_u]:
-            continue
-
-        for neighbor, weight in graph[curr_u].items():
-            cost = curr_dist + weight
-            if cost < distances[neighbor]:
-                distances[neighbor] = cost
-                heapq.heappush(pq, (cost, neighbor, path + [neighbor]))
-
-    return float('infinity'), []</pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 3: DATAFLOW WORKBENCH (INTERACTIVE) -->
-      <section id="workbench" class="container section-padding">
-        <div class="section-header">
-          <span class="section-tag">[SYSTEMS.DATAFLOW // WORKBENCH PIPELINE]</span>
-          <h2 class="section-title">Interactive Dataflow Workbench.</h2>
-          <p class="section-lead">
-            Trace how data transforms through each stage of my production systems from client ingestion to hardware execution.
-          </p>
-        </div>
-
-        <div class="workbench-box">
-          <!-- System Selector Tabs -->
-          <div class="workbench-tabs">
-            <button class="workbench-tab-btn is-active" data-wb-key="xpower" type="button">
-              X Power Program Kenya
-            </button>
-            <button class="workbench-tab-btn" data-wb-key="veronica" type="button">
-              Project Veronica (Voice)
-            </button>
-            <button class="workbench-tab-btn" data-wb-key="healthcare" type="button">
-              Healthcare Booking Portal
-            </button>
-            <button class="workbench-tab-btn" data-wb-key="hyperos" type="button">
-              Xiaomi Bootloader Utility
-            </button>
-          </div>
-
-          <!-- Dynamic Pipeline Steps -->
-          <div class="workbench-pipeline" id="workbench-pipeline-steps">
-            <div class="pipeline-step">
-              <span class="pipeline-step-num">01. TALENT INGESTION</span>
-              <h4>Candidate Vector Extraction</h4>
-              <p>User credentials, county data, and verified tech skills parsed into normalized records.</p>
-            </div>
-            <div class="pipeline-step">
-              <span class="pipeline-step-num">02. SCORING MATRIX</span>
-              <h4>100-Point Match Algorithm</h4>
-              <p>Weighted dot-product comparison against active corporate vacancy requirements.</p>
-            </div>
-            <div class="pipeline-step">
-              <span class="pipeline-step-num">03. ROUTING &amp; DISPATCH</span>
-              <h4>Instant Notification Pipe</h4>
-              <p>Compatible candidates routed directly to verified corporate interview boards.</p>
-            </div>
-          </div>
-
-          <!-- Telemetry Footer Bar -->
-          <div class="workbench-telemetry-row">
-            <div>LATENCY: <strong id="telemetry-latency">&lt; 32 ms</strong></div>
-            <div>FOOTPRINT: <strong id="telemetry-footprint">16 MB</strong></div>
-            <div>PROTOCOL: <strong id="telemetry-protocol">Next.js / PostgreSQL</strong></div>
-            <div>STATUS: <strong id="telemetry-status">Active in Production</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 4: ACADEMIC FOUNDATION & PROFILE -->
-      <section id="academic" class="container section-padding">
-        <div class="academic-grid">
-          <!-- Left: Academic Credentials Box -->
-          <div class="academic-card">
-            <div class="academic-avatar-circle">
-              <img
-                src="assets/images/avatar.svg"
-                alt="Philip Maina Official Avatar"
-                style="width: 100%; height: 100%; object-fit: cover;"
-              />
-            </div>
-            <h3 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 4px;">Philip Maina</h3>
-            <p style="color: var(--accent); font-weight: 700; font-size: 0.92rem; margin-bottom: 8px;">
-              @Kivice // Kenya
-            </p>
-            <p style="color: var(--ink-secondary); font-size: 0.9rem; line-height: 1.45; margin-bottom: 16px;">
-              BSc Mathematics &amp; Computer Science<br />Kirinyaga University, Kenya
-            </p>
-
-            <div style="background: var(--bg-elevated); padding: 12px; border-radius: 8px; font-family: var(--font-mono); font-size: 0.85rem;">
-              <span>📞 +254 708 746 611</span>
-            </div>
-          </div>
-
-          <!-- Right: Rigor & Systems Craft Story -->
+      <!-- 6. ACADEMIC & TECHNICAL JOURNEY -->
+      <section class="section-block shell" id="journey">
+        <div class="section-head">
           <div>
-            <span class="section-tag">[ACADEMIC.RIGOR // MATHEMATICAL THINKING]</span>
-            <h2 class="section-title">Where abstract mathematics meets dependable software.</h2>
-
-            <p style="font-size: 1.15rem; color: var(--ink-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-              I study <strong>Mathematics and Computer Science at Kirinyaga University</strong>. Many web developers learn tools by trial and error; studying advanced discrete mathematics, proof structures, linear algebra, and numerical analysis gives me a fundamental advantage: I reason about algorithms mathematically before writing a single line of code.
-            </p>
-
-            <p style="font-size: 1.05rem; color: var(--ink-secondary); line-height: 1.7;">
-              Whether writing candidate compatibility algorithms for Kenya's workforce or low-latency desktop daemons, I prioritize mathematical correctness, strict type guarantees, and zero unnecessary runtime dependencies.
-            </p>
-
-            <div class="stat-counters-row">
-              <div class="stat-counter">
-                <h3>53+</h3>
-                <p>GitHub Repositories</p>
-              </div>
-              <div class="stat-counter">
-                <h3>B.Sc</h3>
-                <p>Math &amp; CS (Kirinyaga)</p>
-              </div>
-              <div class="stat-counter">
-                <h3>100%</h3>
-                <p>Hand-Crafted Code</p>
-              </div>
-            </div>
+            <p class="section-eyebrow">MILESTONES &amp; EVOLUTION</p>
+            <h2 class="section-title">Academic &amp; engineering <span class="italic-flair">timeline.</span></h2>
           </div>
+          <span class="section-seq">04 — 04</span>
         </div>
-      </section>
 
-      <!-- SECTION 5: THE ZERO-BLOAT PERFORMANCE MANIFESTO -->
-      <section id="manifesto" class="container section-padding">
-        <div style="max-width: 860px; margin: 0 auto;">
-          <div class="section-header" style="text-align: center;">
-            <span class="section-tag">[MANIFESTO // PERFORMANCE ARCHITECTURE]</span>
-            <h2 class="section-title">The Case Against Web Bloat.</h2>
-            <p class="section-lead" style="margin: 0 auto;">
-              Why shipping 3MB of JavaScript runtime for static content is an engineering failure—and how applied mathematics restores instant performance.
-            </p>
-          </div>
-
-          <table class="matrix-comparison-table" aria-label="Comparison Table">
-            <thead>
-              <tr>
-                <th>ENGINEERING METRIC</th>
-                <th>TYPICAL FRAMEWORK SITE</th>
-                <th style="color: var(--accent);">PHILIP MAINA ARCHITECTURE</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Total Payload Size</strong></td>
-                <td>2.8 MB – 5.5 MB (Heavy npm trees)</td>
-                <td style="color: var(--emerald); font-weight: 700;">&lt; 35 KB (Pure Semantic Engine)</td>
-              </tr>
-              <tr>
-                <td><strong>First Input Delay (FID)</strong></td>
-                <td>180 ms – 450 ms (Main thread locked)</td>
-                <td style="color: var(--emerald); font-weight: 700;">&lt; 16 ms (Instant 60fps response)</td>
-              </tr>
-              <tr>
-                <td><strong>Execution Latency</strong></td>
-                <td>1,200 ms (JIT bundle hydration)</td>
-                <td style="color: var(--emerald); font-weight: 700;">~28 ms (Immediate Native Parsing)</td>
-              </tr>
-              <tr>
-                <td><strong>Network Compatibility</strong></td>
-                <td>Requires high-bandwidth broadband</td>
-                <td style="color: var(--emerald); font-weight: 700;">Optimized for metered 3G/4G in Kenya</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- SECTION 6: DISPATCH TERMINAL (CONNECT) -->
-      <section id="dispatch" class="container section-padding">
-        <div class="dispatch-terminal">
-          <div class="dispatch-grid">
-            <!-- Left Info -->
-            <div>
-              <span class="section-tag" style="color: var(--accent);">[TERMINAL.CONNECT // DIRECT DISPATCH]</span>
-              <h2 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem;">
-                Let’s talk code and<br />
-                <span class="text-accent">mathematics.</span>
-              </h2>
-              <p style="color: #94a3b8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.8rem;">
-                Available for software engineering internships, technical collaborations, and discussion on applied mathematics and low-latency systems.
+        <div class="timeline-block">
+          <div class="timeline-node">
+            <div class="node-bullet"></div>
+            <div class="node-card">
+              <span class="node-date">CURRENT UNDERGRADUATE STUDIES</span>
+              <h3>Kirinyaga University — BSc Mathematics &amp; Computer Science</h3>
+              <div class="node-institution">Kenya · Ongoing Studies</div>
+              <p>
+                Studying core mathematical principles, computational complexity, discrete structures, numerical analysis, database systems, and software engineering methodologies.
               </p>
-              <a
-                href="mailto:philipmaina637@gmail.com"
-                class="btn-primary"
-                style="background: var(--accent); border-color: var(--accent);"
-              >
-                Send Direct Email ↗
-              </a>
             </div>
+          </div>
 
-            <!-- Right Dispatch Channels -->
-            <div class="dispatch-channels-list">
-              <a href="https://wa.me/254708746611" target="_blank" rel="noopener noreferrer" class="channel-item">
-                <i class="ph ph-whatsapp-logo"></i>
-                <div class="channel-meta">
-                  <h5>WhatsApp &amp; Direct Phone</h5>
-                  <span>+254 708 746 611</span>
-                </div>
-              </a>
+          <div class="timeline-node">
+            <div class="node-bullet"></div>
+            <div class="node-card">
+              <span class="node-date">2024 — 2025</span>
+              <h3>Project Veronica Voice Engine</h3>
+              <div class="node-institution">Python Desktop Tooling</div>
+              <p>
+                Built a hands-free desktop voice assistant in Python integrating Microsoft Edge neural text-to-speech with Windows CoreAudio volume endpoints and live per-core CPU/RAM telemetry tracking.
+              </p>
+            </div>
+          </div>
 
-              <div class="channel-item" style="cursor: pointer;" id="copy-email-btn">
-                <i class="ph ph-envelope-simple"></i>
-                <div class="channel-meta">
-                  <h5>Direct Email (Click to Copy)</h5>
-                  <span>philipmaina637@gmail.com</span>
-                </div>
-              </div>
-
-              <a href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer" class="channel-item">
-                <i class="ph ph-github-logo"></i>
-                <div class="channel-meta">
-                  <h5>GitHub Repositories</h5>
-                  <span>github.com/Kivice (53+ repos)</span>
-                </div>
-              </a>
-
-              <a href="resume.html" class="channel-item">
-                <i class="ph ph-file-text"></i>
-                <div class="channel-meta">
-                  <h5>Curriculum Vitae / Formal Resume</h5>
-                  <span>View &amp; Print CV ↗</span>
-                </div>
-              </a>
+          <div class="timeline-node">
+            <div class="node-bullet"></div>
+            <div class="node-card">
+              <span class="node-date">2025</span>
+              <h3>X Power Program Kenya</h3>
+              <div class="node-institution">Next.js &amp; Relational Employment Platform</div>
+              <p>
+                Engineered an employment matching engine to solve hiring friction in Kenya, implementing transparent compatibility scoring, employer verification workflows, and mobile-first layouts.
+              </p>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- SITE FOOTER -->
-        <footer class="site-footer">
-          <div class="footer-row">
-            <div>
-              <strong style="color: var(--ink);">Philip Maina (@Kivice)</strong> · Kirinyaga University · Kenya
-            </div>
-            <div class="footer-nav">
-              <a href="#vault">Vault</a>
-              <a href="#lab">Lab</a>
-              <a href="#workbench">Workbench</a>
-              <a href="resume.html">CV / Resume</a>
-              <a href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
+      <!-- 7. CONTACT SECTION -->
+      <section class="section-block shell" id="contact">
+        <div class="contact-container">
+          <p class="section-eyebrow">FAST CONNECT</p>
+          <h2>Have a project in mind?<br />Let’s build something <span class="italic-flair">useful.</span></h2>
+          <p>
+            Whether you are looking for software engineering internships, technical collaborations, or discussion on applied mathematics and web performance—reach out directly.
+          </p>
+
+          <div class="email-dispatch-bar">
+            <span class="email-text-disp">philipmaina637@gmail.com</span>
+            <button class="copy-pill-btn" id="copy-email-btn" type="button">Copy 📋</button>
           </div>
-        </footer>
+
+          <div class="contact-button-row">
+            <a class="btn-primary" href="mailto:philipmaina637@gmail.com">
+              Send Direct Email ↗
+            </a>
+            <a class="btn-secondary" href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">
+              GitHub: @Kivice ↗
+            </a>
+            <a class="btn-secondary" href="https://wa.me/254708746611" target="_blank" rel="noopener noreferrer">
+              WhatsApp (+254 708 746 611) ↗
+            </a>
+          </div>
+        </div>
       </section>
     </main>
+
+    <!-- SITE FOOTER -->
+    <footer class="main-footer">
+      <div class="shell footer-row">
+        <div>
+          <strong style="color: var(--ink);">Philip Maina (@Kivice)</strong> · Kirinyaga University · Kenya
+        </div>
+        <div class="footer-nav">
+          <a href="#home">Back to Top ↑</a>
+          <a href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="resume.html">CV / Resume</a>
+          <a href="https://kivice.github.io/">GitHub Pages</a>
+        </div>
+      </div>
+    </footer>
 
     <!-- ARCHITECTURAL SPEC MODAL -->
     <div
@@ -716,7 +660,7 @@ def dijkstra_shortest_path(graph: dict, start: str, target: str) -> tuple[float,
 
     <!-- PORTFOLIO ASSISTANT CHAT BOT -->
     <button class="chat-launcher-btn" id="chat-launcher-btn" type="button" aria-label="Open portfolio assistant chat">
-      <i class="ph ph-chat-teardrop-dots" style="font-size: 1.25rem;"></i>
+      <span class="chat-icon">💬</span>
       <span>Ask Philip's Assistant</span>
     </button>
 
@@ -734,7 +678,7 @@ def dijkstra_shortest_path(graph: dict, start: str, target: str) -> tuple[float,
 
       <div class="chat-messages" id="chat-messages">
         <div class="chat-bubble bot">
-          Hello! I'm Philip's portfolio assistant. Ask me anything about Philip's academic studies at Kirinyaga University, his software projects, technical skills, or direct contact details.
+          Hello! I'm Philip's portfolio assistant. Ask me anything about Philip's academic background at Kirinyaga University, his technical projects, skills, or direct contact information.
           <div class="chat-chips-row">
             <button class="chat-chip" data-query="education" type="button">🎓 Education</button>
             <button class="chat-chip" data-query="projects" type="button">💼 Projects</button>
