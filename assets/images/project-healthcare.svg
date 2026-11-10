@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hc-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="hc-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <filter id="hc-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="380" fill="url(#hc-bg)" rx="16" />
+
+  <!-- Grid Pattern -->
+  <g opacity="0.07" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="50" x2="600" y2="50" />
+    <line x1="0" y1="100" x2="600" y2="100" />
+    <line x1="0" y1="150" x2="600" y2="150" />
+    <line x1="0" y1="200" x2="600" y2="200" />
+    <line x1="0" y1="250" x2="600" y2="250" />
+    <line x1="0" y1="300" x2="600" y2="300" />
+    <line x1="0" y1="350" x2="600" y2="350" />
+    <line x1="50" y1="0" x2="50" y2="380" />
+    <line x1="100" y1="0" x2="100" y2="380" />
+    <line x1="150" y1="0" x2="150" y2="380" />
+    <line x1="200" y1="0" x2="200" y2="380" />
+    <line x1="250" y1="0" x2="250" y2="380" />
+    <line x1="300" y1="0" x2="300" y2="380" />
+    <line x1="350" y1="0" x2="350" y2="380" />
+    <line x1="400" y1="0" x2="400" y2="380" />
+    <line x1="450" y1="0" x2="450" y2="380" />
+    <line x1="500" y1="0" x2="500" y2="380" />
+    <line x1="550" y1="0" x2="550" y2="380" />
+  </g>
+
+  <!-- App Window -->
+  <rect x="28" y="24" width="544" height="332" rx="12" fill="#0b1324" stroke="#2a3854" stroke-width="1" filter="url(#hc-shadow)" />
+  
+  <!-- Browser Header -->
+  <rect x="28" y="24" width="544" height="38" rx="12" fill="#17223b" />
+  <rect x="28" y="50" width="544" height="12" fill="#17223b" />
+  <circle cx="48" cy="43" r="5" fill="#ef4444" />
+  <circle cx="64" cy="43" r="5" fill="#f59e0b" />
+  <circle cx="80" cy="43" r="5" fill="#10b981" />
+  <rect x="105" y="34" width="250" height="18" rx="6" fill="#0b1324" />
+  <text x="115" y="47" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94a3b8">healthportal.global/appointments/schedule</text>
+  <rect x="466" y="34" width="90" height="18" rx="9" fill="rgba(37,99,235,0.18)" stroke="#3b82f6" stroke-width="0.8" />
+  <text x="477" y="46.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#60a5fa">CLINICAL PORTAL</text>
+
+  <!-- Search & Filter Bar -->
+  <rect x="52" y="78" width="496" height="42" rx="8" fill="#132039" stroke="#253556" stroke-width="1" />
+  <text x="70" y="104" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#94a3b8">🔍  Search Specialist (e.g. Cardiology, Orthopedic, Oncology)...</text>
+  <rect x="444" y="86" width="92" height="26" rx="6" fill="url(#hc-blue)" />
+  <text x="464" y="103" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#ffffff">Filter ↗</text>
+
+  <!-- Left: Doctor Directory Card -->
+  <rect x="52" y="132" width="270" height="204" rx="8" fill="#111c33" stroke="#223354" stroke-width="1" />
+  <circle cx="84" cy="168" r="18" fill="#1e3a8a" />
+  <text x="76" y="174" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#60a5fa">DR</text>
+  <text x="112" y="162" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#f8fafc">Dr. Evans Kimani</text>
+  <text x="112" y="176" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#94a3b8">Chief Clinical Cardiologist</text>
+  <text x="112" y="190" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#10b981">★ 4.9 · 14 yrs experience</text>
+
+  <line x1="68" y1="206" x2="306" y2="206" stroke="#1e2c48" stroke-width="1" />
+
+  <!-- Department Badges -->
+  <rect x="68" y="218" width="70" height="20" rx="4" fill="#1e293b" />
+  <text x="76" y="232" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#93c5fd">Cardiology</text>
+
+  <rect x="144" y="218" width="78" height="20" rx="4" fill="#1e293b" />
+  <text x="152" y="232" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#93c5fd">Diagnostics</text>
+
+  <rect x="228" y="218" width="78" height="20" rx="4" fill="#1e293b" />
+  <text x="236" y="232" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#93c5fd">Emergency</text>
+
+  <!-- Clinic Location Info -->
+  <text x="68" y="264" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94a3b8">📍 Nairobi Central Hospital, 4th Floor</text>
+  <text x="68" y="280" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94a3b8">⏱ Consultation Duration: 45 mins</text>
+
+  <rect x="68" y="296" width="238" height="26" rx="6" fill="url(#hc-blue)" />
+  <text x="142" y="313" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#ffffff">Confirm Booking ↗</text>
+
+  <!-- Right: Appointment Slot Picker -->
+  <rect x="334" y="132" width="214" height="204" rx="8" fill="#111c33" stroke="#223354" stroke-width="1" />
+  <text x="350" y="156" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700" fill="#f8fafc">Available Time Slots</text>
+  <text x="350" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#94a3b8">Tuesday, 10 November 2026</text>
+
+  <!-- Slots Grid -->
+  <rect x="350" y="186" width="88" height="26" rx="4" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1" />
+  <text x="364" y="203" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#ffffff">09:30 AM ✓</text>
+
+  <rect x="446" y="186" width="88" height="26" rx="4" fill="#1e2c48" />
+  <text x="466" y="203" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94a3b8">11:00 AM</text>
+
+  <rect x="350" y="220" width="88" height="26" rx="4" fill="#1e2c48" />
+  <text x="366" y="237" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94a3b8">02:15 PM</text>
+
+  <rect x="446" y="220" width="88" height="26" rx="4" fill="#1e2c48" />
+  <text x="466" y="237" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94a3b8">04:00 PM</text>
+
+  <rect x="350" y="258" width="184" height="64" rx="6" fill="#17223b" />
+  <text x="362" y="278" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#38bdf8">INSTANT SMS NOTIFICATION</text>
+  <text x="362" y="294" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Appointment dispatched directly</text>
+  <text x="362" y="308" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">to registered phone &amp; email.</text>
+</svg>

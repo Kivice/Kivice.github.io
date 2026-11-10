@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f" />
+      <stop offset="100%" stop-color="#14141e" />
+    </linearGradient>
+    <linearGradient id="hp-amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <filter id="hp-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="380" fill="url(#hp-bg)" rx="16" />
+
+  <!-- Terminal Window Container -->
+  <rect x="28" y="24" width="544" height="332" rx="12" fill="#08080c" stroke="#262635" stroke-width="1" filter="url(#hp-shadow)" />
+  
+  <!-- Terminal Header -->
+  <rect x="28" y="24" width="544" height="38" rx="12" fill="#14141e" />
+  <rect x="28" y="50" width="544" height="12" fill="#14141e" />
+  <circle cx="48" cy="43" r="5" fill="#ef4444" />
+  <circle cx="64" cy="43" r="5" fill="#f59e0b" />
+  <circle cx="80" cy="43" r="5" fill="#10b981" />
+  <text x="105" y="47" font-family="'JetBrains Mono', monospace, Consolas, sans-serif" font-size="10.5" fill="#a1a1aa">kivice@kirinyaga-sys: ~/tools/xiaomi-hyperos-unlock.py</text>
+  <rect x="466" y="34" width="90" height="18" rx="9" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="0.8" />
+  <text x="477" y="46.5" font-family="'JetBrains Mono', monospace, Consolas, sans-serif" font-size="9" font-weight="700" fill="#f59e0b">NTP SYNCED</text>
+
+  <!-- Left: Monospace Terminal Shell -->
+  <g font-family="'JetBrains Mono', monospace, Consolas, sans-serif" font-size="10" fill="#e4e4e7">
+    <text x="48" y="90" fill="#a1a1aa"># Initializing multi-server NTP synchronization...</text>
+    <text x="48" y="110"><tspan fill="#38bdf8">[INFO]</tspan> Polling server: time.google.com | Offset: <tspan fill="#10b981">+1.12ms</tspan></text>
+    <text x="48" y="130"><tspan fill="#38bdf8">[INFO]</tspan> Polling server: pool.ntp.org    | Offset: <tspan fill="#10b981">+1.18ms</tspan></text>
+    <text x="48" y="150"><tspan fill="#38bdf8">[INFO]</tspan> Estimated jitter variance: <tspan fill="#f59e0b">0.06ms</tspan> (Jitter compensated)</text>
+    
+    <text x="48" y="180" fill="#a1a1aa"># Calculating fastboot unlock payload window...</text>
+    <text x="48" y="200"><tspan fill="#f59e0b">[QUEUE]</tspan> Target window boundary: <tspan fill="#ffffff">00:00:00.000 UTC</tspan></text>
+    <text x="48" y="220"><tspan fill="#f59e0b">[QUEUE]</tspan> Phase-shift delay:      <tspan fill="#ffffff">18.42ms pre-dispatch</tspan></text>
+    <text x="48" y="240"><tspan fill="#10b981">[DISPATCH]</tspan> Sending token to fastboot USB endpoint...</text>
+    <text x="48" y="260"><tspan fill="#10b981">[SUCCESS]</tspan> Server response: <tspan fill="#10b981">HTTP 200 OK // STATUS: APPROVED</tspan></text>
+    <text x="48" y="280" fill="#a1a1aa">Execution duration: 22ms | Memory footprint: 12MB</text>
+    <text x="48" y="304" fill="#f59e0b">kivice@kirinyaga-sys:~$ <tspan fill="#ffffff">_</tspan></text>
+  </g>
+
+  <!-- Right: Timing Telemetry Card -->
+  <rect x="382" y="78" width="170" height="258" rx="8" fill="#101018" stroke="#1f1f2e" stroke-width="1" />
+  <text x="398" y="104" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#f4f4f5">Latency Metrics</text>
+
+  <!-- Clock Drift Pill -->
+  <rect x="398" y="122" width="138" height="50" rx="6" fill="#181824" />
+  <text x="410" y="142" font-family="'JetBrains Mono', monospace" font-size="9" fill="#a1a1aa">CLOCK DRIFT</text>
+  <text x="410" y="160" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#10b981">&lt; 0.08 ms</text>
+
+  <!-- Request Phase Pill -->
+  <rect x="398" y="184" width="138" height="50" rx="6" fill="#181824" />
+  <text x="410" y="204" font-family="'JetBrains Mono', monospace" font-size="9" fill="#a1a1aa">PHASE OFFSET</text>
+  <text x="410" y="222" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#f59e0b">-18.42 ms</text>
+
+  <!-- Fastboot USB Status -->
+  <rect x="398" y="246" width="138" height="74" rx="6" fill="#181824" />
+  <text x="410" y="268" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#38bdf8">ENDPOINT STATE</text>
+  <text x="410" y="286" font-family="'JetBrains Mono', monospace" font-size="9" fill="#a1a1aa">Protocol: Fastboot</text>
+  <text x="410" y="302" font-family="'JetBrains Mono', monospace" font-size="9" fill="#a1a1aa">ACK: 0x0001 Verified</text>
+</svg>

@@ -1,83 +1,204 @@
 /**
- * PHILIP MAINA (@KIVICE) — PORTFOLIO CONTROLLER
- * Ultra-Smooth Interactive Controller: Zero-Lag, Theme, Menu, Contact Copy, Architecture Drawer
- * Built for performance, accessibility, and zero bloat.
+ * PHILIP MAINA (@KIVICE) — ELEVATED PORTFOLIO CONTROLLER
+ * Ultra-Smooth Interactions, Scroll Arc Fanning, Theme Engine, Architectural Drawer & Chatbot
+ * Applied Mathematics & Systems Engineering at Kirinyaga University, Kenya
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. THEME ENGINE (DUAL MODE: LIGHT EDITORIAL / DARK MIDNIGHT) ---
+  // --- 1. PRELOADER DISMISS ---
+  const preloader = document.getElementById("preloader");
+  const dismissPreloader = () => {
+    if (!preloader) return;
+    preloader.classList.add("fade-out");
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 450);
+  };
+  window.addEventListener("load", dismissPreloader);
+  setTimeout(dismissPreloader, 1200); // Fail-safe fallback
+
+  // --- 2. DUAL THEME ENGINE (LIGHT EDITORIAL / MIDNIGHT DARK) ---
   const themeToggle = document.getElementById("theme-toggle");
-  const storedTheme = localStorage.getItem("philip-portfolio-theme");
-  const initialTheme = storedTheme || "light"; // Default to CarlTech-style light paper
-  
-  document.documentElement.setAttribute("data-theme", initialTheme);
-  updateThemeIcon(initialTheme);
+  const storedTheme = localStorage.getItem("philip-portfolio-theme") || "light";
+  document.documentElement.setAttribute("data-theme", storedTheme);
+  updateThemeButton(storedTheme);
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-      const active = document.documentElement.getAttribute("data-theme");
-      const next = active === "dark" ? "light" : "dark";
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);
       localStorage.setItem("philip-portfolio-theme", next);
-      updateThemeIcon(next);
+      updateThemeButton(next);
     });
   }
 
-  function updateThemeIcon(theme) {
+  function updateThemeButton(theme) {
     if (!themeToggle) return;
-    themeToggle.innerHTML = theme === "dark" ? "☀️" : "🌙";
-    themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    themeToggle.innerHTML = theme === "dark" ? "☀️ Light" : "🌙 Dark";
+    themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
   }
 
-  // --- 2. LIVE NAIROBI CLOCK (EAT / UTC+3) ---
-  const timeEl = document.getElementById("live-eat-time");
-  function updateNairobiTime() {
-    if (!timeEl) return;
+  // --- 3. LIVE NAIROBI CLOCK (EAT / UTC+3) ---
+  const clockEl = document.getElementById("live-eat-time");
+  function updateNairobiClock() {
+    if (!clockEl) return;
     try {
       const now = new Date();
       const options = { timeZone: "Africa/Nairobi", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true };
-      timeEl.textContent = `Nairobi ${new Intl.DateTimeFormat([], options).format(now)} EAT`;
+      clockEl.textContent = `Nairobi ${new Intl.DateTimeFormat([], options).format(now)} EAT`;
     } catch (e) {
-      timeEl.textContent = "Nairobi (UTC+3)";
+      clockEl.textContent = "Nairobi (UTC+3)";
     }
   }
-  updateNairobiTime();
-  setInterval(updateNairobiTime, 1000);
+  updateNairobiClock();
+  setInterval(updateNairobiClock, 1000);
 
-  // --- 3. MOBILE MENU CONTROLLER ---
-  const menuToggle = document.getElementById("mobile-toggle") || document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
+  // --- 4. MOBILE NAVIGATION CONTROLLER ---
+  const mobileToggle = document.getElementById("mobile-toggle");
+  const navMenu = document.getElementById("navbar-nav");
 
-  function closeMenu() {
-    if (!menuToggle || !navLinks) return;
-    menuToggle.setAttribute("aria-expanded", "false");
-    navLinks.classList.remove("is-open");
-    document.body.classList.remove("menu-open");
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("is-open");
+      mobileToggle.innerHTML = isOpen ? "✕" : "☰";
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("is-open");
+        mobileToggle.innerHTML = "☰";
+        mobileToggle.setAttribute("aria-expanded", "false");
+      });
+    });
   }
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
-      navLinks.classList.toggle("is-open", !isExpanded);
-      document.body.classList.toggle("menu-open", !isExpanded);
-    });
+  // --- 5. SCROLLSPY (ACTIVE NAV HIGHLIGHT) ---
+  const spySections = ["work", "about", "services", "manifesto", "contacts"]
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const navLinks = document.querySelectorAll(".nav-link");
 
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
-        closeMenu();
-        menuToggle.focus();
+  function updateScrollSpy() {
+    let currentId = "work";
+    const line = window.innerHeight * 0.35;
+    spySections.forEach(section => {
+      if (section.getBoundingClientRect().top <= line) {
+        currentId = section.getAttribute("id");
       }
     });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10) {
+      currentId = "contacts";
+    }
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+      link.classList.toggle("active", href === `#${currentId}`);
+    });
   }
 
-  // --- 3. ARCHITECTURAL CASE STUDY DRAWER (GROUNDED TECHNICAL SPECS) ---
+  // --- 6. UI/UX SCROLL-LINKED ARC FANNING (COLLINS INSPIRATION) ---
+  const uiuxContainer = document.querySelector(".uiux-scroll-container");
+  const uiuxSticky = document.querySelector(".uiux-sticky-content");
+  const arcItems = document.querySelectorAll(".arc-item");
+
+  const arcTargets = [
+    { x: -34, y: 4,   rot: -32, scale: 0.85 },
+    { x: -17, y: -6,  rot: -16, scale: 0.95 },
+    { x: 0,   y: -10, rot: 0,   scale: 1.1  },
+    { x: 17,  y: -6,  rot: 16,  scale: 0.95 },
+    { x: 34,  y: 4,   rot: 32,  scale: 0.85 }
+  ];
+
+  let arcCurrent = 0;
+  let arcTarget = 0;
+  let arcRaf = 0;
+  let arcLast = 0;
+  let arcInView = false;
+
+  const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+
+  function measureArcProgress() {
+    if (!uiuxContainer || !uiuxSticky) return;
+    const distance = uiuxContainer.offsetHeight - uiuxSticky.offsetHeight;
+    arcTarget = distance > 0 ? clamp(-uiuxContainer.getBoundingClientRect().top / distance, 0, 1) : 0;
+  }
+
+  function paintArc(progress) {
+    const isMobile = window.innerWidth < 768;
+    const spread = isMobile ? 0.6 : 1;
+
+    arcItems.forEach((item, i) => {
+      const t = arcTargets[i];
+      if (!t) return;
+      const stagger = i * 0.1;
+      const p = clamp((progress - stagger) / (1 - stagger), 0, 1);
+      const e = 1 - Math.pow(1 - p, 3); // Smooth cubic ease-out
+
+      const x = t.x * spread * e;
+      const y = t.y * e + (1 - e) * 50;
+      const r = t.rot * e;
+      const s = 0.3 + ((t.scale * (isMobile ? 0.8 : 1)) - 0.3) * e;
+
+      item.style.transform = `translate(-50%, -50%) translate3d(${x}vw, ${y}vh, 0) rotate(${r}deg) scale(${s})`;
+      item.style.opacity = Math.min(1, p * 2.5).toFixed(3);
+    });
+  }
+
+  function arcTick(now) {
+    const dt = Math.min((now - arcLast) / 1000, 0.05);
+    arcLast = now;
+    arcCurrent += (arcTarget - arcCurrent) * (1 - Math.exp(-dt * 9));
+    if (Math.abs(arcTarget - arcCurrent) < 0.0004) arcCurrent = arcTarget;
+    paintArc(arcCurrent);
+    arcRaf = arcCurrent === arcTarget ? 0 : requestAnimationFrame(arcTick);
+  }
+
+  function requestArc() {
+    measureArcProgress();
+    if (!arcRaf) {
+      arcLast = performance.now();
+      arcRaf = requestAnimationFrame(arcTick);
+    }
+  }
+
+  if (uiuxContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      arcInView = entries[0].isIntersecting;
+      if (arcInView) requestArc();
+      else {
+        measureArcProgress();
+        arcCurrent = arcTarget;
+        paintArc(arcCurrent);
+      }
+    }, { rootMargin: "200px 0px" });
+    observer.observe(uiuxContainer);
+    measureArcProgress();
+    arcCurrent = arcTarget;
+    paintArc(arcCurrent);
+  }
+
+  // Unified rAF-batched scroll listener
+  let isScrolling = false;
+  window.addEventListener("scroll", () => {
+    if (isScrolling) return;
+    isScrolling = true;
+    requestAnimationFrame(() => {
+      isScrolling = false;
+      updateScrollSpy();
+      if (arcInView) requestArc();
+    });
+  }, { passive: true });
+
+  window.addEventListener("resize", () => {
+    updateScrollSpy();
+    measureArcProgress();
+    if (!arcRaf) { arcCurrent = arcTarget; paintArc(arcCurrent); }
+  }, { passive: true });
+
+  // --- 7. ARCHITECTURAL CASE STUDY DRAWER (GROUNDED TECHNICAL SPECS) ---
   const projectSpecs = {
-    "xpower": {
+    xpower: {
       badge: "Full-Stack Web · TypeScript & Next.js",
       title: "X Power Program Kenya",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
@@ -89,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       stack: ["Next.js 16", "TypeScript", "PostgreSQL / SQLite", "Tailwind CSS", "JWT Auth"],
       githubUrl: "https://github.com/Kivice/x-power-program"
     },
-    "veronica": {
+    veronica: {
       badge: "Desktop Automation · Python & Audio APIs",
       title: "Project Veronica — Desktop Voice Assistant",
       diagram: `┌──────────────┐     ┌────────────────┐     ┌──────────────┐
@@ -107,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
       stack: ["Python 3.13", "Edge Neural TTS", "Windows APIs", "WebSockets", "System Telemetry"],
       githubUrl: "https://github.com/Kivice/veronica"
     },
-    "healthcare": {
+    healthcare: {
       badge: "Healthcare Web · HTML5 & CSS3",
       title: "International Healthcare Booking System",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
@@ -119,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
       stack: ["HTML5", "CSS3 Grid & Flexbox", "JavaScript", "Responsive Design"],
       githubUrl: "https://github.com/Kivice/International-Healthcare-Booking-System"
     },
-    "hyperos": {
+    hyperos: {
       badge: "System Utility · Python & NTP Protocol",
       title: "Xiaomi Bootloader Timing Utility",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
@@ -144,22 +265,17 @@ document.addEventListener("DOMContentLoaded", () => {
     modalContainer.innerHTML = `
       <span class="modal-badge-label">${spec.badge}</span>
       <h3 class="modal-headline">${spec.title}</h3>
-      
       <div class="modal-diagram-block"><pre>${spec.diagram}</pre></div>
-      
       <h4 class="modal-subhead">System Overview</h4>
       <p class="modal-text">${spec.overview}</p>
-      
       <h4 class="modal-subhead">Key Architecture &amp; Engineering</h4>
       <p class="modal-text">${spec.features}</p>
-      
       <h4 class="modal-subhead">Technologies &amp; Libraries</h4>
       <div class="modal-tech-pills">
         ${spec.stack.map(s => `<span>${s}</span>`).join("")}
       </div>
-      
-      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line);">
-        <a class="button button-primary" href="${spec.githubUrl}" target="_blank" rel="noopener noreferrer">
+      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+        <a class="btn-custom btn-dark" href="${spec.githubUrl}" target="_blank" rel="noopener noreferrer">
           View Repository on GitHub ↗
         </a>
       </div>
@@ -177,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
   }
 
-  document.querySelectorAll("[data-spec-trigger]").forEach((btn) => {
+  document.querySelectorAll("[data-spec-trigger]").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const specId = btn.getAttribute("data-spec-trigger");
@@ -185,23 +301,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  if (modalClose) {
-    modalClose.addEventListener("click", closeTechModal);
-  }
-
+  if (modalClose) modalClose.addEventListener("click", closeTechModal);
   if (modalBackdrop) {
     modalBackdrop.addEventListener("click", (e) => {
       if (e.target === modalBackdrop) closeTechModal();
     });
-
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modalBackdrop.classList.contains("is-open")) {
-        closeTechModal();
-      }
+      if (e.key === "Escape" && modalBackdrop.classList.contains("is-open")) closeTechModal();
     });
   }
 
-  // --- 4. 1-CLICK CLIPBOARD EMAIL COPY ---
+  // --- 8. 1-CLICK CLIPBOARD EMAIL COPY ---
   const copyBtn = document.getElementById("copy-email-btn");
   const emailVal = "philipmaina637@gmail.com";
   const toast = document.getElementById("toast");
@@ -226,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 5. CLIENT-SIDE PORTFOLIO ASSISTANT CHAT BOT ---
+  // --- 9. CLIENT-SIDE PORTFOLIO ASSISTANT CHAT BOT ---
   const chatLauncherBtn = document.getElementById("chat-launcher-btn");
   const chatWindow = document.getElementById("chat-window");
   const chatCloseBtn = document.getElementById("chat-close-btn");
@@ -250,17 +360,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (chatLauncherBtn) {
     chatLauncherBtn.addEventListener("click", () => {
       const isOpen = chatWindow && chatWindow.classList.contains("is-open");
-      if (isOpen) {
-        closeChat();
-      } else {
-        openChat();
-      }
+      if (isOpen) closeChat();
+      else openChat();
     });
   }
 
-  if (chatCloseBtn) {
-    chatCloseBtn.addEventListener("click", closeChat);
-  }
+  if (chatCloseBtn) chatCloseBtn.addEventListener("click", closeChat);
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && chatWindow && chatWindow.classList.contains("is-open")) {
@@ -269,7 +374,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Assistant Knowledge Engine
   function getBotResponse(userText) {
     const q = userText.toLowerCase().trim();
 
@@ -278,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (q.includes("project") || q.includes("portfolio") || q.includes("work") || q.includes("repo") || q.includes("github") || q.includes("xpower") || q.includes("veronica") || q.includes("xiaomi") || q.includes("healthcare")) {
-      return `Philip maintains <strong>53+ repositories on GitHub</strong> (<a href="https://github.com/Kivice" target="_blank" style="color:var(--accent);text-decoration:underline;">@Kivice</a>). Key projects:<br><br>
+      return `Philip maintains <strong>53+ repositories on GitHub</strong> (<a href="https://github.com/Kivice" target="_blank" style="color:var(--theme-orange);text-decoration:underline;">@Kivice</a>). Key projects:<br><br>
         1. <strong>X Power Program Kenya</strong>: Next.js &amp; TypeScript employment platform with candidate compatibility scoring.<br>
         2. <strong>Project Veronica</strong>: Python desktop assistant streaming Edge neural voices &amp; Windows system vitals.<br>
         3. <strong>Healthcare Booking System</strong>: Multi-city clinic and appointment portal.<br>
@@ -296,9 +400,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (q.includes("contact") || q.includes("phone") || q.includes("number") || q.includes("whatsapp") || q.includes("email") || q.includes("call") || q.includes("reach") || q.includes("hire") || q.includes("message")) {
       return `You can reach Philip directly:<br><br>
-        • <strong>Phone / WhatsApp</strong>: <a href="https://wa.me/254708746611" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">+254 708 746 611</a><br>
-        • <strong>Email</strong>: <a href="mailto:philipmaina637@gmail.com" style="color:var(--accent);font-weight:700;text-decoration:underline;">philipmaina637@gmail.com</a><br>
-        • <strong>GitHub</strong>: <a href="https://github.com/Kivice" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">github.com/Kivice</a>`;
+        • <strong>Phone / WhatsApp</strong>: <a href="https://wa.me/254708746611" target="_blank" style="color:var(--theme-orange);font-weight:700;text-decoration:underline;">+254 708 746 611</a><br>
+        • <strong>Email</strong>: <a href="mailto:philipmaina637@gmail.com" style="color:var(--theme-orange);font-weight:700;text-decoration:underline;">philipmaina637@gmail.com</a><br>
+        • <strong>GitHub</strong>: <a href="https://github.com/Kivice" target="_blank" style="color:var(--theme-orange);font-weight:700;text-decoration:underline;">github.com/Kivice</a>`;
     }
 
     if (q.includes("bloat") || q.includes("speed") || q.includes("philosophy") || q.includes("performance") || q.includes("fast") || q.includes("manifesto")) {
@@ -306,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (q.includes("resume") || q.includes("cv") || q.includes("pdf")) {
-      return `You can view and print Philip's formal curriculum vitae on the <a href="resume.html" style="color:var(--accent);font-weight:700;text-decoration:underline;">Resume / CV Page ↗</a>.`;
+      return `You can view and print Philip's formal curriculum vitae on the <a href="resume.html" style="color:var(--theme-orange);font-weight:700;text-decoration:underline;">Resume / CV Page ↗</a>.`;
     }
 
     if (q.includes("location") || q.includes("where") || q.includes("nairobi") || q.includes("kenya") || q.includes("based")) {
@@ -336,7 +440,6 @@ document.addEventListener("DOMContentLoaded", () => {
     appendUserMessage(text);
     if (chatInput) chatInput.value = "";
 
-    // Show typing indicator
     const typingIndicator = document.createElement("div");
     typingIndicator.className = "chat-typing";
     typingIndicator.id = "chat-typing-indicator";
@@ -344,7 +447,6 @@ document.addEventListener("DOMContentLoaded", () => {
     chatMessages.appendChild(typingIndicator);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    // Simulate snappy thinking delay (280ms)
     setTimeout(() => {
       typingIndicator.remove();
       const botResponseHtml = getBotResponse(text);
@@ -372,7 +474,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Suggestion chip clicks
   if (chatMessages) {
     chatMessages.addEventListener("click", (e) => {
       const chip = e.target.closest(".chat-chip");
