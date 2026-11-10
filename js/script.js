@@ -154,15 +154,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- 5. ARCHITECTURAL CASE STUDY DRAWER (GROUNDED TECHNICAL SPECS) ---
   const projectSpecs = {
     xpower: {
-      badge: "Full-Stack Web · Next.js 16 & TypeScript",
-      title: "X Power Program Kenya",
+      badge: "Client Showcase Template · Kenya Employment Platform",
+      title: "X Power Program: Kenya Employment & Talent Matching Template",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
-│ Kenyan Talent  │───► │ Matching Engine│ ───►│ Verified Corps │
-│ Skill Profiles │     │ Talent Routing │     │ Vacancy Matrix │
+│ Kenyan Talent  │───► │ 100-Pt Match   │ ───►│ BRS Verified   │
+│ Skill Profiles │     │ Diagnostics Lab│     │ Enterprise Hub │
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "An employment discovery and candidate matching web platform engineered to connect job seekers across Kenyan counties with verified corporate opportunities.",
-      features: "Transparent 100-point skill compatibility scoring, verified employer onboarding, application lifecycle tracking, responsive mobile-first UI architecture, and integrated client showcase demo controls.",
-      stack: ["Next.js 16", "TypeScript", "PostgreSQL / SQLite", "Tailwind CSS", "Client Template ⚡"],
+      overview: "A turnkey, client-ready employment and talent-matching platform template engineered for Kenyan workforce initiatives, staffing agencies, and private job boards.",
+      features: "Interactive 100-point skill compatibility scoring engine, 3-role demo sandbox (Job Seeker, Safaricom Employer, Compliance Admin), multi-theme colorway engine (Silicon Savannah, AgriTech, FinTech, Sunset Coral), verified BRS employer directory, and 1-click application simulator.",
+      stack: ["Client Template ⚡", "100-Pt Match Lab", "3-Role Sandbox", "Multi-Theme 🎨", "BRS Verified", "Zero-Bloat Vanilla"],
       liveUrl: "https://kivice.github.io/x-power-program/",
       githubUrl: "https://github.com/Kivice/x-power-program"
     },
