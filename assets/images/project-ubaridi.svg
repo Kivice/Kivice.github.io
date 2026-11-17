@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ub-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07130f" />
+      <stop offset="100%" stop-color="#0e1b18" />
+    </linearGradient>
+    <linearGradient id="ub-green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c853" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="ub-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="380" fill="url(#ub-bg)" rx="16" />
+
+  <!-- Subtle street map gridlines -->
+  <g opacity="0.08" stroke="#34d399" stroke-width="1">
+    <line x1="0" y1="60" x2="600" y2="60" />
+    <line x1="0" y1="120" x2="600" y2="120" />
+    <line x1="0" y1="180" x2="600" y2="180" />
+    <line x1="0" y1="240" x2="600" y2="240" />
+    <line x1="0" y1="300" x2="600" y2="300" />
+    <line x1="90" y1="0" x2="90" y2="380" />
+    <line x1="180" y1="0" x2="180" y2="380" />
+    <line x1="270" y1="0" x2="270" y2="380" />
+    <line x1="360" y1="0" x2="360" y2="380" />
+    <line x1="450" y1="0" x2="450" y2="380" />
+    <line x1="540" y1="0" x2="540" y2="380" />
+  </g>
+
+  <!-- Main Window Container -->
+  <rect x="26" y="24" width="548" height="332" rx="12" fill="#0a1512" stroke="#1b3a30" stroke-width="1" filter="url(#ub-shadow)" />
+  <rect x="26" y="24" width="548" height="38" rx="12" fill="#10221d" />
+  <rect x="26" y="50" width="548" height="12" fill="#10221d" />
+
+  <circle cx="46" cy="43" r="5" fill="#ef4444" />
+  <circle cx="62" cy="43" r="5" fill="#f59e0b" />
+  <circle cx="78" cy="43" r="5" fill="#10b981" />
+
+  <rect x="102" y="34" width="236" height="18" rx="6" fill="#07100e" />
+  <text x="112" y="46.5" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#94a3b8">github.com/Kivice/ubaridi-app</text>
+
+  <rect x="436" y="34" width="122" height="18" rx="9" fill="rgba(0,200,83,0.14)" stroke="#00c853" stroke-width="0.8" />
+  <circle cx="448" cy="43" r="3" fill="#00c853" />
+  <text x="457" y="46.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="700" fill="#34d399">BETA APK v1.0.0</text>
+
+  <!-- Left Panel: Kirinyaga Live Route Map Preview -->
+  <rect x="48" y="80" width="280" height="254" rx="8" fill="#0d1d18" stroke="#1e3c32" stroke-width="1" />
+  <text x="64" y="103" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700" fill="#f8fafc">Kirinyaga &amp; KyU Live Dispatch</text>
+  <text x="64" y="118" font-family="'JetBrains Mono', monospace" font-size="9" fill="#34d399">Impeller Vulkan · GPS Pinpoint</text>
+
+  <!-- Route Path & Landmark Stage Pins -->
+  <path d="M 86 226 C 122 178, 178 158, 224 190 C 254 210, 276 174, 294 148" fill="none" stroke="#00c853" stroke-width="2.4" stroke-dasharray="5 4" />
+
+  <circle cx="86" cy="226" r="6" fill="#38bdf8" />
+  <text x="66" y="246" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#cbd5e1">KyU Gate</text>
+
+  <circle cx="176" cy="172" r="5" fill="#00c853" />
+  <text x="148" y="158" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#cbd5e1">Kutus Market</text>
+
+  <circle cx="294" cy="148" r="6" fill="#f59e0b" />
+  <text x="248" y="138" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#cbd5e1">Kerugoya</text>
+
+  <!-- Bottom Android APK Bar -->
+  <rect x="64" y="264" width="248" height="54" rx="6" fill="#132922" stroke="#1e3c32" stroke-width="1" />
+  <text x="76" y="284" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#34d399">ANDROID RELEASE ARTIFACTS</text>
+  <text x="76" y="301" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#94a3b8">arm64-v8a (20.4 MB) · armeabi-v7a (18.0 MB)</text>
+
+  <!-- Right Panel: 3 Services & M-Pesa Preview -->
+  <rect x="342" y="80" width="212" height="76" rx="8" fill="#0f211c" stroke="#1e3c32" stroke-width="1" />
+  <text x="358" y="102" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f8fafc">Boda-Boda Ride</text>
+  <text x="358" y="118" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Campus &amp; town stage hops</text>
+  <rect x="358" y="128" width="84" height="18" rx="4" fill="rgba(0,200,83,0.16)" />
+  <text x="366" y="140.5" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" fill="#34d399">BASE KES 50</text>
+
+  <rect x="342" y="166" width="212" height="76" rx="8" fill="#0f211c" stroke="#1e3c32" stroke-width="1" />
+  <text x="358" y="188" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f8fafc">Parcel &amp; Town Order</text>
+  <text x="358" y="204" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#94a3b8">Live rider tracking &amp; errands</text>
+  <rect x="358" y="214" width="124" height="18" rx="4" fill="#132922" />
+  <text x="366" y="226.5" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="600" fill="#a7f3d0">KES 70–100 · TRIP PIN</text>
+
+  <rect x="342" y="252" width="212" height="82" rx="8" fill="url(#ub-green)" />
+  <text x="358" y="276" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="#ecfdf5">MOBILE STACK</text>
+  <text x="358" y="294" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="800" fill="#ffffff">Flutter · Daraja · Firebase</text>
+  <text x="358" y="314" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#d1fae5">M-Pesa STK Preview &amp; SOS Flow</text>
+</svg>

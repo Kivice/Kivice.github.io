@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Philip Maina (@Kivice) — Bento Studio Portfolio for AI Systems, Autonomous Bots &amp; Full-Stack Engineering."
+      content="Philip Maina (@Kivice) — Bento Studio Portfolio for Mobile Apps, Full-Stack Web Platforms &amp; Python AI Systems."
     />
     <meta property="og:image" content="assets/images/og-preview.svg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -37,7 +37,7 @@
     <header class="nav-island-wrapper">
       <nav class="nav-island" aria-label="Main Navigation">
         <a class="island-brand" href="#top">
-          <span class="brand-dot"></span>
+          <span class="brand-dot" aria-hidden="true"></span>
           <span>Philip Maina (@Kivice)</span>
         </a>
 
@@ -52,28 +52,28 @@
           <a class="btn-pill-sm" href="mailto:philipmaina637@gmail.com">
             Hire Me ↗
           </a>
-          <button class="theme-btn-round" id="template-theme-toggle" type="button" aria-label="Toggle Dark/Light Mode">
-            🌓
+          <button class="theme-btn-round" id="template-theme-toggle" type="button" aria-label="Toggle Dark and Light Mode">
+            <svg class="icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
           </button>
         </div>
       </nav>
     </header>
 
     <main class="shell" id="top">
-      <!-- Quick Style Switcher Banner -->
+      <!-- Quick View Switcher Banner -->
       <aside class="template-banner">
-        <span>⚡ <strong>Active View:</strong> Bento Grid UI Template (@Kivice)</span>
-        <span>Switch back to <a href="index.html">Main High-Performance Portfolio →</a></span>
+        <span><strong>Active View:</strong> Bento Grid UI Studio (@Kivice)</span>
+        <span>Switch back to <a href="index.html">Main Editorial Portfolio →</a></span>
       </aside>
 
       <!-- Main Bento Grid -->
       <section class="bento-grid" aria-label="Portfolio Bento Grid">
-        
+
         <!-- 1. Hero Bento Card -->
         <article class="bento-card bento-hero">
           <div>
             <div class="hero-status-pill">
-              <span class="pulse-indicator"></span>
+              <span class="pulse-indicator" aria-hidden="true"></span>
               <span>Kirinyaga University · Software &amp; Mathematics</span>
             </div>
             <h1 class="hero-title">
@@ -81,12 +81,13 @@
               <span class="gradient-text">Practical software systems.</span>
             </h1>
             <p class="hero-subtitle">
-              BSc Mathematics &amp; Computer Science undergraduate at Kirinyaga University. Building lightweight, zero-lag web applications, desktop automation utilities, and relational database architectures in Kenya.
+              BSc Mathematics &amp; Computer Science undergraduate at Kirinyaga University. Building Flutter Android apps (Ubaridi), Next.js web platforms, desktop automation utilities, and 3NF relational SQL systems in Kenya.
             </p>
           </div>
 
           <div class="hero-buttons">
             <a class="btn-primary" href="#work">Explore Projects ↓</a>
+            <a class="btn-secondary" href="resume.html">Formal CV ↗</a>
             <a class="btn-secondary" href="mailto:philipmaina637@gmail.com">Let’s Connect ↗</a>
           </div>
         </article>
@@ -99,9 +100,9 @@
           <h2 class="profile-name">Philip Maina</h2>
           <p class="profile-role">@Kivice · BSc Mathematics &amp; Computer Science · Kirinyaga University</p>
           <div class="profile-badge-row">
-            <span>📍 Kenya</span>
+            <span>Kirinyaga, Kenya</span>
             <span>•</span>
-            <span>53+ Repos</span>
+            <span>12 Public / 60 Repos</span>
           </div>
         </article>
 
@@ -116,132 +117,143 @@
             </div>
             <div class="terminal-body" id="term-output-area">
               <div><span class="term-prompt">kivice@dev:~$</span> <span class="term-cmd">whoami</span></div>
-              <div class="term-output">Philip Maina (@Kivice) — BSc Mathematics &amp; Computer Science at Kirinyaga University · Software &amp; Systems Builder.</div>
+              <div class="term-output">Philip Maina (@Kivice) — BSc Mathematics &amp; Computer Science at Kirinyaga University · Mobile, Web &amp; Systems Builder.</div>
             </div>
           </div>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;">
-            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="education">Run: education</button>
-            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="skills">Run: skills</button>
-            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="veronica">Run: veronica</button>
-            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="contact">Run: contact</button>
-            <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.74rem;" data-term-cmd="clear">Run: clear</button>
+          <div class="term-actions">
+            <button type="button" class="btn-secondary btn-xs" data-term-cmd="ubaridi">Run: ubaridi</button>
+            <button type="button" class="btn-secondary btn-xs" data-term-cmd="education">Run: education</button>
+            <button type="button" class="btn-secondary btn-xs" data-term-cmd="skills">Run: skills</button>
+            <button type="button" class="btn-secondary btn-xs" data-term-cmd="veronica">Run: veronica</button>
+            <button type="button" class="btn-secondary btn-xs" data-term-cmd="contact">Run: contact</button>
+            <button type="button" class="btn-secondary btn-xs" data-term-cmd="clear">Run: clear</button>
           </div>
         </article>
 
         <!-- 4. Quick Metrics Bento Block -->
         <div class="bento-stats">
           <div class="stat-box">
-            <span class="stat-number">53+</span>
-            <span class="stat-label">GitHub Repositories</span>
+            <span class="stat-number">12 / 60</span>
+            <span class="stat-label">Public Flagships / Total Repos</span>
           </div>
           <div class="stat-box">
-            <span class="stat-number">Math</span>
-            <span class="stat-label">Applied Algorithms &amp; SQL</span>
+            <span class="stat-number">v1.0.0</span>
+            <span class="stat-label">Ubaridi Android Beta Release</span>
           </div>
           <div class="stat-box">
             <span class="stat-number">Multi</span>
-            <span class="stat-label">TypeScript, Python, Go</span>
+            <span class="stat-label">TS · Dart · Python · SQL</span>
           </div>
           <div class="stat-box">
             <span class="stat-number">&lt;30ms</span>
-            <span class="stat-label">Fast Execution Speed</span>
+            <span class="stat-label">Zero-Bloat Web Latency</span>
           </div>
         </div>
 
-        <!-- 5. Primary Featured Project: X Power Program -->
+        <!-- 5. Primary Featured Project: Ubaridi -->
         <article class="bento-card bento-project-primary" id="work">
+          <span class="project-tag-pill">Latest Mobile Release · Android APK Beta</span>
+          <h3>Ubaridi — Kirinyaga Ride, Parcel &amp; Local Order</h3>
+          <p>
+            Flutter Android app built for Kirinyaga University, Kutus, Kerugoya &amp; Sagana featuring Impeller Vulkan smoothness (~20 MB), Street/Satellite map pins, Trip PIN verification, and M-Pesa Daraja previews.
+          </p>
+          <div class="project-tech-chips">
+            <span>Flutter &amp; Dart</span>
+            <span>Firebase</span>
+            <span>M-Pesa Daraja</span>
+            <span>v1.0.0-beta.1</span>
+          </div>
+          <div class="bento-card-actions">
+            <a class="btn-primary" href="https://github.com/Kivice/ubaridi-app/releases/tag/v1.0.0-beta.1" target="_blank" rel="noopener noreferrer">
+              Download APK ↗
+            </a>
+            <a class="btn-secondary" href="https://github.com/Kivice/ubaridi-app" target="_blank" rel="noopener noreferrer">
+              View Repo ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- 6. Secondary Featured Project: X Power Program -->
+        <article class="bento-card bento-project-secondary">
           <span class="project-tag-pill">Premier Job Matching Platform</span>
           <h3>X Power Program Kenya</h3>
           <p>
-            An enterprise-grade talent discovery and employment matching platform connecting Kenyan job seekers with verified corporate opportunities.
+            Next.js 16 &amp; TypeScript talent discovery and employment matching platform with 100-point compatibility diagnostics and interactive client template previews.
           </p>
           <div class="project-tech-chips">
+            <span>Next.js 16</span>
             <span>TypeScript</span>
-            <span>Full-Stack Web</span>
-            <span>Talent Pipeline</span>
-            <span>Kenya Tech</span>
+            <span>Relational SQL</span>
+            <span>Tailwind CSS</span>
           </div>
-          <div style="display: flex; gap: 14px;">
-            <a class="btn-primary" href="https://github.com/Kivice/x-power-program" target="_blank" rel="noopener noreferrer">
-              View Repository ↗
+          <div class="bento-card-actions">
+            <a class="btn-primary" href="https://kivice.github.io/x-power-program/" target="_blank" rel="noopener noreferrer">
+              Platform Demo ↗
             </a>
-            <a class="btn-secondary" href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">
-              @Kivice GitHub ↗
+            <a class="btn-secondary" href="https://github.com/Kivice/x-power-program" target="_blank" rel="noopener noreferrer">
+              Repo ↗
             </a>
           </div>
         </article>
 
-        <!-- 6. Secondary Featured Project: Veronica Mark-V -->
-        <article class="bento-card bento-project-secondary">
-          <span class="project-tag-pill">Tactical AI Desktop Agent</span>
-          <h3>Project Veronica Mark-V</h3>
-          <p>
-            Stark-inspired tactical desktop assistant with Gemini 3 Flash, neural TTS voice synthesis, CoreAudio integration, and local IoT security automation.
-          </p>
-          <div class="project-tech-chips">
-            <span>Python</span>
-            <span>Gemini 3 Flash</span>
-            <span>Neural TTS</span>
-            <span>IoT Security</span>
-          </div>
-          <a class="btn-secondary" href="https://github.com/Kivice/veronica" target="_blank" rel="noopener noreferrer">
-            Inspect AI Engine ↗
-          </a>
-        </article>
-
-        <!-- 7. International Healthcare Booking System (100% Original Source) -->
+        <!-- 7. ApexCare Healthcare Booking System -->
         <article class="bento-card bento-book">
           <div class="book-bento-inner">
             <div>
-              <span class="project-tag-pill">Original Web Platform</span>
-              <h3>International Healthcare Booking</h3>
+              <span class="project-tag-pill">White-Label Clinical Portal Template</span>
+              <h3>ApexCare Healthcare Booking System</h3>
               <p>
-                A full-stack medical appointment scheduling platform streamlining how patients locate and book consultations with verified healthcare practitioners and clinics filtered by city location.
+                Turnkey patient consultation scheduler and triage template featuring 4 CSS theme presets, 1-click sample patient auto-fill, printable voucher slips, and WhatsApp triage.
               </p>
-              <a class="btn-primary" href="https://github.com/Kivice/International-Healthcare-Booking-System" target="_blank" rel="noopener noreferrer">
-                Explore Healthcare Repo ↗
-              </a>
+              <div class="bento-card-actions">
+                <a class="btn-primary" href="https://kivice.github.io/International-Healthcare-Booking-System/" target="_blank" rel="noopener noreferrer">
+                  Live Portal Demo ↗
+                </a>
+                <a class="btn-secondary" href="https://github.com/Kivice/International-Healthcare-Booking-System" target="_blank" rel="noopener noreferrer">
+                  Repo ↗
+                </a>
+              </div>
             </div>
 
             <div class="book-card-mock" aria-label="Healthcare Architecture Card">
-              <span style="font-size: 0.65rem; color: #94a3b8; letter-spacing: 0.15em;">ORIGINAL WEB APPLICATION</span>
-              <div class="book-mock-title">Healthcare<br />Portal</div>
-              <span style="font-size: 0.6rem; color: #38bdf8; font-weight: 700;">DOCTOR SCHEDULING</span>
+              <span class="book-mock-eyebrow">CLINICAL WEB PORTAL</span>
+              <div class="book-mock-title">ApexCare<br />Portal</div>
+              <span class="book-mock-sub">4 THEMES · SLOT ENGINE</span>
             </div>
           </div>
         </article>
 
-        <!-- 8. Skills & Capabilities Bento -->
+        <!-- 8. Skills & Veronica Highlight Bento -->
         <article class="bento-card bento-skills" id="skills">
-          <h3 style="margin-bottom: 20px;">Skills &amp; Tech Stack</h3>
+          <h3 class="bento-skills-title">Skills &amp; Veronica Mark-V</h3>
           <div class="skills-stack-list">
             <div>
-              <span class="skill-category-title">AI &amp; Agents</span>
-              <div class="skill-pills-row" style="margin-top: 6px;">
-                <span>Gemini 3 Flash</span>
-                <span>Claude Code</span>
-                <span>Neural TTS</span>
-                <span>Bots</span>
-              </div>
-            </div>
-
-            <div>
-              <span class="skill-category-title">Languages &amp; Web</span>
-              <div class="skill-pills-row" style="margin-top: 6px;">
+              <span class="skill-category-title">Mobile &amp; Web</span>
+              <div class="skill-pills-row bento-skills-group">
+                <span>Flutter &amp; Dart</span>
+                <span>Next.js 16</span>
                 <span>TypeScript</span>
-                <span>Python</span>
-                <span>Go (Golang)</span>
-                <span>JavaScript</span>
+                <span>Tailwind</span>
               </div>
             </div>
 
             <div>
-              <span class="skill-category-title">Systems &amp; DevOps</span>
-              <div class="skill-pills-row" style="margin-top: 6px;">
-                <span>Docker</span>
-                <span>Reverse Eng</span>
-                <span>Git &amp; GitHub</span>
-                <span>Netlify</span>
+              <span class="skill-category-title">AI &amp; Desktop Python</span>
+              <div class="skill-pills-row bento-skills-group">
+                <span>Python 3.13</span>
+                <span>Gemini 3 Flash</span>
+                <span>CoreAudio</span>
+                <span>Neural TTS</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="skill-category-title">Data &amp; Systems</span>
+              <div class="skill-pills-row bento-skills-group">
+                <span>MySQL 3NF</span>
+                <span>Firebase</span>
+                <span>NTP Sockets</span>
+                <span>Git &amp; CI</span>
               </div>
             </div>
           </div>
@@ -251,19 +263,19 @@
         <article class="bento-card bento-contact" id="contact">
           <div class="contact-bento-content">
             <span class="project-tag-pill">Get In Touch</span>
-            <h2 style="font-size: 2.4rem; font-weight: 800; margin: 10px 0 16px;">
+            <h2 class="bento-contact-title">
               Ready to build something impactful?
             </h2>
-            <p style="color: var(--text-muted); max-width: 520px; margin: 0 auto 20px;">
-              Whether you need AI agent integration, full-stack web platforms, or systems software—reach out directly.
+            <p class="bento-contact-desc">
+              Whether you need mobile Flutter products, full-stack Next.js platforms, or Python tooling—reach out directly.
             </p>
 
             <div class="contact-email-bar">
               <strong>philipmaina637@gmail.com</strong>
-              <button class="copy-icon-btn" id="bento-copy-email" type="button">Copy 📋</button>
+              <button class="copy-icon-btn" id="bento-copy-email" type="button">Copy</button>
             </div>
 
-            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+            <div class="bento-contact-links">
               <a class="btn-primary" href="mailto:philipmaina637@gmail.com">Send Direct Email ↗</a>
               <a class="btn-secondary" href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">GitHub: @Kivice ↗</a>
               <a class="btn-secondary" href="https://wa.me/254708746611" target="_blank" rel="noopener noreferrer">WhatsApp (+254 708 746 611) ↗</a>
@@ -276,7 +288,7 @@
 
     <!-- Footer -->
     <footer class="template-footer shell">
-      <p>© <span id="template-year">2026</span> Philip Maina (@Kivice) · Software &amp; AI Systems · Kenya</p>
+      <p>&copy; <span id="template-year">2026</span> Philip Maina (@Kivice) · Software &amp; Applied Mathematics · Kenya</p>
     </footer>
 
     <!-- Toast Notification -->

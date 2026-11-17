@@ -5,11 +5,32 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. THEME ENGINE (LIGHT EDITORIAL PAPER / MIDNIGHT OBSIDIAN) ---
+  const icons = {
+    sun: '<svg class="icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>',
+    moon: '<svg class="icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>',
+    check: '<svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>'
+  };
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  // --- 1. THEME ENGINE (EDITORIAL PAPER / MIDNIGHT OBSIDIAN) ---
   const themeToggle = document.getElementById("theme-toggle");
   const storedTheme = localStorage.getItem("philip-portfolio-theme") || "light";
   document.documentElement.setAttribute("data-theme", storedTheme);
   updateThemeIcon(storedTheme);
+
+  function updateThemeIcon(theme) {
+    if (!themeToggle) return;
+    themeToggle.innerHTML = theme === "dark" ? icons.sun : icons.moon;
+    themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+  }
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
@@ -19,12 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("philip-portfolio-theme", next);
       updateThemeIcon(next);
     });
-  }
-
-  function updateThemeIcon(theme) {
-    if (!themeToggle) return;
-    themeToggle.innerHTML = theme === "dark" ? "☀️" : "🌓";
-    themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
   }
 
   // --- 2. LIVE NAIROBI CLOCK (EAT / UTC+3) ---
@@ -42,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNairobiTime();
   setInterval(updateNairobiTime, 1000);
 
-  // --- 3. MOBILE MENU CONTROLLER ---
+  // --- 3. MOBILE MENU CONTROLLER & SECTION SCROLL-SPY ---
   const menuToggle = document.getElementById("mobile-toggle");
   const navLinks = document.getElementById("nav-links");
 
@@ -54,7 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
       const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
       menuToggle.setAttribute("aria-expanded", String(!isExpanded));
       navLinks.classList.toggle("is-open", !isExpanded);
@@ -65,6 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", closeMenu);
     });
 
+    document.addEventListener("click", (e) => {
+      if (navLinks.classList.contains("is-open") && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
         closeMenu();
@@ -73,10 +95,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 4. THE ONE SIGNATURE CREATIVE ANIMATION: MATHEMATICAL HARMONIC OSCILLATOR ---
+  // Active nav highlight as user scrolls across sections
+  const navItems = Array.from(document.querySelectorAll(".nav-link[href^='#']"));
+  if ("IntersectionObserver" in window && navItems.length > 0) {
+    const sectionMap = navItems
+      .map((link) => ({
+        link,
+        el: document.querySelector(link.getAttribute("href"))
+      }))
+      .filter((item) => item.el);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navItems.forEach((l) => l.classList.remove("is-active"));
+            const activeItem = sectionMap.find((s) => s.el === entry.target);
+            if (activeItem) activeItem.link.classList.add("is-active");
+          }
+        });
+      },
+      { rootMargin: "-25% 0px -60% 0px" }
+    );
+
+    sectionMap.forEach((s) => observer.observe(s.el));
+  }
+
+  // --- 4. MATHEMATICAL HARMONIC OSCILLATOR (SINGLE SIGNATURE CANVAS) ---
   const canvas = document.getElementById("harmonic-canvas");
   if (canvas) {
     const ctx = canvas.getContext("2d");
+    const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let step = 0;
 
     function resizeCanvas() {
@@ -87,16 +136,16 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      if (reducedMotion) renderFrame();
+    });
 
-    function drawHarmonicWave() {
+    function renderFrame() {
       const rect = canvas.getBoundingClientRect();
       const width = rect.width;
       const height = rect.height;
-      if (!width || !height) {
-        requestAnimationFrame(drawHarmonicWave);
-        return;
-      }
+      if (!width || !height) return;
 
       ctx.clearRect(0, 0, width, height);
 
@@ -104,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const strokeColor = isDark ? "#38bdf8" : "#1d4ed8";
       const gridColor = isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(20, 23, 33, 0.06)";
 
-      // Horizontal coordinate axis
       ctx.strokeStyle = gridColor;
       ctx.lineWidth = 1;
       ctx.beginPath();
@@ -112,14 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.lineTo(width, height / 2);
       ctx.stroke();
 
-      // Primary Standing Wave: y = A * sin(kx + wt) * cos(0.015 * step)
       ctx.beginPath();
       ctx.strokeStyle = strokeColor;
       ctx.lineWidth = 2.2;
       ctx.lineCap = "round";
 
       const baseAmp = height / 2.7;
-      const breathing = Math.cos(step * 0.018);
+      const breathing = reducedMotion ? 1 : Math.cos(step * 0.018);
       const amp = baseAmp * (0.6 + 0.4 * breathing);
 
       for (let x = 0; x <= width; x += 2) {
@@ -130,7 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       ctx.stroke();
 
-      // Secondary Carrier Wave (Subtle harmonics overlay)
       ctx.beginPath();
       ctx.strokeStyle = isDark ? "rgba(56, 189, 248, 0.25)" : "rgba(29, 78, 216, 0.2)";
       ctx.lineWidth = 1.2;
@@ -144,31 +190,75 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       ctx.stroke();
       ctx.setLineDash([]);
-
-      step += 1;
-      requestAnimationFrame(drawHarmonicWave);
     }
-    requestAnimationFrame(drawHarmonicWave);
+
+    function drawHarmonicWave() {
+      renderFrame();
+      if (!reducedMotion) {
+        step += 1;
+        requestAnimationFrame(drawHarmonicWave);
+      }
+    }
+
+    drawHarmonicWave();
   }
 
-  // --- 5. ARCHITECTURAL CASE STUDY DRAWER (GROUNDED TECHNICAL SPECS) ---
+  // --- 5. PROJECT VAULT CATEGORY FILTER ---
+  const filterTabs = document.querySelectorAll(".vault-filter-tab");
+  const vaultCards = document.querySelectorAll(".vault-card");
+
+  if (filterTabs.length && vaultCards.length) {
+    filterTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const filter = tab.getAttribute("data-vault-filter");
+        filterTabs.forEach((t) => {
+          const isCurrent = t === tab;
+          t.classList.toggle("active", isCurrent);
+          t.setAttribute("aria-pressed", String(isCurrent));
+        });
+
+        vaultCards.forEach((card) => {
+          const category = card.getAttribute("data-category");
+          const shouldShow = filter === "all" || category === filter;
+          card.classList.toggle("is-hidden", !shouldShow);
+        });
+      });
+    });
+  }
+
+  // --- 6. ARCHITECTURAL CASE STUDY DRAWER ---
   const projectSpecs = {
+    ubaridi: {
+      badge: "Mobile Platform · Flutter, Dart & Firebase (Android Beta v1.0.0)",
+      title: "Ubaridi — Kirinyaga Ride, Parcel & Local Order App",
+      diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
+│ Flutter Client │───► │ GPS Stage &    │ ───►│ Firebase Sync  │
+│ Impeller UI    │     │ Daraja STK API │     │ Trip PIN / SOS │
+└────────────────┘     └────────────────┘     └────────────────┘`,
+      overview: "A lightweight native Android transport and delivery app built specifically for Kirinyaga University (KyU), Kutus, Kerugoya, Kagio, and Sagana. Supports boda-boda rides (KES 50 base), tracked parcel drops (KES 70 base), and campus/town errands (KES 100 base).",
+      features: "Compiled with Flutter Impeller Vulkan pipeline and compressed map caches so mid-range phones stay responsive (~18–20.4 MB APKs for armeabi-v7a and arm64-v8a). Includes Street & Satellite map modes, landmark stage pins, 4-digit Trip PIN verification, emergency SOS alert, and M-Pesa STK checkout preview.",
+      stack: ["Flutter", "Dart", "Firebase", "M-Pesa Daraja", "Impeller Vulkan", "Android APK"],
+      liveLabel: "Download Beta APK",
+      liveUrl: "https://github.com/Kivice/ubaridi-app/releases/tag/v1.0.0-beta.1",
+      githubUrl: "https://github.com/Kivice/ubaridi-app"
+    },
     xpower: {
-      badge: "Full-Stack Web · Next.js 16 & TypeScript (Client Template)",
+      badge: "Full-Stack Web · Next.js 16 & TypeScript",
       title: "X Power Program Kenya",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
 │ Kenyan Talent  │───► │ Matching Engine│ ───►│ Verified Corps │
 │ Skill Profiles │     │ Talent Routing │     │ Vacancy Matrix │
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "A full-stack employment discovery and candidate matching web platform engineered to connect job seekers across Kenyan counties with verified corporate opportunities. Built with Next.js 16 (App Router), TypeScript, Tailwind CSS, and native relational SQLite/Postgres.",
-      features: "Transparent 100-point skill compatibility scoring, verified employer onboarding, application lifecycle tracking, responsive mobile-first UI architecture, and turnkey client showcase demo controls.",
-      stack: ["Next.js 16", "TypeScript", "PostgreSQL / SQLite", "Tailwind CSS", "Client Template ⚡"],
+      overview: "A full-stack employment discovery and candidate matching web platform engineered to connect job seekers across Kenyan counties with verified corporate opportunities. Built with Next.js 16 (App Router), TypeScript, Tailwind CSS, and relational SQL storage.",
+      features: "Transparent 100-point skill compatibility scoring, verified employer onboarding, application lifecycle tracking, responsive mobile-first UI architecture, and interactive client showcase controls.",
+      stack: ["Next.js 16", "TypeScript", "PostgreSQL / SQLite", "Tailwind CSS", "Client Template"],
+      liveLabel: "Launch Platform Demo",
       liveUrl: "https://kivice.github.io/x-power-program/",
       githubUrl: "https://github.com/Kivice/x-power-program"
     },
     veronica: {
-      badge: "Desktop Automation · Python & Audio APIs",
-      title: "Project Veronica — Desktop Voice Assistant",
+      badge: "Desktop Agent · Python 3.13 & CoreAudio",
+      title: "Project Veronica Mark-V — Desktop Voice Assistant",
       diagram: `┌──────────────┐     ┌────────────────┐     ┌──────────────┐
 │ Voice Input  │───► │ Intent Handler │ ───►│ Windows APIs │
 │ Microphone   │     │ Python Service │     │ CoreAudio    │
@@ -179,61 +269,79 @@ document.addEventListener("DOMContentLoaded", () => {
                     │ System Vitals  │
                     │ CPU / RAM / IP │
                     └────────────────┘`,
-      overview: "A lightweight Python desktop utility that enables hands-free computer control, system performance monitoring, and audio synthesis.",
-      features: "Real-time Microsoft Edge neural voice streaming, Windows CoreAudio volume endpoint adjustments, hardware telemetry tracking (per-core CPU, RAM, network), and Home Assistant relay control.",
-      stack: ["Python 3.13", "Edge Neural TTS", "Windows APIs", "WebSockets", "System Telemetry"],
+      overview: "A Stark-inspired tactical AI desktop assistant enabling hands-free Windows control, hardware performance monitoring, local IoT bridge commands, and neural audio synthesis.",
+      features: "Gemini 3 Flash reasoning integration, low-latency Microsoft Edge neural voice streaming, Windows CoreAudio endpoint volume controls, live per-core CPU/RAM telemetry, and WebSocket event relays.",
+      stack: ["Python 3.13", "Gemini 3 Flash", "Edge Neural TTS", "Windows CoreAudio", "WebSockets"],
       githubUrl: "https://github.com/Kivice/veronica"
     },
     healthcare: {
-      badge: "Client Showcase Template · Clinical Architecture",
-      title: "ApexCare: Clinical Portal & Scheduling Template",
+      badge: "Client Showcase Template · Clinical Portal Architecture",
+      title: "ApexCare — Clinical Portal & Patient Scheduling Template",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
 │ Patient Portal │───► │ Interactive    │ ───►│ Digital Slip   │
-│ Theme / Triage │     │ Slot Engine    │     │ QR Verification│
+│ Theme / Triage │     │ Slot Engine    │     │ Print Voucher  │
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "A turnkey, client-ready healthcare appointment booking and clinical triage web portal template designed for hospital networks, private clinics, and telehealth practices to preview, customize, and license.",
-      features: "Interactive multi-theme colorway switcher (Clinical Sky, Emerald, Indigo, Rose), 1-click demo patient auto-fill, dynamic doctor-to-department slot reservation, simulated verification vouchers, and white-label deployment specifications.",
-      stack: ["Semantic HTML5", "Design Tokens CSS3", "Vanilla JS ES6+", "Theme Switcher", "White-Label Ready"],
+      overview: "A turnkey, white-label clinical booking and emergency triage web portal template built for hospitals, outpatient clinics, and telehealth practices with zero framework overhead.",
+      features: "Unified multi-theme CSS token presets (Clinical Sky, Emerald, Indigo, Rose), one-click sample patient auto-fill, dynamic specialist routing, printable confirmation slip modal, XSS-safe patient feedback rendering, and direct WhatsApp triage links.",
+      stack: ["Semantic HTML5", "CSS3 Design Tokens", "Vanilla JS ES6+", "Print Slip Media", "White-Label Ready"],
+      liveLabel: "Explore Live Portal",
       liveUrl: "https://kivice.github.io/International-Healthcare-Booking-System/",
       githubUrl: "https://github.com/Kivice/International-Healthcare-Booking-System"
     },
     hyperos: {
       badge: "System Utility · Python & NTP Protocol",
-      title: "Xiaomi Bootloader Timing Utility",
+      title: "Xiaomi HyperOS Bootloader Timing Utility",
       diagram: `┌────────────────┐     ┌────────────────┐     ┌────────────────┐
 │ NTP Server     │───► │ Latency Offset │ ───►│ Fastboot API   │
 │ Time Sync      │     │ Phase-Shift    │     │ Unlock Window  │
 └────────────────┘     └────────────────┘     └────────────────┘`,
-      overview: "A specialized Python automation script designed to synchronize with remote server time and dispatch fastboot unlock requests within millisecond boundary reset windows.",
-      features: "Multi-server NTP polling, latency jitter calculation, phase-shifting request scheduling, and automated request dispatching.",
+      overview: "A specialized Python automation script designed to synchronize system timing against NTP servers and dispatch fastboot unlock requests within millisecond boundary reset windows.",
+      features: "Multi-server NTP clock polling, round-trip latency jitter estimation, phase-shifted dispatch scheduling, and automated USB/API submission handling.",
       stack: ["Python", "NTP Protocol", "Network Sockets", "Fastboot Automation"],
       githubUrl: "https://github.com/Kivice/Xiaomi-HyperOS-Unlock-Script"
+    },
+    library: {
+      badge: "Database Engineering · MySQL & 3NF Relational Schema",
+      title: "Library Relational Database Architecture",
+      diagram: `┌──────────┐     ┌──────────────┐     ┌──────────────┐
+│  Books   │────►│ Loans (M:N)  │◄────│   Members    │
+└──────────┘     └──────┬───────┘     └──────────────┘
+                        ▼
+                 ┌──────────────┐     ┌──────────────┐
+                 │ Transactions │◄────│  Librarians  │
+                 └──────────────┘     └──────────────┘`,
+      overview: "A strictly normalized MySQL relational database schema modeling book inventory, registered patrons, librarian oversight, and immutable circulation transactions.",
+      features: "Five interrelated tables (Books, Members, Loans, Librarians, Transactions) enforcing 3NF separation, unique ISBN/email constraints, ENUM loan status tracking, and cascading foreign keys.",
+      stack: ["MySQL", "3NF Schema Design", "Foreign Key Integrity", "Transactional SQL"],
+      githubUrl: "https://github.com/Kivice/Library_Database_mangement"
     }
   };
 
   const modalBackdrop = document.getElementById("tech-modal");
   const modalContainer = document.getElementById("tech-modal-content");
   const modalClose = document.getElementById("tech-modal-close");
+  let lastModalTrigger = null;
 
-  function openTechModal(projectId) {
+  function openTechModal(projectId, triggerEl) {
     const spec = projectSpecs[projectId];
     if (!spec || !modalBackdrop || !modalContainer) return;
+    lastModalTrigger = triggerEl || document.activeElement;
 
     modalContainer.innerHTML = `
-      <span class="modal-badge-label">${spec.badge}</span>
-      <h3 class="modal-headline">${spec.title}</h3>
-      <div class="modal-diagram-block"><pre>${spec.diagram}</pre></div>
+      <span class="modal-badge-label">${escapeHtml(spec.badge)}</span>
+      <h3 class="modal-headline">${escapeHtml(spec.title)}</h3>
+      <div class="modal-diagram-block"><pre>${escapeHtml(spec.diagram)}</pre></div>
       <h4 class="modal-subhead">System Overview</h4>
-      <p class="modal-text">${spec.overview}</p>
+      <p class="modal-text">${escapeHtml(spec.overview)}</p>
       <h4 class="modal-subhead">Key Architecture &amp; Engineering</h4>
-      <p class="modal-text">${spec.features}</p>
+      <p class="modal-text">${escapeHtml(spec.features)}</p>
       <h4 class="modal-subhead">Technologies &amp; Libraries</h4>
       <div class="modal-tech-pills">
-        ${spec.stack.map(s => `<span>${s}</span>`).join("")}
+        ${spec.stack.map((s) => `<span>${escapeHtml(s)}</span>`).join("")}
       </div>
-      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; gap: 12px; flex-wrap: wrap;">
-        ${spec.liveUrl ? `<a class="btn-primary" href="${spec.liveUrl}" target="_blank" rel="noopener noreferrer">Launch Live Web App ↗</a>` : ""}
-        <a class="${spec.liveUrl ? "btn-secondary" : "btn-primary"}" href="${spec.githubUrl}" target="_blank" rel="noopener noreferrer">
+      <div class="modal-actions-footer">
+        ${spec.liveUrl ? `<a class="btn-primary" href="${escapeHtml(spec.liveUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(spec.liveLabel || "Launch Live Web App")} ↗</a>` : ""}
+        <a class="${spec.liveUrl ? "btn-secondary" : "btn-primary"}" href="${escapeHtml(spec.githubUrl)}" target="_blank" rel="noopener noreferrer">
           View Repository on GitHub ↗
         </a>
       </div>
@@ -242,6 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalBackdrop.classList.add("is-open");
     modalBackdrop.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    if (modalClose) modalClose.focus();
   }
 
   function closeTechModal() {
@@ -249,13 +358,17 @@ document.addEventListener("DOMContentLoaded", () => {
     modalBackdrop.classList.remove("is-open");
     modalBackdrop.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    if (lastModalTrigger && typeof lastModalTrigger.focus === "function") {
+      lastModalTrigger.focus();
+    }
+    lastModalTrigger = null;
   }
 
   document.querySelectorAll("[data-spec-trigger]").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const specId = btn.getAttribute("data-spec-trigger");
-      openTechModal(specId);
+      openTechModal(specId, btn);
     });
   });
 
@@ -265,20 +378,24 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.target === modalBackdrop) closeTechModal();
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modalBackdrop.classList.contains("is-open")) closeTechModal();
+      if (e.key === "Escape" && modalBackdrop.classList.contains("is-open")) {
+        closeTechModal();
+      }
     });
   }
 
-  // --- 6. 1-CLICK CLIPBOARD EMAIL COPY ---
+  // --- 7. 1-CLICK CLIPBOARD EMAIL COPY ---
   const copyBtn = document.getElementById("copy-email-btn");
   const emailVal = "philipmaina637@gmail.com";
   const toast = document.getElementById("toast");
+  let toastTimeout = null;
 
   function showToast(message) {
     if (!toast) return;
-    toast.textContent = message;
+    toast.innerHTML = `${icons.check}<span>${escapeHtml(message)}</span>`;
     toast.classList.add("show");
-    setTimeout(() => {
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
       toast.classList.remove("show");
     }, 3200);
   }
@@ -287,14 +404,14 @@ document.addEventListener("DOMContentLoaded", () => {
     copyBtn.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(emailVal);
-        showToast("✓ Copied philipmaina637@gmail.com to clipboard!");
+        showToast("Copied philipmaina637@gmail.com to clipboard");
       } catch (err) {
-        showToast("✓ Email: philipmaina637@gmail.com");
+        showToast("Email: philipmaina637@gmail.com");
       }
     });
   }
 
-  // --- 7. PORTFOLIO ASSISTANT CHAT BOT ---
+  // --- 8. PORTFOLIO ASSISTANT CHATBOT ---
   const chatLauncherBtn = document.getElementById("chat-launcher-btn");
   const chatWindow = document.getElementById("chat-window");
   const chatCloseBtn = document.getElementById("chat-close-btn");
@@ -306,6 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!chatWindow) return;
     chatWindow.classList.add("is-open");
     chatWindow.setAttribute("aria-hidden", "false");
+    if (chatLauncherBtn) chatLauncherBtn.setAttribute("aria-expanded", "true");
     if (chatInput) setTimeout(() => chatInput.focus(), 150);
   }
 
@@ -313,6 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!chatWindow) return;
     chatWindow.classList.remove("is-open");
     chatWindow.setAttribute("aria-hidden", "true");
+    if (chatLauncherBtn) chatLauncherBtn.setAttribute("aria-expanded", "false");
   }
 
   if (chatLauncherBtn) {
@@ -323,7 +442,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (chatCloseBtn) chatCloseBtn.addEventListener("click", closeChat);
+  if (chatCloseBtn) {
+    chatCloseBtn.addEventListener("click", () => {
+      closeChat();
+      chatLauncherBtn?.focus();
+    });
+  }
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && chatWindow && chatWindow.classList.contains("is-open")) {
@@ -335,47 +459,51 @@ document.addEventListener("DOMContentLoaded", () => {
   function getBotResponse(userText) {
     const q = userText.toLowerCase().trim();
 
+    if (q.includes("ubaridi") || q.includes("flutter") || q.includes("android") || q.includes("apk") || q.includes("boda")) {
+      return `<strong>Ubaridi</strong> is Philip's latest public Android beta built with Flutter, Dart, Firebase, and M-Pesa Daraja previews for Kirinyaga University, Kutus, Kerugoya, and Sagana.<br><br>Includes boda rides, parcel delivery, town errands, Street/Satellite maps, and 4-digit Trip PIN verification (<a class="chat-inline-link" href="https://github.com/Kivice/ubaridi-app/releases/tag/v1.0.0-beta.1" target="_blank" rel="noopener noreferrer">Download Beta APK ↗</a>).`;
+    }
+
     if (q.includes("education") || q.includes("university") || q.includes("kirinyaga") || q.includes("degree") || q.includes("school") || q.includes("bsc") || q.includes("math")) {
-      return `Philip is an undergraduate student at <strong>Kirinyaga University, Kenya</strong> pursuing a <strong>BSc in Mathematics and Computer Science</strong>.<br><br>He focuses on discrete mathematics, linear algebra, algorithmic problem solving, and low-latency systems engineering.`;
+      return `Philip is an undergraduate student at <strong>Kirinyaga University, Kenya</strong> pursuing a <strong>BSc in Mathematics and Computer Science</strong>.<br><br>His coursework focuses on discrete mathematics, linear algebra, algorithmic problem solving, numerical analysis, and relational SQL systems.`;
     }
 
-    if (q.includes("project") || q.includes("portfolio") || q.includes("work") || q.includes("repo") || q.includes("github") || q.includes("xpower") || q.includes("veronica") || q.includes("xiaomi") || q.includes("healthcare")) {
-      return `Philip maintains <strong>53+ repositories on GitHub</strong> (<a href="https://github.com/Kivice" target="_blank" style="color:var(--accent);text-decoration:underline;">@Kivice</a>). Key projects:<br><br>
-        1. <strong>X Power Program Kenya</strong>: Turnkey employment matching template with 100-point skill diagnostics, 3-role sandbox &amp; multi-theme switcher (<a href="https://kivice.github.io/x-power-program/" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">Explore Platform Demo ↗</a>).<br>
-        2. <strong>Project Veronica</strong>: Python desktop assistant streaming Edge neural voices &amp; Windows system vitals.<br>
-        3. <strong>ApexCare Clinical Portal Template</strong>: Turnkey healthcare booking &amp; emergency triage template with multi-theme switcher and demo auto-fill (<a href="https://kivice.github.io/International-Healthcare-Booking-System/" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">Explore Template Demo ↗</a>).<br>
-        4. <strong>Xiaomi Fastboot Utility</strong>: Millisecond NTP-synchronized bootloader unlock tool.<br><br>
-        <em>Tip: Click any project card on this page to view full architectural schematics.</em>`;
+    if (q.includes("project") || q.includes("portfolio") || q.includes("work") || q.includes("repo") || q.includes("github") || q.includes("xpower") || q.includes("veronica") || q.includes("xiaomi") || q.includes("healthcare") || q.includes("library")) {
+      return `Philip maintains <strong>12 curated public repositories</strong> (60 total repos including private systems) on GitHub (<a class="chat-inline-link" href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">@Kivice</a>). Flagship builds:<br><br>
+        1. <strong>Ubaridi (Android Beta)</strong>: Flutter transport &amp; parcel delivery app for Kirinyaga (<a class="chat-inline-link" href="https://github.com/Kivice/ubaridi-app" target="_blank" rel="noopener noreferrer">Repo ↗</a>).<br>
+        2. <strong>X Power Program</strong>: Next.js 16 &amp; TypeScript job matching platform (<a class="chat-inline-link" href="https://kivice.github.io/x-power-program/" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>).<br>
+        3. <strong>Project Veronica Mark-V</strong>: Python 3.13 + Gemini 3 desktop voice agent.<br>
+        4. <strong>ApexCare Clinical Portal</strong>: Multi-theme white-label healthcare scheduler (<a class="chat-inline-link" href="https://kivice.github.io/International-Healthcare-Booking-System/" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>).<br>
+        5. <strong>Xiaomi Fastboot &amp; 3NF SQL Library DB</strong>: Systems automation &amp; MySQL schema.`;
     }
 
-    if (q.includes("skill") || q.includes("stack") || q.includes("tech") || q.includes("language") || q.includes("python") || q.includes("next") || q.includes("react")) {
-      return `Philip's technical stack includes:<br><br>
-        • <strong>Languages</strong>: TypeScript, JavaScript, Python, C++, HTML5/CSS3, SQL.<br>
-        • <strong>Web &amp; Frameworks</strong>: Next.js, React, Node.js, Express, Tailwind CSS.<br>
-        • <strong>Systems &amp; Data</strong>: PostgreSQL, MySQL, SQLite, Windows APIs, Linux shell, Git.<br>
-        • <strong>Core Focus</strong>: Zero-bloat architectures, mathematical rigor, and dependable code.`;
+    if (q.includes("skill") || q.includes("stack") || q.includes("tech") || q.includes("language") || q.includes("python") || q.includes("next") || q.includes("react") || q.includes("dart")) {
+      return `Philip's core stack spans web, mobile, and systems:<br><br>
+        • <strong>Languages</strong>: TypeScript, JavaScript, Python, Dart, SQL.<br>
+        • <strong>Web &amp; Mobile</strong>: Next.js 16, React, Flutter, Firebase, Tailwind CSS.<br>
+        • <strong>Systems &amp; Data</strong>: MySQL, PostgreSQL, Windows CoreAudio APIs, NTP Sockets, Git.<br>
+        • <strong>Focus</strong>: Zero-bloat performance, mathematical rigor, and dependable UX.`;
     }
 
     if (q.includes("contact") || q.includes("phone") || q.includes("number") || q.includes("whatsapp") || q.includes("email") || q.includes("call") || q.includes("reach") || q.includes("hire") || q.includes("message")) {
-      return `You can reach Philip directly:<br><br>
-        • <strong>Phone / WhatsApp</strong>: <a href="https://wa.me/254708746611" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">+254 708 746 611</a><br>
-        • <strong>Email</strong>: <a href="mailto:philipmaina637@gmail.com" style="color:var(--accent);font-weight:700;text-decoration:underline;">philipmaina637@gmail.com</a><br>
-        • <strong>GitHub</strong>: <a href="https://github.com/Kivice" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:underline;">github.com/Kivice</a>`;
+      return `Reach Philip directly:<br><br>
+        • <strong>Phone / WhatsApp</strong>: <a class="chat-inline-link" href="https://wa.me/254708746611" target="_blank" rel="noopener noreferrer">+254 708 746 611</a><br>
+        • <strong>Email</strong>: <a class="chat-inline-link" href="mailto:philipmaina637@gmail.com">philipmaina637@gmail.com</a><br>
+        • <strong>GitHub</strong>: <a class="chat-inline-link" href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">github.com/Kivice</a>`;
     }
 
     if (q.includes("bloat") || q.includes("speed") || q.includes("philosophy") || q.includes("performance") || q.includes("fast") || q.includes("manifesto")) {
-      return `Philip builds with a <strong>zero-bloat philosophy</strong>: avoiding multi-megabyte JavaScript runtimes when semantic HTML, modular CSS, and lightweight scripts can deliver &lt;35 KB payloads and ~28ms render latency. This ensures pages load instantly on any mobile device or metered connection.`;
+      return `Philip engineers with a <strong>zero-bloat philosophy</strong>: choosing semantic HTML, modular CSS tokens, and lean vanilla scripts over multi-megabyte runtimes so pages and mid-range Android apps respond quickly on real mobile networks.`;
     }
 
     if (q.includes("resume") || q.includes("cv") || q.includes("pdf")) {
-      return `You can view and print Philip's formal curriculum vitae on the <a href="resume.html" style="color:var(--accent);font-weight:700;text-decoration:underline;">Resume / CV Page ↗</a>.`;
+      return `View or print Philip's curriculum vitae on the <a class="chat-inline-link" href="resume.html">Resume / CV Page ↗</a>.`;
     }
 
     if (q.includes("location") || q.includes("where") || q.includes("nairobi") || q.includes("kenya") || q.includes("based")) {
-      return `Philip is based in <strong>Kenya</strong> (Kirinyaga University / Nairobi area), operating in East Africa Time (EAT, UTC+3).`;
+      return `Philip is based in <strong>Kirinyaga &amp; Nairobi, Kenya</strong> (East Africa Time, EAT / UTC+3).`;
     }
 
-    return `I can help you explore Philip's background! You can ask about his <strong>education at Kirinyaga University</strong>, his <strong>projects</strong> (X Power, Veronica, Healthcare), his <strong>technical skills</strong>, his <strong>zero bloat philosophy</strong>, or get his <strong>direct phone &amp; email</strong> (+254 708 746 611 / philipmaina637@gmail.com).`;
+    return `I can help you explore Philip's work. Ask about <strong>Ubaridi</strong>, his <strong>education at Kirinyaga University</strong>, <strong>selected projects</strong>, <strong>technical stack</strong>, or direct <strong>contact channels</strong> (+254 708 746 611).`;
   }
 
   function appendUserMessage(text) {
@@ -409,15 +537,15 @@ document.addEventListener("DOMContentLoaded", () => {
       botBubble.innerHTML = `
         ${botResponseHtml}
         <div class="chat-chips-row">
-          <button class="chat-chip" data-query="education" type="button">🎓 Education</button>
-          <button class="chat-chip" data-query="projects" type="button">💼 Projects</button>
-          <button class="chat-chip" data-query="skills" type="button">🛠️ Skills</button>
-          <button class="chat-chip" data-query="contact" type="button">📞 Contact</button>
+          <button class="chat-chip" data-query="ubaridi" type="button">Ubaridi App</button>
+          <button class="chat-chip" data-query="projects" type="button">Projects</button>
+          <button class="chat-chip" data-query="skills" type="button">Skills</button>
+          <button class="chat-chip" data-query="contact" type="button">Contact</button>
         </div>
       `;
       chatMessages.appendChild(botBubble);
       chatMessages.scrollTop = chatMessages.scrollHeight;
-    }, 280);
+    }, 260);
   }
 
   if (chatForm) {
@@ -434,7 +562,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!chip) return;
       const queryKey = chip.getAttribute("data-query");
       const queryLabels = {
-        education: "Tell me about your education at Kirinyaga University",
+        ubaridi: "Tell me about the Ubaridi Android app",
+        education: "Tell me about Philip's education at Kirinyaga University",
         projects: "What software projects have you built?",
         skills: "What technologies and skills do you work with?",
         contact: "How can I contact Philip directly?",

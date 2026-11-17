@@ -105,7 +105,8 @@
   <rect x="146" y="282" width="80" height="20" rx="4" fill="#1e293b" />
   <text x="154" y="296" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#e2e8f0">Relational DB</text>
 
-  <text x="64" y="322" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#10b981">✓ Compatibility Check: Optimal Match</text>
+  <circle cx="70" cy="318" r="5" fill="#10b981" />
+  <text x="80" y="322" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#10b981">Compatibility Check: Optimal Match</text>
 
   <!-- Right Column: Opportunity Dispatch Matrix -->
   <rect x="324" y="122" width="228" height="98" rx="8" fill="#131c31" stroke="#1e293b" stroke-width="1" />

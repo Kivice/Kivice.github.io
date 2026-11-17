@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Curriculum Vitae / Resume of Philip Maina (@Kivice) — Software Developer, AI Systems Engineer &amp; Full-Stack Builder."
+      content="Curriculum Vitae / Resume of Philip Maina (@Kivice) — Software Developer, Mobile &amp; Full-Stack Builder at Kirinyaga University."
     />
     <title>Resume / CV — Philip Maina (@Kivice)</title>
 
@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -26,12 +26,11 @@
         --surface: #ffffff;
         --ink: #0f172a;
         --ink-muted: #475569;
-        --ink-faint: #94a3b8;
+        --ink-faint: #64748b;
         --border: #e2e8f0;
-        --accent: #2563eb;
+        --accent: #1d4ed8;
         --font-mono: "JetBrains Mono", monospace;
         --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-        --font-display: "Manrope", var(--font-sans);
       }
 
       *, *::before, *::after {
@@ -52,13 +51,34 @@
         align-items: center;
       }
 
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .icon-sm {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        vertical-align: middle;
+        flex-shrink: 0;
+      }
+
       .action-toolbar {
         width: 100%;
         max-width: 840px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
         margin-bottom: 20px;
+      }
+
+      .toolbar-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
       }
 
       .btn {
@@ -94,7 +114,6 @@
         border-color: var(--accent);
       }
 
-      /* Resume Paper Container */
       .resume-sheet {
         background: var(--surface);
         width: 100%;
@@ -111,10 +130,10 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        gap: 20px;
       }
 
       h1.name {
-        font-family: var(--font-display);
         font-size: 32px;
         font-weight: 800;
         letter-spacing: -0.03em;
@@ -123,7 +142,7 @@
 
       .headline {
         font-family: var(--font-mono);
-        font-size: 14px;
+        font-size: 13.5px;
         font-weight: 600;
         color: var(--accent);
         margin-top: 6px;
@@ -133,7 +152,8 @@
         text-align: right;
         font-size: 12.5px;
         color: var(--ink-muted);
-        line-height: 1.6;
+        line-height: 1.65;
+        flex-shrink: 0;
       }
 
       .contact-details a {
@@ -150,9 +170,12 @@
         margin-bottom: 26px;
       }
 
+      section.resume-section:last-child {
+        margin-bottom: 0;
+      }
+
       h2.section-heading {
-        font-family: var(--font-display);
-        font-size: 13px;
+        font-size: 12.5px;
         font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -160,6 +183,12 @@
         border-bottom: 1px solid var(--border);
         padding-bottom: 6px;
         margin-bottom: 14px;
+      }
+
+      .summary-copy {
+        color: var(--ink-muted);
+        font-size: 13.5px;
+        line-height: 1.65;
       }
 
       .entry {
@@ -174,6 +203,8 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+        flex-wrap: wrap;
+        gap: 6px 14px;
         margin-bottom: 2px;
       }
 
@@ -184,9 +215,18 @@
 
       .entry-subtitle {
         color: var(--ink-muted);
-        font-size: 13px;
+        font-size: 12.5px;
         font-family: var(--font-mono);
-        margin-bottom: 4px;
+        margin-bottom: 5px;
+      }
+
+      .entry-subtitle a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .entry-subtitle a:hover {
+        text-decoration: underline;
       }
 
       .entry-date {
@@ -196,10 +236,11 @@
         text-align: right;
       }
 
-      .entry p {
+      .entry-desc {
+        margin-top: 6px;
+        font-size: 13px;
         color: var(--ink-muted);
-        font-size: 13.5px;
-        line-height: 1.6;
+        line-height: 1.55;
       }
 
       ul.bullet-list {
@@ -215,21 +256,22 @@
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
+        gap: 14px 24px;
       }
 
       .skill-category strong {
         font-size: 13px;
         color: var(--ink);
+        display: block;
+        margin-bottom: 2px;
       }
 
       .skill-category span {
         font-size: 12.5px;
         color: var(--ink-muted);
-        line-height: 1.5;
+        line-height: 1.55;
       }
 
-      /* Print Stylesheet */
       @media print {
         body {
           background: #ffffff;
@@ -269,12 +311,13 @@
   </head>
   <body>
     <div class="action-toolbar">
-      <div style="display: flex; gap: 8px;">
+      <div class="toolbar-group">
         <a class="btn" href="index.html">← Back to Portfolio</a>
-        <a class="btn" href="template.html">Bento Studio UI ⚡</a>
+        <a class="btn" href="template.html">Bento Studio View</a>
       </div>
-      <button class="btn btn-primary" onclick="window.print()">
-        Print / Save as PDF 📄
+      <button class="btn btn-primary" type="button" onclick="window.print()">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Print / Save as PDF
       </button>
     </div>
 
@@ -288,15 +331,15 @@
           <div>Kirinyaga University · Kenya</div>
           <div><a href="mailto:philipmaina637@gmail.com">philipmaina637@gmail.com</a></div>
           <div><a href="tel:+254708746611">+254 708 746 611</a></div>
-          <div><a href="https://github.com/Kivice" target="_blank">github.com/Kivice</a> (53+ Repos)</div>
+          <div><a href="https://github.com/Kivice" target="_blank" rel="noopener noreferrer">github.com/Kivice</a> (12 Public · 60 Repos)</div>
         </div>
       </header>
 
       <!-- Profile Summary -->
       <section class="resume-section">
         <h2 class="section-heading">Professional Profile</h2>
-        <p style="color: var(--ink-muted); font-size: 13.5px; line-height: 1.65;">
-          BSc Mathematics and Computer Science undergraduate at Kirinyaga University and software engineer with over 53 repositories on GitHub. Combines mathematical rigor and algorithmic problem-solving with hands-on systems engineering—experienced in architecting responsive web platforms, desktop automation tools, and normalized relational database systems. Dedicated to writing clean, fast, and dependable code that performs reliably even on everyday devices and mobile networks.
+        <p class="summary-copy">
+          BSc Mathematics and Computer Science undergraduate at Kirinyaga University combining algorithmic problem-solving with practical product engineering across mobile (Flutter/Dart), full-stack web (Next.js/TypeScript), Python automation, and normalized MySQL systems. Focused on lean software architectures that remain responsive on everyday devices and mobile networks.
         </p>
       </section>
 
@@ -306,60 +349,61 @@
 
         <div class="entry">
           <div class="entry-header">
+            <span class="entry-title">Ubaridi — Kirinyaga Ride, Parcel &amp; Town Order App</span>
+            <span class="entry-date">Flutter · Dart · Firebase · M-Pesa Daraja</span>
+          </div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/ubaridi-app" target="_blank" rel="noopener noreferrer">github.com/Kivice/ubaridi-app</a></div>
+          <ul class="bullet-list">
+            <li>Shipped public beta Android releases (<code>v1.0.0-beta.1</code>, arm64-v8a &amp; armeabi-v7a) serving Kirinyaga University, Kutus, Kerugoya, and Sagana.</li>
+            <li>Built Street/Satellite stage mapping, 4-digit Trip PIN verification, M-Pesa STK checkout preview, and compressed Impeller Vulkan builds (~18–20.4 MB).</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
             <span class="entry-title">X Power Program Kenya</span>
-            <span class="entry-date">TypeScript · Next.js · Production Web Platform</span>
+            <span class="entry-date">Next.js 16 · TypeScript · Relational SQL</span>
           </div>
-          <div class="entry-subtitle"><a href="https://github.com/Kivice/x-power-program" target="_blank" style="color: var(--accent);">github.com/Kivice/x-power-program</a></div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/x-power-program" target="_blank" rel="noopener noreferrer">github.com/Kivice/x-power-program</a></div>
           <ul class="bullet-list">
-            <li>Engineered a nationwide employment matching web platform connecting Kenyan job seekers with verified corporate vacancies.</li>
-            <li>Implemented transparent 100-point candidate compatibility scoring, verified employer onboarding, and mobile-first UI architecture.</li>
+            <li>Engineered an employment matching platform connecting Kenyan job seekers with verified corporate vacancies.</li>
+            <li>Implemented transparent 100-point compatibility diagnostics, employer verification workflows, and mobile-first responsive UI.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="entry-header">
-            <span class="entry-title">Project Veronica</span>
-            <span class="entry-date">Python · Desktop Voice Utility</span>
+            <span class="entry-title">ApexCare — Clinical Portal &amp; Booking Template</span>
+            <span class="entry-date">HTML5 · CSS3 Design Tokens · Vanilla JS ES6+</span>
           </div>
-          <div class="entry-subtitle"><a href="https://github.com/Kivice/veronica" target="_blank" style="color: var(--accent);">github.com/Kivice/veronica</a></div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/International-Healthcare-Booking-System" target="_blank" rel="noopener noreferrer">github.com/Kivice/International-Healthcare-Booking-System</a></div>
           <ul class="bullet-list">
-            <li>Built a hands-free desktop voice assistant in Python integrating Microsoft Edge neural text-to-speech with Windows CoreAudio volume controls.</li>
-            <li>Engineered real-time per-core CPU and RAM hardware telemetry monitoring and loopback WebSocket protocols.</li>
+            <li>Built a white-label clinical scheduling and triage portal featuring 4 color theme presets, 1-click patient demo auto-fill, and printable appointment vouchers.</li>
+            <li>Structured responsive specialist directories and emergency triage channels with zero external framework overhead.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="entry-header">
-            <span class="entry-title">International Healthcare Booking System</span>
-            <span class="entry-date">HTML5 · CSS3 · Multi-Page Web Platform</span>
+            <span class="entry-title">Project Veronica Mark-V</span>
+            <span class="entry-date">Python 3.13 · Gemini 3 Flash · CoreAudio</span>
           </div>
-          <div class="entry-subtitle"><a href="https://github.com/Kivice/International-Healthcare-Booking-System" target="_blank" style="color: var(--accent);">github.com/Kivice/International-Healthcare-Booking-System</a></div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/veronica" target="_blank" rel="noopener noreferrer">github.com/Kivice/veronica</a></div>
           <ul class="bullet-list">
-            <li>Developed a responsive healthcare booking portal connecting patients with verified medical practitioners and clinical departments.</li>
-            <li>Structured multi-page clinical directories for emergency triage, diagnostic labs, and dental surgery with zero framework bloat.</li>
+            <li>Built a hands-free desktop voice assistant integrating Microsoft Edge neural text-to-speech, Windows CoreAudio controls, and local IoT security relays.</li>
+            <li>Engineered real-time per-core CPU and RAM hardware telemetry streaming over loopback WebSockets.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="entry-header">
-            <span class="entry-title">Xiaomi Bootloader Timing Utility</span>
-            <span class="entry-date">Python · NTP Network Protocol</span>
+            <span class="entry-title">Xiaomi HyperOS Timing Script &amp; 3NF Library SQL Schema</span>
+            <span class="entry-date">Python · NTP Sockets · MySQL 3NF</span>
           </div>
-          <div class="entry-subtitle"><a href="https://github.com/Kivice/Xiaomi-HyperOS-Unlock-Script" target="_blank" style="color: var(--accent);">github.com/Kivice/Xiaomi-HyperOS-Unlock-Script</a></div>
+          <div class="entry-subtitle"><a href="https://github.com/Kivice/Xiaomi-HyperOS-Unlock-Script" target="_blank" rel="noopener noreferrer">github.com/Kivice/Xiaomi-HyperOS-Unlock-Script</a> · <a href="https://github.com/Kivice/Library_Database_mangement" target="_blank" rel="noopener noreferrer">Library_Database_mangement</a></div>
           <ul class="bullet-list">
-            <li>Engineered a high-precision Python script utilizing multi-server NTP synchronization and phase-shifting logic to hit fastboot unlock request windows.</li>
-            <li>Compensated for millisecond network latency jitter with sub-millisecond sleep loops.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Library Relational Database Architecture</span>
-            <span class="entry-date">SQL · 3NF Relational Schema</span>
-          </div>
-          <div class="entry-subtitle"><a href="https://github.com/Kivice/Library_Database_mangement" target="_blank" style="color: var(--accent);">github.com/Kivice/Library_Database_mangement</a></div>
-          <ul class="bullet-list">
-            <li>Designed a relational database architecture featuring 3NF-normalized tables, foreign key integrity constraints, and transactional lending ledgers.</li>
+            <li>Developed a multi-server NTP clock synchronization and latency phase-shifting tool for millisecond fastboot dispatch windows.</li>
+            <li>Designed a 5-table 3NF-normalized MySQL library database schema with foreign-key integrity and transactional circulation logs.</li>
           </ul>
         </div>
       </section>
@@ -369,21 +413,20 @@
         <h2 class="section-heading">Technical Capabilities &amp; Stack</h2>
         <div class="skills-grid">
           <div class="skill-category">
-            <strong>Web &amp; Full-Stack Engineering:</strong><br />
-            <span>TypeScript, Next.js (App Router), Node.js, Semantic HTML5, Modern CSS3 (Grid &amp; Flexbox), Tailwind CSS, RESTful APIs, WebSockets.</span>
+            <strong>Web &amp; Mobile Engineering</strong>
+            <span>TypeScript, Next.js (App Router), Flutter &amp; Dart, Semantic HTML5, Modern CSS3, Tailwind CSS, Firebase, REST APIs.</span>
           </div>
           <div class="skill-category">
-            <strong>Mathematics &amp; Computational Logic:</strong><br />
-            <span>Discrete Mathematics, Data Structures &amp; Algorithms, Complexity Analysis, 3NF Database Normalization, Numerical Methods, Linear Algebra.</span>
+            <strong>Mathematics &amp; Relational Data</strong>
+            <span>Discrete Mathematics, Data Structures &amp; Algorithms, Complexity Analysis, 3NF MySQL &amp; PostgreSQL, Numerical Methods.</span>
           </div>
           <div class="skill-category">
-            <strong>Systems, Tooling &amp; Automation:</strong><br />
-            <span>Python 3, Linux Shell, Windows APIs, CoreAudio, Docker, Git &amp; GitHub Actions, Sockets &amp; NTP Network Protocols.</span>
-          </div>
+            <strong>Systems &amp; Automation</strong>
+            <span>Python 3.13, Linux Shell, Windows CoreAudio APIs, WebSockets, Edge Neural TTS, NTP Network Timing.</span>
           </div>
           <div class="skill-category">
-            <strong>Systems, Security &amp; DevOps:</strong><br />
-            <span>Docker, Linux Shell, Android Boot/Pentesting, Netlify, Vercel, Git &amp; GitHub Actions.</span>
+            <strong>Tooling &amp; Delivery</strong>
+            <span>Git &amp; GitHub Actions, GitHub Pages, Android APK Release Packaging, Docker, Vercel &amp; Netlify.</span>
           </div>
         </div>
       </section>
@@ -397,8 +440,8 @@
             <span class="entry-date">Ongoing</span>
           </div>
           <div class="entry-subtitle">BSc in Mathematics and Computer Science · Kenya</div>
-          <p class="entry-desc" style="margin-top: 6px; font-size: 13px; color: var(--ink-muted); line-height: 1.55;">
-            Rigorous mathematical and computational coursework: Discrete Mathematics, Data Structures &amp; Algorithms, Systems Architecture, Numerical Analysis, Computational Logic, Database Systems, and Applied Linear Algebra.
+          <p class="entry-desc">
+            Coursework spans Discrete Mathematics, Data Structures &amp; Algorithms, Systems Architecture, Numerical Analysis, Computational Logic, Database Systems, and Applied Linear Algebra.
           </p>
         </div>
       </section>
